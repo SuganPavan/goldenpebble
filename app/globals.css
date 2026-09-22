@@ -1,26 +1,173 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-teal-deep: #063F3C;
+  --color-teal-dark: #073D37;
+  --color-ivory-warm: #F8F6EF;
+  --color-sand-soft: #E8DCC5;
+  --color-gold-muted: #C9A66B;
+  --color-coral-accent: #E98268;
+  --color-aqua-pale: #EBF5F4;
+  --color-dark-text: #1C2A28;
+
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-script: var(--font-caveat), cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    background-color: #F8F6EF;
+    color: #1C2A28;
+    font-family: var(--font-inter), sans-serif;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), Georgia, serif;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.font-script {
+  font-family: var(--font-caveat), cursive;
 }
+
+.font-serif {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.bg-teal-deep {
+  background-color: #063F3C;
+}
+
+.bg-teal-dark {
+  background-color: #073D37;
+}
+
+.bg-ivory-warm {
+  background-color: #F8F6EF;
+}
+
+.bg-sand-soft {
+  background-color: #E8DCC5;
+}
+
+.bg-coral-accent {
+  background-color: #E98268;
+}
+
+.bg-aqua-pale {
+  background-color: #EBF5F4;
+}
+
+.text-teal-deep {
+  color: #063F3C;
+}
+
+.text-gold-muted {
+  color: #C9A66B;
+}
+
+.text-coral-accent {
+  color: #E98268;
+}
+
+.border-sand-soft {
+  border-color: #E8DCC5;
+}
+
+.border-gold-muted {
+  border-color: #C9A66B;
+}
+
+/* Custom organic wave clip paths */
+.clip-wave-top {
+  clip-path: ellipse(150% 100% at 50% 100%);
+}
+
+.clip-wave-bottom {
+  clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+/* Restrained smooth hover transitions */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -8px rgba(6, 63, 60, 0.12);
+}
+
+/* Animated Ocean Wave Keyframes */
+@keyframes waveTranslate {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-25%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.wave-animate-slow {
+  animation: waveTranslate 14s linear infinite !important;
+  will-change: transform;
+}
+
+.wave-animate-medium {
+  animation: waveTranslate 9s linear infinite !important;
+  will-change: transform;
+}
+
+.wave-animate-fast {
+  animation: waveTranslate 5s linear infinite !important;
+  will-change: transform;
+}
+
+/* 10-Second Slow Cinematic Still Image Motion */
+@keyframes subtleKenBurns {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.05) translate3d(-1px, -2px, 0);
+  }
+  100% {
+    transform: scale(1.02) translate3d(1px, 1px, 0);
+  }
+}
+
+.animate-kenburns-10s {
+  animation: subtleKenBurns 10s ease-in-out infinite alternate !important;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns-10s {
+    animation: none !important;
+  }
+}
+
+/* Infinite Marquee Food Scroll Animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
