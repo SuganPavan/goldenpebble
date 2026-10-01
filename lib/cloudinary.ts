@@ -1,6 +1,6 @@
 import cloudinaryMapping from "./cloudinary_mapping.json";
 
-const CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "dj3hvn4ja";
+const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME || process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || "dj3hvn4ja";
 const BASE_CDN_URL = `https://res.cloudinary.com/${CLOUD_NAME}`;
 
 /**
