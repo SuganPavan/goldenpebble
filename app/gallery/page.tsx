@@ -42,7 +42,7 @@ export default function GalleryPage() {
       {/* HEADER HERO BANNER */}
       <section className="relative pt-32 sm:pt-36 pb-16 sm:pb-20 text-white overflow-hidden mb-10">
         <Image
-          src="/images/hotel-gallery/corridor-1.jpeg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838842/golden-pebble/images/hotel-gallery/corridor-1.png"
           alt="Golden Pebble Hotel Gallery"
           fill
           priority

@@ -37,13 +37,13 @@ export const ROOMS: Room[] = [
     maxOccupancy: "3 Adults + 1 Child (<12 yrs)",
     bedType: "King Bed or Twin Beds",
     view: "Tropical Garden View",
-    image: "/images/rooms/golden-pebble-deluxe-room-main.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-main.jpg",
     gallery: [
-      "/images/rooms/golden-pebble-deluxe-room-main.jpg",
-      "/images/rooms/golden-pebble-deluxe-room-swan.jpg",
-      "/images/rooms/golden-pebble-deluxe-room-chairs.jpg",
-      "/images/rooms/golden-pebble-deluxe-room-side.jpg",
-      "/images/rooms/golden-pebble-deluxe-room-bathroom.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-main.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838969/golden-pebble/images/rooms/golden-pebble-deluxe-room-swan.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-chairs.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838968/golden-pebble/images/rooms/golden-pebble-deluxe-room-side.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838966/golden-pebble/images/rooms/golden-pebble-deluxe-room-bathroom.jpg"
     ],
     description: "The Deluxe Room at Hotel Golden Pebble offers a perfectly balanced 220 sq. ft. sanctuary designed for peace and relaxation after a day exploring Havelock Island's world-famous beaches. Featuring warm wooden wall textures, soft mood lighting, premium bedding, split air-conditioning, and modern ensuite bathroom fittings, it is ideal for couples, friends, and small families.",
     shortDescription: "Spacious 220 sq ft room featuring warm timber acoustics, air conditioning, and plush bedding.",
@@ -87,13 +87,13 @@ export const ROOMS: Room[] = [
     maxOccupancy: "3 Adults + 1 Child (<12 yrs)",
     bedType: "King Size Bed",
     view: "Garden & Canopy View",
-    image: "/images/rooms/golden-pebble-balcony-room-main.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838964/golden-pebble/images/rooms/golden-pebble-balcony-room-main.jpg",
     gallery: [
-      "/images/rooms/golden-pebble-balcony-room-main.jpg",
-      "/images/rooms/golden-pebble-balcony-seating.jpg",
-      "/images/rooms/golden-pebble-balcony-corridor.jpg",
-      "/images/rooms/golden-pebble-balcony-room-interior.jpg",
-      "/images/rooms/golden-pebble-balcony-bathroom.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838964/golden-pebble/images/rooms/golden-pebble-balcony-room-main.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838965/golden-pebble/images/rooms/golden-pebble-balcony-seating.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838962/golden-pebble/images/rooms/golden-pebble-balcony-corridor.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838963/golden-pebble/images/rooms/golden-pebble-balcony-room-interior.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838961/golden-pebble/images/rooms/golden-pebble-balcony-bathroom.jpg"
     ],
     description: "Experience 280 sq. ft. of refined tropical comfort in our Deluxe Room with Balcony. Step out onto your private balcony to enjoy the fresh island morning air and vibrant green natural surroundings. Outfitted with rich timber cladding, generous seating, a King size plush mattress, and premium bath amenities, this room offers enhanced space for travelers seeking extra room to unwind.",
     shortDescription: "Expansive 280 sq ft sanctuary featuring a private balcony overlooking lush tropical greenery.",

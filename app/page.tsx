@@ -197,7 +197,7 @@ export default function HomePage() {
           <div className="animate-marquee flex gap-4 px-4">
             {[
               {
-                src: "/images/hotel-gallery/restaurant-1.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838887/golden-pebble/images/hotel-gallery/restaurant-1.png",
                 title: "Golden Pebble Dining Hall",
                 tag: "Air-Con Seating"
               },
@@ -207,7 +207,7 @@ export default function HomePage() {
                 tag: "Catch of the Day"
               },
               {
-                src: "/images/hotel-gallery/restaurant-2.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838889/golden-pebble/images/hotel-gallery/restaurant-2.png",
                 title: "Breakfast & Dining",
                 tag: "In-House Guests"
               },
@@ -217,7 +217,7 @@ export default function HomePage() {
                 tag: "Local Speciality"
               },
               {
-                src: "/images/hotel-gallery/restaurant-3.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838891/golden-pebble/images/hotel-gallery/restaurant-3.png",
                 title: "30 Guest Dining Space",
                 tag: "Pleasant Ambience"
               },
@@ -238,7 +238,7 @@ export default function HomePage() {
               },
               // Duplicate set for continuous seamless loop
               {
-                src: "/images/hotel-gallery/restaurant-1.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838887/golden-pebble/images/hotel-gallery/restaurant-1.png",
                 title: "Golden Pebble Dining Hall",
                 tag: "Air-Con Seating"
               },
@@ -248,7 +248,7 @@ export default function HomePage() {
                 tag: "Catch of the Day"
               },
               {
-                src: "/images/hotel-gallery/restaurant-2.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838889/golden-pebble/images/hotel-gallery/restaurant-2.png",
                 title: "Breakfast & Dining",
                 tag: "In-House Guests"
               },
@@ -258,7 +258,7 @@ export default function HomePage() {
                 tag: "Local Speciality"
               },
               {
-                src: "/images/hotel-gallery/restaurant-3.png",
+                src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838891/golden-pebble/images/hotel-gallery/restaurant-3.png",
                 title: "30 Guest Dining Space",
                 tag: "Pleasant Ambience"
               },

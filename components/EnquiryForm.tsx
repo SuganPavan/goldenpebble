@@ -387,9 +387,24 @@ export default function EnquiryForm({
                   <span>4. Check-in Date *</span>
                 </label>
                 <input
-                  type="date"
+                  type={watchCheckIn ? "date" : "text"}
+                  placeholder="Select Date"
                   {...register("checkIn")}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DCC5] bg-[#F8F6EF]/40 text-sm focus:outline-none focus:border-[#063F3C] focus:ring-2 focus:ring-[#063F3C]/20 transition-all"
+                  onFocus={(e) => {
+                    e.target.type = "date";
+                    try {
+                      if (typeof e.target.showPicker === "function") {
+                        e.target.showPicker();
+                      }
+                    } catch {}
+                  }}
+                  onBlur={(e) => {
+                    register("checkIn").onBlur(e);
+                    if (!e.target.value) {
+                      e.target.type = "text";
+                    }
+                  }}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DCC5] bg-[#F8F6EF]/40 text-sm focus:outline-none focus:border-[#063F3C] focus:ring-2 focus:ring-[#063F3C]/20 transition-all placeholder:text-gray-500 cursor-pointer"
                 />
                 {errors.checkIn && (
                   <span className="text-[11px] text-red-600 font-medium mt-1 block">
@@ -404,9 +419,24 @@ export default function EnquiryForm({
                   <span>5. Check-out Date *</span>
                 </label>
                 <input
-                  type="date"
+                  type={watchCheckOut ? "date" : "text"}
+                  placeholder="Select Date"
                   {...register("checkOut")}
-                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DCC5] bg-[#F8F6EF]/40 text-sm focus:outline-none focus:border-[#063F3C] focus:ring-2 focus:ring-[#063F3C]/20 transition-all"
+                  onFocus={(e) => {
+                    e.target.type = "date";
+                    try {
+                      if (typeof e.target.showPicker === "function") {
+                        e.target.showPicker();
+                      }
+                    } catch {}
+                  }}
+                  onBlur={(e) => {
+                    register("checkOut").onBlur(e);
+                    if (!e.target.value) {
+                      e.target.type = "text";
+                    }
+                  }}
+                  className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DCC5] bg-[#F8F6EF]/40 text-sm focus:outline-none focus:border-[#063F3C] focus:ring-2 focus:ring-[#063F3C]/20 transition-all placeholder:text-gray-500 cursor-pointer"
                 />
                 {errors.checkOut && (
                   <span className="text-[11px] text-red-600 font-medium mt-1 block">
@@ -630,6 +660,25 @@ export default function EnquiryForm({
             <span className="text-[11px] text-red-600 font-medium block">
               {errors.consent.message}
             </span>
+          )}
+
+          {/* Validation Error Summary Notification */}
+          {Object.keys(errors).length > 0 && (
+            <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs flex items-start gap-2.5 font-medium shadow-xs">
+              <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+              <div>
+                <span className="font-bold block mb-1 text-amber-950">Please complete the required details to submit:</span>
+                <ul className="list-disc list-inside space-y-0.5 text-[11px] text-amber-850">
+                  {errors.firstName && <li>First Name is required</li>}
+                  {errors.lastName && <li>Last Name is required</li>}
+                  {errors.phone && <li>Valid Mobile / WhatsApp number is required</li>}
+                  {errors.email && <li>Valid Email address is required</li>}
+                  {errors.checkIn && <li>Check-in date is required</li>}
+                  {errors.checkOut && <li>Check-out date is required ({errors.checkOut.message})</li>}
+                  {errors.consent && <li>Privacy policy consent agreement is required</li>}
+                </ul>
+              </div>
+            </div>
           )}
 
           {/* Submit Button with Hover & Tap Animations */}

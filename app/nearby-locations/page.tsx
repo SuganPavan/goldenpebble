@@ -69,7 +69,7 @@ export default function NearbyLocationsPage() {
       {/* Header Banner */}
       <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden">
         <Image
-          src="/images/havelock-aerial-map.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838817/golden-pebble/images/havelock-aerial-map.png"
           alt="Havelock Island Swaraj Dweep aerial view landscape"
           fill
           priority

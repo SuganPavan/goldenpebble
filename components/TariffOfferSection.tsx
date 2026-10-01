@@ -119,7 +119,7 @@ export default function TariffOfferSection() {
       {/* 1. BACKGROUND IMAGE */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
-          src="/images/amenities-bg.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838813/golden-pebble/images/amenities-bg.jpg"
           alt="Andaman Tropical Forest and Turquoise Waters"
           fill
           loading="lazy"

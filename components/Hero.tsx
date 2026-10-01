@@ -87,7 +87,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0 bg-[#073F3B]">
         {/* Instant Priority Background Image — Eliminates empty/black screen flash on initial load */}
         <Image
-          src="/images/golden-pebble-property.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
           alt="Golden Pebble Havelock Luxury Resort"
           fill
           priority
@@ -107,17 +107,17 @@ export default function Hero() {
           onPlaying={handleVideoPlay}
           onLoadedData={handleVideoPlay}
           onCanPlay={handleVideoPlay}
-          poster="/images/golden-pebble-property.jpg"
+          poster="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
           className={`w-full h-full object-cover object-center scale-100 origin-center xl:object-[15%_center] xl:scale-[1.12] xl:origin-left brightness-105 contrast-[1.03] transition-opacity duration-500 relative z-10 transform-gpu ${
             isVideoReady ? "opacity-100" : "opacity-0"
           }`}
         >
           {/* Mobile Cropped 9:16 Optimized Video */}
-          <source media="(max-width: 767px)" src="/hero-bg-video-mobile.mp4" type="video/mp4" />
+          <source media="(max-width: 767px)" src="https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838780/golden-pebble/hero-bg-video-mobile.mp4" type="video/mp4" />
           {/* Desktop 16:9 Optimized Video */}
-          <source media="(min-width: 768px)" src="/hero-bg-video-desktop.mp4" type="video/mp4" />
+          <source media="(min-width: 768px)" src="https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838606/golden-pebble/hero-bg-video-desktop.mp4" type="video/mp4" />
           {/* Default Fallback Video */}
-          <source src="/hero-bg-video.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838793/golden-pebble/hero-bg-video.mp4" type="video/mp4" />
         </video>
 
         {/* Left Corner Dark Vignette Overlay — Strictly Limited to Left Text Area */}
@@ -157,12 +157,12 @@ export default function Hero() {
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.15] mb-4 sm:mb-5 drop-shadow-lg"
+            className="font-serif text-3xl sm:text-4xl md:text-4xl lg:text-[42px] xl:text-[48px] font-normal leading-[1.18] mb-4 sm:mb-5 drop-shadow-lg"
           >
             A stay that feels like coming home.
             
             {/* 3. Dynamic Typewriter Accent Text */}
-            <span className="font-script text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-[#E8DCC5] block mt-1.5 sm:mt-2 tracking-wide drop-shadow-md min-h-[1.4em]">
+            <span className="font-script text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[38px] font-normal text-[#E8DCC5] block mt-1.5 sm:mt-2 tracking-wide drop-shadow-md min-h-[1.4em]">
               <TypewriterText
                 phrases={heroPhrases}
                 typingSpeed={65}
@@ -178,7 +178,7 @@ export default function Hero() {
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-base sm:text-lg md:text-xl text-white/95 font-light leading-relaxed mb-6 sm:mb-7 max-w-xl drop-shadow-md"
+            className="text-base sm:text-base lg:text-lg text-white/95 font-light leading-relaxed mb-6 sm:mb-7 max-w-xl drop-shadow-md"
           >
             Wake up to pristine beaches, tranquil tropical greenery, and heartfelt boutique hospitality at Hotel Golden Pebble, Havelock (Swaraj Dweep).
           </motion.p>
@@ -190,15 +190,15 @@ export default function Hero() {
             transition={{ duration: 0.3 }}
             className="bg-black/40 backdrop-blur-xl border border-white/20 p-2.5 sm:p-3.5 rounded-2xl mb-6 sm:mb-7 shadow-2xl max-w-xl"
           >
-            <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm md:text-base text-white/90 font-sans">
+            <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-white/90 font-sans">
               <div className="flex items-center justify-center w-8 h-8 rounded-xl bg-[#C9A66B]/20 text-[#C9A66B] shrink-0">
                 <Compass className="w-4 h-4 animate-spin-slow" />
               </div>
               <div className="overflow-hidden min-w-0">
-                <span className="block text-xs sm:text-xs md:text-sm text-[#C9A66B] font-bold uppercase tracking-wider">
+                <span className="block text-xs text-[#C9A66B] font-bold uppercase tracking-wider">
                   Discover Golden Pebble Experiences
                 </span>
-                <span className="text-sm sm:text-base md:text-lg font-semibold text-[#FCE8C2] truncate block">
+                <span className="text-sm sm:text-base font-semibold text-[#FCE8C2] truncate block">
                   <TypewriterText
                     phrases={searchTaglines}
                     typingSpeed={50}

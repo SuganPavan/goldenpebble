@@ -29,7 +29,7 @@ export default function AboutPage() {
       {/* Hero Sub-header */}
       <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-[#073F3B]">
         <Image
-          src="/images/golden-pebble-property.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
           alt="Hotel Golden Pebble building exterior in Havelock Island (Swaraj Dweep), Andaman"
           fill
           priority

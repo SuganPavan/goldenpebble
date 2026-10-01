@@ -25,10 +25,10 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Govind Nagar, Swaraj Dweep",
-    image: "/images/nearby_location/Govind_Nagar_Beach_1.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838903/golden-pebble/images/nearby_location/Govind_Nagar_Beach_1.png",
     images: [
-      "/images/nearby_location/Govind_Nagar_Beach_1.png",
-      "/images/nearby_location/Govind_Nagar_Beach_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838903/golden-pebble/images/nearby_location/Govind_Nagar_Beach_1.png",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838909/golden-pebble/images/nearby_location/Govind_Nagar_Beach_2.jpg"
     ],
     altText: "Govind Nagar Beach Beach No. 3 in Havelock Island Swaraj Dweep",
     shortDescription: "Situated in Govind Nagar, this quiet beach stretch features shallow waters, coastal cafes, and local scuba diving centers.",
@@ -50,10 +50,10 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Eastern Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Vijaynagar_Beach_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838937/golden-pebble/images/nearby_location/Vijaynagar_Beach_1.jpg",
     images: [
-      "/images/nearby_location/Vijaynagar_Beach_1.jpg",
-      "/images/nearby_location/Vijaynagar_Beach_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838937/golden-pebble/images/nearby_location/Vijaynagar_Beach_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838938/golden-pebble/images/nearby_location/Vijaynagar_Beach_2.jpg"
     ],
     altText: "Vijaynagar Beach Beach No. 5 in Swaraj Dweep Havelock Island",
     shortDescription: "A serene eastern shoreline famous for fringing coral reefs, turquoise shallow waters, and lush mahua trees.",
@@ -75,11 +75,11 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Western Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Radhanagar_Beach_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838932/golden-pebble/images/nearby_location/Radhanagar_Beach_1.jpg",
     images: [
-      "/images/nearby_location/Radhanagar_Beach_1.jpg",
-      "/images/nearby_location/Radhanagar_Beach_2.jpg",
-      "/images/nearby_location/Rathanagar_beach.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838932/golden-pebble/images/nearby_location/Radhanagar_Beach_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838933/golden-pebble/images/nearby_location/Radhanagar_Beach_2.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838934/golden-pebble/images/nearby_location/Rathanagar_beach.jpg"
     ],
     altText: "Radhanagar Beach Beach No. 7 in Swaraj Dweep Havelock Island",
     shortDescription: "Famous internationally for soft white coral sand, expansive tropical foliage, and panoramic sunset vistas.",
@@ -101,10 +101,10 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "North-Western Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Elephant_Beach_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838895/golden-pebble/images/nearby_location/Elephant_Beach_1.jpg",
     images: [
-      "/images/nearby_location/Elephant_Beach_1.jpg",
-      "/images/nearby_location/Elephant_Beach_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838895/golden-pebble/images/nearby_location/Elephant_Beach_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838896/golden-pebble/images/nearby_location/Elephant_Beach_2.jpg"
     ],
     altText: "Elephant Beach marine reef and water sports in Swaraj Dweep Havelock Island",
     shortDescription: "A popular coastal site known for shallow coral reefs, snorkeling, sea walks, and water sports.",
@@ -126,11 +126,11 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "South-Eastern Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Kalapathar_Beach_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838912/golden-pebble/images/nearby_location/Kalapathar_Beach_1.jpg",
     images: [
-      "/images/nearby_location/Kalapathar_Beach_1.jpg",
-      "/images/nearby_location/Kalapathar_Beach_2.jpg",
-      "/images/nearby_location/Kalapathar_Beach_3.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838912/golden-pebble/images/nearby_location/Kalapathar_Beach_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838912/golden-pebble/images/nearby_location/Kalapathar_Beach_2.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838913/golden-pebble/images/nearby_location/Kalapathar_Beach_3.jpg"
     ],
     altText: "Kalopathar Beach black rocks in Swaraj Dweep Havelock Island",
     shortDescription: "Named after black boulders scattered along white sands contrasting with deep blue ocean waters.",
@@ -152,10 +152,10 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Govind Nagar Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Nemo_Beach_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838929/golden-pebble/images/nearby_location/Nemo_Beach_1.jpg",
     images: [
-      "/images/nearby_location/Nemo_Beach_1.jpg",
-      "/images/nearby_location/Nemo_Beach_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838929/golden-pebble/images/nearby_location/Nemo_Beach_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838930/golden-pebble/images/nearby_location/Nemo_Beach_2.jpg"
     ],
     altText: "Nemo Reef scuba diving and coral reef in Govind Nagar Havelock Island",
     shortDescription: "A famous shallow coral reef near Govind Nagar frequented for beginner scuba dives and reef observation.",
@@ -177,10 +177,10 @@ export const LOCATIONS: Location[] = [
     category: "Beaches & Coastal Attractions",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Northern End of Radhanagar Beach, Swaraj Dweep",
-    image: "/images/nearby_location/Neils_Cove_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838921/golden-pebble/images/nearby_location/Neils_Cove_1.jpg",
     images: [
-      "/images/nearby_location/Neils_Cove_1.jpg",
-      "/images/nearby_location/Neils_Cove_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838921/golden-pebble/images/nearby_location/Neils_Cove_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838922/golden-pebble/images/nearby_location/Neils_Cove_2.jpg"
     ],
     altText: "Neil's Cove lagoon near Radhanagar Beach in Swaraj Dweep Havelock Island",
     shortDescription: "A sheltered natural cove and tidal inlet located towards the northern side of Radhanagar Beach.",
@@ -202,10 +202,10 @@ export const LOCATIONS: Location[] = [
     category: "Island Points of Interest",
     island: "Swaraj Dweep (Havelock Island)",
     locationArea: "Northern Coast, Swaraj Dweep",
-    image: "/images/nearby_location/Lighthouse_Point_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838917/golden-pebble/images/nearby_location/Lighthouse_Point_1.jpg",
     images: [
-      "/images/nearby_location/Lighthouse_Point_1.jpg",
-      "/images/nearby_location/Lighthouse_Point_2.jpg"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838917/golden-pebble/images/nearby_location/Lighthouse_Point_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838918/golden-pebble/images/nearby_location/Lighthouse_Point_2.jpg"
     ],
     altText: "Lighthouse Point coastal landmark in Swaraj Dweep Havelock Island",
     shortDescription: "A coastal marine landmark and dive area situated on the northern waters of Swaraj Dweep.",
@@ -227,10 +227,10 @@ export const LOCATIONS: Location[] = [
     category: "Nearby Island Destination",
     island: "Shaheed Dweep (Neil Island)",
     locationArea: "Ritchie's Archipelago, Andaman & Nicobar Islands",
-    image: "/images/nearby_location/neil_island_image_1.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838924/golden-pebble/images/nearby_location/neil_island_image_1.jpg",
     images: [
-      "/images/nearby_location/neil_island_image_1.jpg",
-      "/images/nearby_location/neil_island_2.webp"
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838924/golden-pebble/images/nearby_location/neil_island_image_1.jpg",
+      "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838923/golden-pebble/images/nearby_location/neil_island_2.webp"
     ],
     altText: "Neil Island Shaheed Dweep natural rock bridge in Andaman Islands",
     shortDescription: "A separate neighboring island known for Howrah Natural Bridge, Bharatpur Beach, and Laxmanpur Beach.",

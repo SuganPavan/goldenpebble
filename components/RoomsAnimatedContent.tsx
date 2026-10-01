@@ -112,7 +112,7 @@ export default function RoomsAnimatedContent() {
             className="lg:col-span-6 relative h-64 sm:h-80 lg:h-[380px] rounded-2xl overflow-hidden shadow-lg border border-[#E8DCC5]"
           >
             <Image
-              src="/images/rooms/golden-pebble-deluxe-room-main.jpg"
+              src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-main.jpg"
               alt="Deluxe Room at Hotel Golden Pebble in Havelock Island"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
@@ -222,7 +222,7 @@ export default function RoomsAnimatedContent() {
             className="lg:col-span-6 lg:order-2 relative h-64 sm:h-80 lg:h-[380px] rounded-2xl overflow-hidden shadow-lg border border-[#E8DCC5]"
           >
             <Image
-              src="/images/rooms/golden-pebble-balcony-room-main.jpg"
+              src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838964/golden-pebble/images/rooms/golden-pebble-balcony-room-main.jpg"
               alt="Deluxe Room with Balcony at Hotel Golden Pebble, Havelock Island"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

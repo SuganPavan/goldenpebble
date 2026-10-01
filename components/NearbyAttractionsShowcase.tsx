@@ -67,7 +67,7 @@ export default function NearbyAttractionsShowcase() {
       {/* FULL-BLEED REAL AERIAL ISLAND PHOTO BACKDROP WITH LUXURY OCEAN VIGNETTE */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-35 sm:opacity-45">
         <Image
-          src="/images/havelock-aerial-map.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838817/golden-pebble/images/havelock-aerial-map.png"
           alt="Havelock Island Real Aerial Drone Background"
           fill
           priority
@@ -303,7 +303,7 @@ export default function NearbyAttractionsShowcase() {
             {/* Map Canvas */}
             <div className="col-span-7 relative h-full min-h-[380px] rounded-2xl overflow-hidden border border-[#C5A46D]/60 shadow-xl group/map">
               <Image
-                src="/images/havelock-aerial-map.jpg"
+                src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838817/golden-pebble/images/havelock-aerial-map.png"
                 alt="Havelock Island Aerial Map View"
                 fill
                 priority

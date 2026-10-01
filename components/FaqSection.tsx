@@ -27,7 +27,7 @@ export default function FaqSection({
   subtitle,
   questions,
   sideButtonText = "Contact Reservations",
-  sideButtonLink = "/contact",
+  sideButtonLink = "https://wa.me/919434288856?text=Hi%20Golden%20Pebble%20Team%2C%20I%20would%20like%20to%20enquire%20about%20room%20availability.",
   className = ""
 }: FaqSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -42,7 +42,7 @@ export default function FaqSection({
       {/* 1. FULL COVER BACKGROUND IMAGE ACROSS THE ENTIRE FAQ PAGE */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
-          src="/images/golden-pebble-property.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
           alt="Hotel Golden Pebble Havelock Property Background"
           fill
           sizes="100vw"
@@ -125,23 +125,25 @@ export default function FaqSection({
           </div>
 
           <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto justify-center">
-            <Link
-              href={sideButtonLink}
-              className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] px-4 min-h-[44px] py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group flex-1 sm:flex-initial text-center"
-            >
-              <span>{sideButtonText}</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-
-            <a
-              href="https://wa.me/919434288856?text=Hi%20Golden%20Pebble,%20I%20have%20a%20question%20regarding%20my%20stay"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-11 h-11 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-md shrink-0"
-              aria-label="WhatsApp Assistance"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-            </a>
+            {sideButtonLink.startsWith("http://") || sideButtonLink.startsWith("https://") ? (
+              <a
+                href={sideButtonLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] px-5 min-h-[44px] py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group flex-1 sm:flex-initial text-center cursor-pointer"
+              >
+                <span>{sideButtonText}</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </a>
+            ) : (
+              <Link
+                href={sideButtonLink}
+                className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] px-5 min-h-[44px] py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group flex-1 sm:flex-initial text-center cursor-pointer"
+              >
+                <span>{sideButtonText}</span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            )}
           </div>
         </ScrollReveal>
 

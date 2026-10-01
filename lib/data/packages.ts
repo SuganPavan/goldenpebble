@@ -59,78 +59,78 @@ export const WATER_ADVENTURES: WaterAdventure[] = [
     name: "Scuba Diving", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/scuba-diving.mp4",
-    fullVideo: "/videos/scuba-diving.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839082/golden-pebble/videos/scuba-diving.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839082/golden-pebble/videos/scuba-diving.mp4"
   },
   { 
     name: "Boat Diving", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/boat-diving.mp4",
-    fullVideo: "/videos/boat-diving.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839018/golden-pebble/videos/boat-diving.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839018/golden-pebble/videos/boat-diving.mp4"
   },
   { 
     name: "Sea Walk", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/sea-walk.mp4",
-    fullVideo: "/videos/sea-walk.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839099/golden-pebble/videos/sea-walk.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839099/golden-pebble/videos/sea-walk.mp4"
   },
   { 
     name: "Jet Ski", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1563299796-b729d0af54a5?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/jet-ski.mp4",
-    fullVideo: "/videos/jet-ski.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839057/golden-pebble/videos/jet-ski.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839057/golden-pebble/videos/jet-ski.mp4"
   },
   { 
     name: "Banana Ride", 
     locations: "Havelock Island",
     image: "https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/banana-ride.mp4",
-    fullVideo: "/videos/banana-ride.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4"
   },
   { 
     name: "Glass Bottom Ride", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/glass-bottom-ride.mp4",
-    fullVideo: "/videos/glass-bottom-ride.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4"
   },
   { 
     name: "Sofa Ride", 
     locations: "Havelock Island",
     image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/sofa-ride.mp4",
-    fullVideo: "/videos/sofa-ride.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839118/golden-pebble/videos/sofa-ride.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839118/golden-pebble/videos/sofa-ride.mp4"
   },
   { 
     name: "Parasailing", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/parasailing.mp4",
-    fullVideo: "/videos/parasailing.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839080/golden-pebble/videos/parasailing.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839080/golden-pebble/videos/parasailing.mp4"
   },
   { 
     name: "Sea Kart", 
     locations: "Port Blair",
     image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/sea-kart.mp4",
-    fullVideo: "/videos/sea-kart.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839091/golden-pebble/videos/sea-kart.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839091/golden-pebble/videos/sea-kart.mp4"
   },
   { 
     name: "Semi Sub Marine", 
     locations: "Port Blair & Havelock Island",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/glass-bottom-ride.mp4",
-    fullVideo: "/videos/glass-bottom-ride.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4"
   },
   { 
     name: "Dinner Cruise", 
     locations: "Port Blair",
     image: "https://images.unsplash.com/photo-1501426026826-31c667bdfd53?auto=format&fit=crop&w=600&q=80",
-    video: "/videos/dinner-cruise.mp4",
-    fullVideo: "/videos/dinner-cruise.mp4"
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839034/golden-pebble/videos/dinner-cruise.mp4",
+    fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839034/golden-pebble/videos/dinner-cruise.mp4"
   }
 ];
 
@@ -620,7 +620,7 @@ export const PACKAGES: Package[] = [
     nights: 4,
     days: 5,
     route: "Port Blair • Havelock • Neil Island",
-    image: "/images/packages/andaman-highlights.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838944/golden-pebble/images/packages/andaman-highlights.jpg",
     shortDescription: "Experience the essential Andaman attractions with a balanced itinerary of freedom history, coastal sights, sound & light show, and iconic beach destinations.",
     description: "Experience the essential Andaman attractions with a balanced five-day itinerary covering Port Blair's heritage, Havelock's iconic shores, and Neil Island's pristine marine beaches.",
     highlightsList: [
@@ -702,7 +702,7 @@ export const PACKAGES: Package[] = [
     nights: 4,
     days: 5,
     route: "Port Blair • Havelock Island",
-    image: "/images/packages/havelock-escape.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838953/golden-pebble/images/packages/havelock-escape.webp",
     shortDescription: "A popular 5-day getaway staying 2 nights in Port Blair and 2 nights in Havelock Island featuring Cellular Jail, Radhanagar Sunset, Elephant Beach, and Chidiyatapu.",
     description: "Explore the perfect 5-day Andaman trip focusing on historic Port Blair and tropical Havelock Island. Includes Cellular Jail, Sound & Light Show, Corbyn's Cove, Radhanagar Beach sunset, Elephant Beach marine excursion, and Chidiyatapu sunset point.",
     highlightsList: [
@@ -782,7 +782,7 @@ export const PACKAGES: Package[] = [
     nights: 5,
     days: 6,
     route: "Port Blair • Havelock • Neil Island",
-    image: "/images/packages/tropical-island-escape.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838960/golden-pebble/images/packages/tropical-island-escape.webp",
     shortDescription: "A popular 6-day island itinerary with 2 nights in Port Blair, 2 nights in Havelock, and 1 night in Neil Island, including Elephant Beach and Chidiyatapu.",
     description: "Experience the perfect balance of Andaman's premier island destinations over 6 days. Enjoy 2 nights in Port Blair, 2 nights in Havelock Island, and 1 night in Neil Island, covering Cellular Jail, Radhanagar Beach, Elephant Beach, Natural Bridge, and Chidiyatapu.",
     highlightsList: [
@@ -878,7 +878,7 @@ export const PACKAGES: Package[] = [
     nights: 5,
     days: 6,
     route: "Port Blair • Havelock • Neil • North Bay & Ross",
-    image: "/images/packages/north-bay-heritage-tour.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838955/golden-pebble/images/packages/north-bay-heritage-tour.webp",
     shortDescription: "A comprehensive 6-day itinerary including North Bay Coral Island, Ross Island heritage, Havelock's Radhanagar Beach, Neil Island, and Cellular Jail.",
     description: "Explore the best of Port Blair, Havelock, Neil Island, plus North Bay Coral Island and Ross Island heritage over 6 enriched days. Features 3 nights in Port Blair, 1 night in Havelock, and 1 night in Neil Island.",
     highlightsList: [
@@ -1074,7 +1074,7 @@ export const PACKAGES: Package[] = [
     nights: 5,
     days: 6,
     route: "Port Blair • Havelock Island • Port Blair",
-    image: "/images/packages/havelock-relaxation-tour.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838954/golden-pebble/images/packages/havelock-relaxation-tour.jpg",
     shortDescription: "A focused 6-day Havelock getaway featuring 3 full nights on Havelock Island, Radhanagar Beach, Elephant Beach, and an extra day at leisure.",
     description: "Designed for travelers who want extended resort time on Havelock Island without island-hopping stress. Features 2 nights in Port Blair and 3 nights in Havelock Island.",
     highlightsList: [
@@ -1169,7 +1169,7 @@ export const PACKAGES: Package[] = [
     nights: 5,
     days: 6,
     route: "Port Blair • Havelock • North Bay & Ross",
-    image: "/images/packages/portblair-havelock-scenic.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838958/golden-pebble/images/packages/portblair-havelock-scenic.jpg",
     shortDescription: "A comprehensive 6-day island itinerary featuring 3 nights in Port Blair and 2 nights in Havelock Island, including North Bay Coral Island & Ross Island.",
     description: "Enjoy a complete 6-day holiday exploring Port Blair's national heritage and Havelock's premier beaches. Features 3 nights in Port Blair and 2 nights in Havelock Island with Cellular Jail, Radhanagar Beach, Elephant Beach, Chidiyatapu, and a full-day North Bay & Ross Island excursion.",
     highlightsList: [
@@ -1265,7 +1265,7 @@ export const PACKAGES: Package[] = [
     nights: 6,
     days: 7,
     route: "Port Blair • Havelock • Neil • North Bay & Ross",
-    image: "/images/packages/port-blair-cultural-expedition.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838957/golden-pebble/images/packages/port-blair-cultural-expedition.jpg",
     shortDescription: "A rich 7-day Andaman journey featuring 4 nights in Port Blair, 1 night in Havelock, and 1 night in Neil Island, including City Museums, Chatham Saw Mill, North Bay & Ross Island.",
     description: "Discover the complete cultural and natural heritage of the Andaman Islands over 7 days. Includes 4 nights in Port Blair, 1 night in Havelock Island, and 1 night in Neil Island, featuring Cellular Jail, Chatham Saw Mill, Samudrika Marine Museum, Anthropological Museum, North Bay Coral Island, Ross Island, and Chidiyatapu.",
     highlightsList: [
@@ -1372,7 +1372,7 @@ export const PACKAGES: Package[] = [
     nights: 6,
     days: 7,
     route: "Port Blair • Havelock • Neil Island",
-    image: "/images/packages/grand-andaman-leisure.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838950/golden-pebble/images/packages/grand-andaman-leisure.jpg",
     shortDescription: "A luxurious 7-day Andaman holiday featuring 3 full nights in Havelock Island, 2 nights in Port Blair, and 1 night in Neil Island.",
     description: "Enjoy an extended 7-day tropical getaway with 3 full nights in Havelock Island, 2 nights in Port Blair, and 1 night in Neil Island. Experience Cellular Jail, Radhanagar Beach, Elephant Beach marine excursion, an extra day at leisure in Havelock, Bharatpur Beach, Natural Bridge, and Chidiyatapu.",
     highlightsList: [
@@ -1478,7 +1478,7 @@ export const PACKAGES: Package[] = [
     nights: 6,
     days: 7,
     route: "Port Blair • Havelock • Neil Island",
-    image: "/images/packages/andaman-island-trinity.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838946/golden-pebble/images/packages/andaman-island-trinity.jpg",
     shortDescription: "A grand 7-day island getaway featuring 2 nights in Port Blair, 2 nights in Havelock Island, and 2 nights in Neil Island with an extra day at leisure.",
     description: "Experience the ultimate 7-day Andaman journey covering Port Blair, Havelock Island, and Neil Island with 2 nights in each location. Enjoy Cellular Jail, Corbyn's Cove, Radhanagar Beach sunset, Elephant Beach marine corals, Bharatpur & Lakshmanpur Beaches, Natural Bridge, an extra day at leisure in Neil, and Chidiyatapu sunset point.",
     highlightsList: [
@@ -1585,7 +1585,7 @@ export const PACKAGES: Package[] = [
     nights: 6,
     days: 7,
     route: "Port Blair • Havelock • Neil • Port Blair • North Bay & Ross",
-    image: "/images/packages/andaman-heritage-explorer.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838943/golden-pebble/images/packages/andaman-heritage-explorer.webp",
     shortDescription: "A comprehensive 7-day Andaman journey featuring 3 nights in Port Blair, 2 nights in Havelock, 1 night in Neil Island, Radhanagar Beach, Elephant Beach corals, Natural Bridge, Chidiyatapu sunset, and North Bay & Ross Island.",
     description: "Experience the ultimate 7-day classic Andaman tour with 3 nights in Port Blair, 2 nights in Havelock Island, and 1 night in Neil Island. Includes Cellular Jail, Sound & Light Show, Radhanagar Beach, Elephant Beach speedboat excursion, Bharatpur & Lakshmanpur beaches with Natural Bridge, Chidiyatapu sunset point, and full day North Bay Coral Island & Ross Island excursion.",
     highlightsList: [
@@ -1690,7 +1690,7 @@ export const PACKAGES: Package[] = [
     nights: 13,
     days: 14,
     route: "Port Blair • North Bay & Ross • Baratang • Havelock • Neil Island",
-    image: "/images/packages/andaman-grand-expedition.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838942/golden-pebble/images/packages/andaman-grand-expedition.webp",
     shortDescription: "The ultimate 14-day comprehensive Andaman tour featuring Port Blair, North Bay & Ross Island, Baratang Limestone Caves & Mud Volcano, 6 nights in Havelock, and 3 nights in Neil Island.",
     description: "Experience the ultimate 14-day grand Andaman journey with TryTrabby. Includes historic Cellular Jail, Sound & Light Show, North Bay Coral Island & Ross Island excursion, day trip to Baratang Limestone Caves & Mud Volcano, 6 relaxing nights in Havelock Island with Radhanagar & Elephant Beach, 3 tranquil nights in Neil Island, and Chidiyatapu sunset point.",
     highlightsList: [

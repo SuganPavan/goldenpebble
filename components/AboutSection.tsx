@@ -226,7 +226,7 @@ export default function AboutSection() {
                     className="relative w-full h-full"
                   >
                     <Image
-                      src="/images/golden-pebble-property.jpg"
+                      src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
                       alt="Hotel Golden Pebble walkway corridor and reception emblem in Havelock Island (Swaraj Dweep)"
                       fill
                       loading="lazy"

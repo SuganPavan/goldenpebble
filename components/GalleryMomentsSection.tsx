@@ -21,7 +21,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Hotel Golden Pebble Main Walkway & Timber Architecture",
     category: "property",
     categoryLabel: "TIMBER CORRIDOR",
-    image: "/images/hotel-gallery/corridor-1.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838842/golden-pebble/images/hotel-gallery/corridor-1.png",
     locationTag: "Golden Pebble Property"
   },
   {
@@ -29,7 +29,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Interior & Premium King Bed",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-1.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838853/golden-pebble/images/hotel-gallery/deluxe-room-1.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -37,7 +37,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Air-Conditioned 30-Guest Dining Room & Restaurant",
     category: "dining",
     categoryLabel: "RESTAURANT & DINING",
-    image: "/images/hotel-gallery/restaurant-1.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838887/golden-pebble/images/hotel-gallery/restaurant-1.png",
     locationTag: "Golden Pebble Restaurant"
   },
   {
@@ -45,7 +45,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Private Room Balcony Lounge & Tropical Garden Breeze",
     category: "balcony",
     categoryLabel: "PRIVATE BALCONY",
-    image: "/images/hotel-gallery/balcony-1.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838833/golden-pebble/images/hotel-gallery/balcony-1.png",
     locationTag: "Balcony Room"
   },
   {
@@ -53,7 +53,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Hotel Reception Desk & Guest Welcome Area",
     category: "reception",
     categoryLabel: "RECEPTION & LOBBY",
-    image: "/images/hotel-gallery/reception-1.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838880/golden-pebble/images/hotel-gallery/reception-1.png",
     locationTag: "Front Desk Lobby"
   },
   {
@@ -61,7 +61,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Angle View & Warm Wood Finish",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-2.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838858/golden-pebble/images/hotel-gallery/deluxe-room-2.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -69,7 +69,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Second Balcony Seating & Outdoor Relaxation Area",
     category: "balcony",
     categoryLabel: "PRIVATE BALCONY",
-    image: "/images/hotel-gallery/balcony-2.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838835/golden-pebble/images/hotel-gallery/balcony-2.png",
     locationTag: "Balcony Suite"
   },
   {
@@ -77,7 +77,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Lush Tropical Walkway & Garden Corridor",
     category: "property",
     categoryLabel: "TIMBER CORRIDOR",
-    image: "/images/hotel-gallery/corridor-2.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838844/golden-pebble/images/hotel-gallery/corridor-2.png",
     locationTag: "Garden Walkway"
   },
   {
@@ -85,7 +85,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Work Desk & Wardrobe Amenities",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-3.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838860/golden-pebble/images/hotel-gallery/deluxe-room-3.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -93,7 +93,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Air-Conditioned Restaurant Seating & Dining Vibe",
     category: "dining",
     categoryLabel: "RESTAURANT & DINING",
-    image: "/images/hotel-gallery/restaurant-2.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838889/golden-pebble/images/hotel-gallery/restaurant-2.png",
     locationTag: "Golden Pebble Dining"
   },
   {
@@ -101,7 +101,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Spacious Bedroom & Split AC",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-4.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838862/golden-pebble/images/hotel-gallery/deluxe-room-4.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -109,7 +109,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Natural Lighting & Soft Linen Bed",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-5.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838864/golden-pebble/images/hotel-gallery/deluxe-room-5.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -117,7 +117,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Reception Welcome Lounge & Seating Area",
     category: "reception",
     categoryLabel: "RECEPTION & LOBBY",
-    image: "/images/hotel-gallery/reception-4.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838882/golden-pebble/images/hotel-gallery/reception-4.png",
     locationTag: "Welcome Lounge"
   },
   {
@@ -125,7 +125,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Private Room Balcony View 3",
     category: "balcony",
     categoryLabel: "PRIVATE BALCONY",
-    image: "/images/hotel-gallery/balcony-3.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838838/golden-pebble/images/hotel-gallery/balcony-3.png",
     locationTag: "Balcony Room"
   },
   {
@@ -133,7 +133,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Private Room Balcony View 4",
     category: "balcony",
     categoryLabel: "PRIVATE BALCONY",
-    image: "/images/hotel-gallery/balcony-4.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838840/golden-pebble/images/hotel-gallery/balcony-4.png",
     locationTag: "Balcony Room"
   },
   {
@@ -141,7 +141,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Covered Timber Walkway & Room Entrances",
     category: "property",
     categoryLabel: "TIMBER CORRIDOR",
-    image: "/images/hotel-gallery/corridor-3.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838847/golden-pebble/images/hotel-gallery/corridor-3.png",
     locationTag: "Hotel Corridor"
   },
   {
@@ -149,7 +149,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Property Entrance Path & Green Foliage",
     category: "property",
     categoryLabel: "TIMBER CORRIDOR",
-    image: "/images/hotel-gallery/corridor-4.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838849/golden-pebble/images/hotel-gallery/corridor-4.png",
     locationTag: "Hotel Property"
   },
   {
@@ -157,7 +157,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Modern Bedroom Angle 6",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-6.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838866/golden-pebble/images/hotel-gallery/deluxe-room-6.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -165,7 +165,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Modern Bedroom Angle 7",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-7.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838868/golden-pebble/images/hotel-gallery/deluxe-room-7.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -173,7 +173,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Modern Bedroom Angle 8",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-8.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838870/golden-pebble/images/hotel-gallery/deluxe-room-8.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -181,7 +181,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Modern Bedroom Angle 9",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-9.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838872/golden-pebble/images/hotel-gallery/deluxe-room-9.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -189,7 +189,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Deluxe Suite Modern Bedroom Angle 10",
     category: "rooms",
     categoryLabel: "DELUXE ROOM",
-    image: "/images/hotel-gallery/deluxe-room-10.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838856/golden-pebble/images/hotel-gallery/deluxe-room-10.png",
     locationTag: "Deluxe Suite"
   },
   {
@@ -197,7 +197,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Reception Area & Hospitality Desk View 5",
     category: "reception",
     categoryLabel: "RECEPTION & LOBBY",
-    image: "/images/hotel-gallery/reception-5.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838884/golden-pebble/images/hotel-gallery/reception-5.png",
     locationTag: "Reception Desk"
   },
   {
@@ -205,7 +205,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Restaurant Breakfast & Seafood Buffet Area",
     category: "dining",
     categoryLabel: "RESTAURANT & DINING",
-    image: "/images/hotel-gallery/restaurant-3.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838891/golden-pebble/images/hotel-gallery/restaurant-3.png",
     locationTag: "Golden Pebble Restaurant"
   },
   {
@@ -213,7 +213,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Hotel Front Exterior & Guest Parking Area 1",
     category: "property",
     categoryLabel: "PROPERTY & PARKING",
-    image: "/images/hotel-gallery/parking-1.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838875/golden-pebble/images/hotel-gallery/parking-1.png",
     locationTag: "Hotel Exterior"
   },
   {
@@ -221,7 +221,7 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
     title: "Hotel Front Exterior & Guest Parking Area 2",
     category: "property",
     categoryLabel: "PROPERTY & PARKING",
-    image: "/images/hotel-gallery/parking-2.png",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838878/golden-pebble/images/hotel-gallery/parking-2.png",
     locationTag: "Hotel Exterior"
   }
 ];

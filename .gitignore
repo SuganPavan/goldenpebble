@@ -42,7 +42,9 @@ next-env.d.ts
 
 # scratch & temporary agent files
 /scratch
+/scripts
 /.agents
 skills-lock.json
 *.py
+
 

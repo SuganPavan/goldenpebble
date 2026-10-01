@@ -12,7 +12,7 @@ export default function TermsPage() {
     <div className="bg-[#F8F6EF]">
       <div className="relative text-white pt-32 sm:pt-36 pb-12 sm:pb-14 overflow-hidden">
         <Image
-          src="/images/golden-pebble-property.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
           alt="Golden Pebble Property"
           fill
           priority

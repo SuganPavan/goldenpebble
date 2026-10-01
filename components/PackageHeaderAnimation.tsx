@@ -9,7 +9,7 @@ export default function PackageHeaderAnimation() {
 
   const images = [
     {
-      src: "/images/packages/havelock-escape.webp",
+      src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838953/golden-pebble/images/packages/havelock-escape.webp",
       alt: "Radhanagar Beach Havelock",
       tag: "Radhanagar Beach",
       offsetX: "-210px",
@@ -17,7 +17,7 @@ export default function PackageHeaderAnimation() {
       delay: 0.1,
     },
     {
-      src: "/images/packages/port-blair-cultural-expedition.jpg",
+      src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838957/golden-pebble/images/packages/port-blair-cultural-expedition.jpg",
       alt: "Cellular Jail Port Blair",
       tag: "Cellular Jail",
       offsetX: "-105px",
@@ -25,7 +25,7 @@ export default function PackageHeaderAnimation() {
       delay: 0.2,
     },
     {
-      src: "/images/packages/andaman-heritage-explorer.webp",
+      src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838943/golden-pebble/images/packages/andaman-heritage-explorer.webp",
       alt: "Elephant Beach Havelock",
       tag: "Elephant Beach",
       offsetX: "0px",
@@ -34,7 +34,7 @@ export default function PackageHeaderAnimation() {
       isCenter: true,
     },
     {
-      src: "/images/packages/andaman-island-trinity.jpg",
+      src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838946/golden-pebble/images/packages/andaman-island-trinity.jpg",
       alt: "Neil Natural Bridge",
       tag: "Natural Rock Bridge",
       offsetX: "105px",
@@ -42,7 +42,7 @@ export default function PackageHeaderAnimation() {
       delay: 0.2,
     },
     {
-      src: "/images/packages/grand-andaman-leisure.jpg",
+      src: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838950/golden-pebble/images/packages/grand-andaman-leisure.jpg",
       alt: "Chidiyatapu Sunset",
       tag: "Chidiyatapu Sunset",
       offsetX: "210px",

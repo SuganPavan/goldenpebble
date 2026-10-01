@@ -29,7 +29,7 @@ export default function AutoImageCarousel({
   const [isHovered, setIsHovered] = useState(false);
 
   // Fallback if images array is empty
-  const imageList = images && images.length > 0 ? images : ["/images/rooms/golden-pebble-room-1.jpg"];
+  const imageList = images && images.length > 0 ? images : ["https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838970/golden-pebble/images/rooms/golden-pebble-room-1.jpg"];
 
   useEffect(() => {
     if (imageList.length <= 1 || isHovered) return;

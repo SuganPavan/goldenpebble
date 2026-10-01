@@ -76,7 +76,7 @@ export default function RoomsPage() {
       {/* HEADER BANNER */}
       <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-[#073F3B]">
         <Image
-          src="/images/rooms/golden-pebble-deluxe-room-main.jpg"
+          src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-main.jpg"
           alt="Rooms and Accommodation at Hotel Golden Pebble Havelock"
           fill
           priority

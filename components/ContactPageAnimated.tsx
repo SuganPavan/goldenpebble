@@ -117,7 +117,7 @@ export default function ContactPageAnimated() {
           className="absolute inset-0 z-0"
         >
           <Image
-            src="/images/hotel-gallery/reception-1.jpeg"
+            src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838880/golden-pebble/images/hotel-gallery/reception-1.png"
             alt="Golden Pebble Reception and Front Desk"
             fill
             priority
@@ -200,6 +200,19 @@ export default function ContactPageAnimated() {
                   const Icon = card.icon;
                   const isCopied = copiedField === card.id;
 
+                  const handleCardAction = (e?: React.MouseEvent) => {
+                    if (card.copyValue) {
+                      copyToClipboard(card.copyValue, card.id);
+                    }
+                    if (card.href && !card.isInfoOnly) {
+                      if (card.isExternal) {
+                        window.open(card.href, "_blank", "noopener,noreferrer");
+                      } else {
+                        window.location.href = card.href;
+                      }
+                    }
+                  };
+
                   return (
                     <motion.div
                       key={card.id}
@@ -209,7 +222,12 @@ export default function ContactPageAnimated() {
                       transition={{ duration: 0.5, delay: idx * 0.1 }}
                       whileHover={{ scale: shouldReduceMotion ? 1 : 1.015, y: -2 }}
                       whileTap={{ scale: shouldReduceMotion ? 1 : 0.98 }}
-                      className={`p-4 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md ${card.bgColor} relative group`}
+                      onClick={() => {
+                        if (!card.isInfoOnly) {
+                          handleCardAction();
+                        }
+                      }}
+                      className={`p-4 rounded-2xl border transition-all duration-300 shadow-sm hover:shadow-md ${card.bgColor} relative group ${!card.isInfoOnly ? "cursor-pointer" : ""}`}
                     >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 min-w-0">
                         <div className="flex items-start gap-3.5 min-w-0 flex-1">
@@ -236,7 +254,7 @@ export default function ContactPageAnimated() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={(e) => {
-                                e.preventDefault();
+                                e.stopPropagation();
                                 copyToClipboard(card.copyValue!, card.id);
                               }}
                               className="px-3 py-1.5 rounded-xl bg-white hover:bg-[#F8F6EF] text-[#063F3C] border border-[#E8DCC5] shadow-xs text-xs flex items-center justify-center gap-1.5 font-semibold transition-colors cursor-pointer shrink-0"
@@ -245,7 +263,7 @@ export default function ContactPageAnimated() {
                               {isCopied ? (
                                 <>
                                   <Check className="w-3.5 h-3.5 text-green-600" />
-                                  <span className="text-green-600">Copied!</span>
+                                  <span className="text-green-600 font-bold">Copied!</span>
                                 </>
                               ) : (
                                 <>
@@ -257,19 +275,20 @@ export default function ContactPageAnimated() {
                           )}
 
                           {card.href && !card.isInfoOnly && (
-                            <motion.a
+                            <motion.button
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
-                              href={card.href}
-                              target={card.isExternal ? "_blank" : undefined}
-                              rel={card.isExternal ? "noopener noreferrer" : undefined}
-                              className={`inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold shadow-sm hover:shadow transition-all shrink-0 ${card.btnBg || "bg-[#063F3C] text-white"}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleCardAction();
+                              }}
+                              className={`inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold shadow-sm hover:shadow transition-all shrink-0 cursor-pointer ${card.btnBg || "bg-[#063F3C] text-white"}`}
                             >
                               <span>{card.actionText}</span>
                               {card.isExternal ? (
                                 <ExternalLink className="w-3 h-3 opacity-80" />
                               ) : null}
-                            </motion.a>
+                            </motion.button>
                           )}
                         </div>
                       </div>

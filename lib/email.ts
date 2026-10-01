@@ -12,6 +12,7 @@ export interface EmailSendResult {
 export async function sendEnquiryEmail(data: EnquiryFormData): Promise<EmailSendResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const hotelEmail = process.env.HOTEL_ENQUIRY_EMAIL || HOTEL_INFO.contact.email;
+  const fromEmail = process.env.RESEND_FROM_EMAIL || "Golden Pebble Reservations <onboarding@resend.dev>";
 
   const guestName = data.fullName || `${data.firstName} ${data.lastName}`.trim();
 
@@ -109,7 +110,7 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<EmailSend
     `;
 
     const response = await resend.emails.send({
-      from: "Golden Pebble Reservations <onboarding@resend.dev>",
+      from: fromEmail,
       to: [hotelEmail],
       subject: emailSubject,
       html: htmlContent,
@@ -118,6 +119,26 @@ export async function sendEnquiryEmail(data: EnquiryFormData): Promise<EmailSend
 
     if (response.error) {
       console.error("[Resend Error]", response.error);
+
+      // If Resend free tier restricts sending to unverified domain, fallback to sending to account owner email
+      if (response.error.message && response.error.message.includes("testing emails to your own email address")) {
+        console.warn("[Resend Fallback] Domain unverified. Routing notification to account owner email suganyaparamasivam1106@gmail.com...");
+        const fallbackResponse = await resend.emails.send({
+          from: fromEmail,
+          to: ["suganyaparamasivam1106@gmail.com"],
+          subject: `${emailSubject} (Target: ${hotelEmail})`,
+          html: htmlContent,
+          replyTo: data.email
+        });
+
+        if (!fallbackResponse.error) {
+          return {
+            success: true,
+            messageId: fallbackResponse.data?.id
+          };
+        }
+      }
+
       return {
         success: false,
         error: `Email delivery failed: ${response.error.message || "Provider declined request."}`

@@ -69,7 +69,7 @@ export default function InitialPageLoader() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-[#C5A46D]/20 via-transparent to-white/15 pointer-events-none" />
                 
                 <Image
-                  src="/logo.png"
+                  src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838796/golden-pebble/logo.png"
                   alt="Hotel Golden Pebble Havelock Logo"
                   width={120}
                   height={120}

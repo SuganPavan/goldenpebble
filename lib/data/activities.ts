@@ -43,7 +43,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Water Sport",
     duration: "20 - 30 Mins Underwater",
     suitability: "Non-swimmers & All Families",
-    image: "/images/activity/sea_walk_image.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838823/golden-pebble/images/activity/sea_walk_image.webp",
     shortDescription: "Walk naturally on the sandy sea floor wearing a transparent helmet supplied with continuous fresh air.",
     description: "Experience walking on the seabed without swimming skills or scuba gear. Wearing a specialized helmet connected to a surface air system, you can breathe normally while feeding tropical fish and observing coral formations up close.",
     highlights: [
@@ -63,7 +63,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Water Sport",
     duration: "1 - 2 Hours",
     suitability: "All Age Groups & Families",
-    image: "/images/activity/Snorkeling.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838825/golden-pebble/images/activity/Snorkeling.jpg",
     shortDescription: "Float effortlessly above shallow coral gardens at Elephant Beach and Govind Nagar.",
     description: "Snorkeling is the easiest and most accessible way to experience Andaman's rich marine biodiversity. Equipped with a mask, snorkel tube, and life jacket, float safely over colorful shallow reefs accompanied by experienced local guides.",
     highlights: [
@@ -83,7 +83,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Adventure",
     duration: "2 Hours",
     suitability: "Nature Enthusiasts & Couples",
-    image: "/images/activity/Mangrove Sea Kayaking.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Mangrove%20Sea%20Kayaking.jpg",
     shortDescription: "Glide peacefully through dense mangrove channels or open turquoise sea during morning or night tours.",
     description: "Experience the tranquil, untouched ecosystem of Havelock's dense mangrove creeks. Guided sea kayaking allows you to paddle quietly through calm waterways while learning about coastal flora, bird species, and marine biodiversity. Night bioluminescence kayaking is also available during new moon phases.",
     highlights: [
@@ -103,7 +103,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Adventure",
     duration: "10 - 15 Mins Flight",
     suitability: "Couples & Thrill Seekers",
-    image: "/images/activity/Parasailing.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838822/golden-pebble/images/activity/Parasailing.jpg",
     shortDescription: "Soar 300 feet above turquoise waters towed by a high-powered winch boat.",
     description: "Combine flying and sailing for breathtaking panoramic views of Andaman's coastline. Take off and land directly on the winch boat deck wearing certified marine safety harnesses under the guidance of licensed boat captains.",
     highlights: [
@@ -123,7 +123,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Water Sport",
     duration: "10 Mins Ride",
     suitability: "All Guests & Adventure Lovers",
-    image: "/images/activity/Jet Ski Ride.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Jet%20Ski%20Ride.webp",
     shortDescription: "Speed across ocean waves on a powerful jet ski accompanied by certified safety instructors.",
     description: "Feel the adrenaline rush of riding ocean waves on modern Yamaha personal watercraft. Guided by expert jet ski instructors at Corbyn's Cove or Elephant Beach, enjoy fast-paced cruising across coastal waters.",
     highlights: [
@@ -143,7 +143,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Leisure",
     duration: "45 Mins Cruise",
     suitability: "Families, Children & Seniors",
-    image: "/images/activity/Semi Submarine.jpg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838824/golden-pebble/images/activity/Semi%20Submarine.jpg",
     shortDescription: "Observe deep coral formations and sea creatures from an air-conditioned glass underwater cabin.",
     description: "Explore underwater marine life without getting wet. Descend into the vessel's submerged glass cabin equipped with large observation windows angled at 45 degrees for clear views of deep coral gardens and fish schools.",
     highlights: [
@@ -163,7 +163,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Leisure",
     duration: "15 - 20 Mins",
     suitability: "Kids & Senior Guests",
-    image: "/images/activity/Glass Bottom Boat.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838819/golden-pebble/images/activity/Glass%20Bottom%20Boat.webp",
     shortDescription: "Observe coral reefs through transparent glass panels built into the boat hull.",
     description: "Enjoy a calm and comfortable boat cruise over shallow coral beds. Transparent glass floor panels allow passengers of all ages to look directly down into vibrant coral formations and marine life.",
     highlights: [
@@ -183,7 +183,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Water Sport",
     duration: "10 - 15 Mins",
     suitability: "Groups & Families",
-    image: "/images/activity/Banana & Sofa Water Rides.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841869/golden-pebble/images/activity/Banana___Sofa_Water_Rides.webp",
     shortDescription: "Enjoy fun ocean towable rides pulling groups across turquoise waves.",
     description: "Hold on tight as a speed boat pulls inflatable banana tubes or sofa floats across tropical waves. Perfect for family groups and friends looking for shared laughter and splash-filled fun.",
     highlights: [
@@ -203,7 +203,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Leisure",
     duration: "2 Hours Evening Cruise",
     suitability: "Couples & Families",
-    image: "/images/activity/Night Harbour Dinner Cruise.jpeg",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838821/golden-pebble/images/activity/Night%20Harbour%20Dinner%20Cruise.jpg",
     shortDescription: "Evening catamaran cruise around Port Blair harbour with live acoustic music and dinner buffet.",
     description: "Set sail across calm evening harbor waters aboard a luxury catamaran. Enjoy live acoustic musical performances, a rich buffet spread of island delicacies, and glowing views of Port Blair coastline.",
     highlights: [
@@ -223,7 +223,7 @@ export const ACTIVITIES: Activity[] = [
     category: "Leisure",
     duration: "Flexible",
     suitability: "All Guests",
-    image: "/images/activity/Beach Walks & Sunset Watching.webp",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841870/golden-pebble/images/activity/Beach_Walks___Sunset_Watching.webp",
     shortDescription: "Relax on powdery white sands, sip fresh coconut water, and watch golden island sunsets.",
     description: "Sometimes the finest island experience is simply relaxing on white coral sand under the shade of coastal trees. Enjoy leisurely morning strolls at Kalopathar Beach or evening sunset gatherings at Radhanagar Beach with local fruit stalls and quiet tropical breezes.",
     highlights: [

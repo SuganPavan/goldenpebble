@@ -26,7 +26,7 @@ export function constructMetadata({
   title,
   description,
   path = "",
-  image = "/og-image.jpg",
+  image = "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838800/golden-pebble/og-image.jpg",
   keywords = []
 }: PageSeoProps): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || HOTEL_INFO.contact.website;
