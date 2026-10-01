@@ -91,7 +91,7 @@ export default function FeaturedPackageCard({ pkg }: FeaturedPackageCardProps) {
             <div className="flex items-center gap-2 mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#C5A46D]" />
               <span className="text-xs font-sans tracking-[0.22em] uppercase text-[#C5A46D] font-bold">
-                FEATURED RESORT EXPERIENCE
+                FEATURED HOTEL EXPERIENCE
               </span>
             </div>
 
@@ -136,25 +136,22 @@ export default function FeaturedPackageCard({ pkg }: FeaturedPackageCardProps) {
             </ul>
           </motion.div>
 
-          {/* Pricing & CTA Button Footer */}
+          {/* Experience & CTA Button Footer */}
           <div className="pt-5 border-t border-[#E8E0D2] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#66736F] font-bold block mb-0.5">
-                STARTING FROM
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#073F3B] font-bold block mb-0.5">
+                CURATED ITINERARY
               </span>
-              <div className="flex items-baseline gap-1.5">
-                <span className="font-serif font-medium text-2xl lg:text-3xl text-[#073F3B]">
-                  {pkg.startingPrice}
-                </span>
-                <span className="text-xs font-sans text-[#66736F] font-normal">/ {pkg.priceBasis}</span>
-              </div>
+              <span className="font-serif font-medium text-lg lg:text-xl text-[#073F3B]">
+                {pkg.duration}
+              </span>
             </div>
 
             <Link
               href={`/packages/${pkg.slug}`}
               className="inline-flex items-center justify-center gap-2.5 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-7 py-4 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-xl group/btn"
             >
-              <span>DISCOVER THIS ESCAPE</span>
+              <span>Explore Package</span>
               <ArrowRight className="w-4 h-4 text-[#C5A46D] group-hover/btn:text-[#073F3B] transition-transform group-hover/btn:translate-x-1" />
             </Link>
           </div>

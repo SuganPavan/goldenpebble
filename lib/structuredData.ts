@@ -9,14 +9,14 @@ export function generateHotelSchema() {
     "@type": "Hotel",
     "@id": `${baseUrl}/#hotel`,
     "name": HOTEL_INFO.name,
-    "description": `${HOTEL_INFO.name} offers premium boutique accommodations in Havelock Island (Swaraj Deep), Andaman & Nicobar Islands, featuring air-conditioned rooms, delicious dining, and personalized hospitality.`,
+    "description": `${HOTEL_INFO.name} offers boutique accommodations in Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands, featuring air-conditioned rooms, in-house dining, and guest hospitality.`,
     "url": baseUrl,
     "telephone": HOTEL_INFO.contact.phone,
     "email": HOTEL_INFO.contact.email,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Govind Nagar / Beach No. 3 Area",
-      "addressLocality": "Havelock Island (Swaraj Deep)",
+      "addressLocality": "Havelock Island (Swaraj Dweep)",
       "addressRegion": "Andaman & Nicobar Islands",
       "postalCode": "744211",
       "addressCountry": "IN"
@@ -26,22 +26,12 @@ export function generateHotelSchema() {
       "latitude": 12.0003,
       "longitude": 92.9818
     },
-    "priceRange": "₹3,600 - ₹5,200",
+    "priceRange": "₹5,774 - ₹6,824",
     "image": [
       "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80"
     ],
     "checkinTime": "12:00",
     "checkoutTime": "09:00",
-    "starRating": {
-      "@type": "Rating",
-      "ratingValue": "4.0"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.0",
-      "reviewCount": "148",
-      "bestRating": "5"
-    },
     "amenityFeature": [
       {
         "@type": "LocationFeatureSpecification",
@@ -74,7 +64,7 @@ export function generateHotelSchema() {
       },
       "offers": {
         "@type": "Offer",
-        "price": room.seasonRate.netPayable.replace(/[^\d]/g, ""),
+        "price": room.seasonRate.rackRate.replace(/[^\d]/g, ""),
         "priceCurrency": "INR",
         "availability": "https://schema.org/InStock"
       }
@@ -115,6 +105,21 @@ export function generateBreadcrumbSchema(items: { name: string; item: string }[]
       "position": idx + 1,
       "name": it.name,
       "item": it.item.startsWith("http") ? it.item : `${baseUrl}${it.item}`
+    }))
+  };
+}
+
+export function generateFaqSchema(faqs: { question: string; answer: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
     }))
   };
 }

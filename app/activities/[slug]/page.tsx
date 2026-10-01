@@ -117,10 +117,84 @@ export default async function ActivityDetailPage({ params }: ActivityDetailPageP
                 </div>
               )}
             </div>
+            {/* What's Included & What to Bring */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl bg-white border border-[#E8DCC5] shadow-sm space-y-3">
+                <h3 className="font-serif text-lg font-bold text-[#063F3C] flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#C9A66B]" />
+                  <span>Activity Inclusions</span>
+                </h3>
+                <ul className="space-y-2 text-xs text-[#1C2A28]/80 font-light">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E98268] shrink-0" />
+                    <span>Certified Instructor & Guide</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E98268] shrink-0" />
+                    <span>Full Gear & Safety Equipment</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E98268] shrink-0" />
+                    <span>Underwater Photo & Video Transfer</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#E98268] shrink-0" />
+                    <span>Boat Pick & Drop to Dive Site</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-white border border-[#E8DCC5] shadow-sm space-y-3">
+                <h3 className="font-serif text-lg font-bold text-[#063F3C] flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#C9A66B]" />
+                  <span>What to Bring</span>
+                </h3>
+                <ul className="space-y-2 text-xs text-[#1C2A28]/80 font-light">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#063F3C] shrink-0" />
+                    <span>Comfortable Swimwear / Rashguard</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#063F3C] shrink-0" />
+                    <span>Personal Towel & Spare Dry Clothes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#063F3C] shrink-0" />
+                    <span>Valid Govt Photo ID (Aadhaar / Passport)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#063F3C] shrink-0" />
+                    <span>Sunscreen & Waterproof Pouch</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Experience FAQs */}
+            <div className="bg-white p-6 sm:p-8 rounded-2xl border border-[#E8DCC5] shadow-sm space-y-4">
+              <h3 className="font-serif text-xl font-bold text-[#063F3C]">
+                Frequently Asked Questions ({activity.name})
+              </h3>
+              <div className="space-y-3 text-xs text-[#1C2A28]/80 font-light">
+                <div className="p-3.5 rounded-xl bg-[#F8F6EF] border border-[#E8DCC5]/60">
+                  <span className="font-bold text-[#063F3C] block mb-1">Q: Do I need swimming skills for this activity?</span>
+                  <span>Non-swimmers can comfortably participate under 1-on-1 certified instructor supervision.</span>
+                </div>
+                <div className="p-3.5 rounded-xl bg-[#F8F6EF] border border-[#E8DCC5]/60">
+                  <span className="font-bold text-[#063F3C] block mb-1">Q: Are underwater photos and videos provided?</span>
+                  <span>Yes, digital photos and video clips are taken by your instructor and transferred to your phone.</span>
+                </div>
+                <div className="p-3.5 rounded-xl bg-[#F8F6EF] border border-[#E8DCC5]/60">
+                  <span className="font-bold text-[#063F3C] block mb-1">Q: What is the age requirement?</span>
+                  <span>Participants aged 10 years and above are eligible for introductory dives and sea walks.</span>
+                </div>
+              </div>
+            </div>
           </div>
 
+          {/* Right Column: Sticky Fixed Booking Form */}
           <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-28">
+            <div className="sticky top-24 z-30 max-h-[calc(100vh-6.5rem)] overflow-y-auto pr-1">
               <EnquiryForm defaultEnquiryType="General enquiry" />
             </div>
           </div>

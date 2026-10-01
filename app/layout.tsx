@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import QuickWhatsAppFab from "@/components/QuickWhatsAppFab";
+import InitialPageLoader from "@/components/InitialPageLoader";
 import { generateHotelSchema } from "@/lib/structuredData";
 
 const cormorant = Cormorant_Garamond({
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     default: "Hotel Golden Pebble | Premium Boutique Hotel in Havelock Island",
     template: "%s | Hotel Golden Pebble Havelock"
   },
-  description: "Experience luxury island living at Hotel Golden Pebble, Havelock (Swaraj Deep), Andaman. Offering air-conditioned rooms, delicious dining, curated packages, and personalized hospitality.",
+  description: "Experience luxury island living at Hotel Golden Pebble, Havelock (Swaraj Dweep), Andaman. Offering air-conditioned rooms, delicious dining, curated packages, and personalized hospitality.",
   metadataBase: new URL("https://goldenpebble.co.in"),
   icons: {
     icon: "/favicon.ico"
@@ -54,9 +55,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }}
         />
       </head>
-      <body className="bg-[#F8F6EF] text-[#1C2A28] font-sans antialiased selection:bg-[#E98268] selection:text-white">
+      <body className="bg-[#073F3B] text-[#1C2A28] font-sans antialiased selection:bg-[#E98268] selection:text-white">
+        <InitialPageLoader />
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen bg-[#F8F6EF]">{children}</main>
         <Footer />
         <QuickWhatsAppFab />
       </body>

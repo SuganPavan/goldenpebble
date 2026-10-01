@@ -1,111 +1,161 @@
+import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import RoomShowcaseSection from "@/components/RoomShowcaseSection";
+import RoomsAnimatedContent from "@/components/RoomsAnimatedContent";
 import BookingCTA from "@/components/BookingCTA";
-import { ROOMS } from "@/lib/data/rooms";
-import { HOTEL_INFO } from "@/lib/data/hotel";
+import FaqSection from "@/components/FaqSection";
 import { constructMetadata } from "@/lib/seo";
-import { Check, Info } from "lucide-react";
+import { generateBreadcrumbSchema, generateFaqSchema } from "@/lib/structuredData";
+import { BedDouble } from "lucide-react";
 
 export const metadata = constructMetadata({
-  title: "Accommodations & Room Rates | Hotel Golden Pebble Havelock",
-  description: "Explore Deluxe Rooms (220 sq ft) and Deluxe Rooms with Balcony (280 sq ft) at Hotel Golden Pebble. Transparent seasonal net payable rates starting from ₹3,600/night."
+  title: "Rooms & Accommodation in Havelock | Golden Pebble Havelock",
+  description: "Discover comfortable accommodation at Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands (PIN: 744211). Choose from Deluxe Room (220 sq ft) and Deluxe Room with Balcony (280 sq ft) with split AC, Wi-Fi, and 24x7 power backup near Govind Nagar Beach No. 3 and Vijay Nagar Beach No. 5.",
+  path: "/rooms"
 });
 
 export default function RoomsPage() {
+  const faqData = [
+    {
+      question: "What room types are available at Golden Pebble Havelock?",
+      answer: "Hotel Golden Pebble offers two comfortable room categories in Govind Nagar, Havelock Island: the Deluxe Room (220 sq ft) and the Deluxe Room with Balcony (280 sq ft)."
+    },
+    {
+      question: "How large is the Deluxe Room at Golden Pebble Havelock?",
+      answer: "The Deluxe Room provides 220 sq ft of living space, featuring split air conditioning, warm timber accents, and an ensuite bathroom."
+    },
+    {
+      question: "How large is the Deluxe Room with Balcony?",
+      answer: "The Deluxe Room with Balcony provides 280 sq ft of space including a private balcony with seating overlooking tropical greenery."
+    },
+    {
+      question: "Do the rooms at Golden Pebble have air conditioning?",
+      answer: "Yes, all rooms at Hotel Golden Pebble are equipped with split air conditioning and individual climate control."
+    },
+    {
+      question: "Do the rooms have attached bathrooms?",
+      answer: "Yes, every room features a modern private attached ensuite bathroom with fresh towels and bath amenities."
+    },
+    {
+      question: "Is hot and cold water available?",
+      answer: "Yes, 24-hour hot and cold running water is available in all attached ensuite bathrooms."
+    },
+    {
+      question: "Is Wi-Fi available at Golden Pebble Havelock?",
+      answer: "Yes, high-speed Wi-Fi access is available for guests throughout the property."
+    },
+    {
+      question: "Does Golden Pebble have power backup?",
+      answer: "Yes, 24x7 generator power backup is active across the property for uninterrupted guest comfort."
+    },
+    {
+      question: "How can I enquire about room availability?",
+      answer: "You can enquire about room availability and direct bookings by visiting our Contact page or reaching our reservations team at +91 9434288856."
+    }
+  ];
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Rooms & Accommodation", item: "/rooms" }
+  ]);
+
+  const faqSchema = generateFaqSchema(faqData);
+
   return (
     <div className="bg-[#F8F6EF]">
-      {/* Header Banner */}
-      <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden">
+      {/* STRUCTURED DATA SCHEMAS FOR BREADCRUMB & FAQ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* HEADER BANNER */}
+      <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-[#073F3B]">
         <Image
-          src="/images/hotel-gallery/deluxe-room-1.jpeg"
-          alt="Golden Pebble Deluxe Rooms"
+          src="/images/rooms/golden-pebble-deluxe-room-main.jpg"
+          alt="Rooms and Accommodation at Hotel Golden Pebble Havelock"
           fill
           priority
-          className="object-cover"
+          sizes="100vw"
+          className="object-cover opacity-75 contrast-[1.05] brightness-95"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/60 z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#073F3B] via-[#073F3B]/50 to-black/60 z-0 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <Breadcrumbs items={[{ label: "Rooms & Rates" }]} />
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal mt-4">
-            Accommodations & Tariffs
+          <Breadcrumbs items={[{ label: "Rooms & Accommodation" }]} />
+          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-[#C5A46D]/40 text-[#C5A46D] text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.25em] uppercase mt-4 mb-2 shadow-sm">
+            <BedDouble className="w-3.5 h-3.5 text-[#C5A46D]" />
+            <span>BOUTIQUE HAVELOCK ACCOMMODATION</span>
+          </div>
+
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal mt-1 leading-tight text-white drop-shadow-md">
+            Rooms &amp; Accommodation at Golden Pebble Havelock
           </h1>
-          <p className="text-sm sm:text-base text-[#E8DCC5] max-w-2xl mt-3 font-light leading-relaxed">
-            Thoughtfully designed for island comfort. Transparent pricing with included daily breakfast and all applicable hotel taxes.
+
+          <p className="text-xs sm:text-sm lg:text-base text-[#F8F6EF]/90 max-w-3xl mt-3 font-light leading-relaxed drop-shadow-sm">
+            Hotel Golden Pebble is a boutique hotel located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands, India (PIN: 744211). We offer comfortable accommodation options including Deluxe Rooms (220 sq ft) and Deluxe Rooms with Balcony (280 sq ft), designed for travelers exploring the tropical beauty of Swaraj Dweep.
           </p>
         </div>
       </div>
 
-      {/* Interactive Room Showcase Section */}
-      <RoomShowcaseSection />
+      {/* ANIMATED ROOM CONTENT & SECTIONS */}
+      <RoomsAnimatedContent />
 
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Detailed Rate Table extracted from PDF */}
-        <div className="bg-white rounded-2xl p-6 sm:p-8 border border-[#E8DCC5] shadow-sm mb-16">
-          <h3 className="font-serif text-2xl font-bold text-[#063F3C] mb-2">
-            Transparent Hotel Rate & Season Breakdown
-          </h3>
-          <p className="text-xs text-[#1C2A28]/70 mb-6 font-light">
-            All net payable rates below include daily breakfast and inclusive taxes.
-          </p>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm border-collapse">
-              <thead>
-                <tr className="bg-[#063F3C] text-[#F8F6EF] font-serif text-base">
-                  <th className="p-4 rounded-tl-xl">Room Category</th>
-                  <th className="p-4">Size</th>
-                  <th className="p-4">Rack Rate</th>
-                  <th className="p-4">Season Net Payable Rate<br/><span className="text-xs font-sans font-normal text-[#C9A66B]">(01 Nov 26 – 31 Mar 27*)</span></th>
-                  <th className="p-4 rounded-tr-xl">Peak Season Net Payable<br/><span className="text-xs font-sans font-normal text-[#C9A66B]">(15 Dec 26 – 10 Jan 27)</span></th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#E8DCC5]">
-                {ROOMS.map((rm) => (
-                  <tr key={rm.id} className="hover:bg-[#F8F6EF]/50 transition-colors">
-                    <td className="p-4 font-bold text-[#063F3C]">{rm.name}</td>
-                    <td className="p-4 text-[#1C2A28]/80">{rm.sizeSqFt} Sq Ft</td>
-                    <td className="p-4 text-[#1C2A28]/70">{rm.seasonRate.rackRate}</td>
-                    <td className="p-4 font-bold text-[#063F3C] font-serif text-lg">{rm.seasonRate.netPayable}</td>
-                    <td className="p-4 font-bold text-[#E98268] font-serif text-lg">{rm.peakSeasonRate.netPayable}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="text-[11px] text-[#1C2A28]/60 mt-3 italic">
-            *Season rate is valid from 01st Nov 2026 to 31st Mar 2027, excluding Peak Season dates (15th Dec 2026 to 10th Jan 2027).
-          </p>
-        </div>
-
-        {/* Room Policies Accordions from PDF */}
-        <div className="space-y-6">
-          <h3 className="font-serif text-3xl font-semibold text-[#063F3C]">
-            Important Occupancy & Stay Guidelines
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {HOTEL_INFO.policies.map((pol, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-2xl border border-[#E8DCC5] shadow-sm">
-                <div className="flex items-center gap-2 mb-2">
-                  <Info className="w-4 h-4 text-[#C9A66B]" />
-                  <h4 className="font-serif text-xl font-bold text-[#063F3C]">{pol.title}</h4>
-                </div>
-                <span className="text-xs text-[#E98268] uppercase tracking-wider font-semibold block mb-4">
-                  {pol.subtitle}
-                </span>
-                <ul className="space-y-2 text-xs text-[#1C2A28]/80 font-light">
-                  {pol.rules.map((r, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <Check className="w-3.5 h-3.5 text-[#063F3C] shrink-0 mt-0.5" />
-                      <span>{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* AEO — ANSWER ENGINE OPTIMIZED ACCORDION FAQ SECTION */}
+      <FaqSection
+        heading="Rooms & Accommodation FAQs"
+        subtitle="Answers to common guest questions about accommodation types, room sizes, facilities, and bookings at Hotel Golden Pebble, Havelock."
+        questions={[
+          {
+            question: "What room types are available at Golden Pebble Havelock?",
+            answer: "Hotel Golden Pebble offers two comfortable room categories in Govind Nagar: Deluxe Room (220 sq ft) and Deluxe Room with Balcony (280 sq ft)."
+          },
+          {
+            question: "How large is the Deluxe Room at Golden Pebble Havelock?",
+            answer: "The Deluxe Room provides 220 sq ft of living space, featuring split air conditioning, warm timber accents, and an ensuite bathroom."
+          },
+          {
+            question: "How large is the Deluxe Room with Balcony?",
+            answer: "The Deluxe Room with Balcony provides 280 sq ft of space including a private balcony with seating overlooking tropical greenery."
+          },
+          {
+            question: "Do the rooms at Golden Pebble have air conditioning?",
+            answer: "Yes, all rooms at Hotel Golden Pebble are equipped with split air conditioning for individual climate control."
+          },
+          {
+            question: "Do the rooms have attached bathrooms?",
+            answer: "Yes, all rooms feature private attached ensuite bathrooms."
+          },
+          {
+            question: "Is hot and cold water available?",
+            answer: "Yes, 24-hour hot and cold running water is available in all attached ensuite bathrooms."
+          },
+          {
+            question: "Is Wi-Fi available at Golden Pebble Havelock?",
+            answer: "Yes, high-speed Wi-Fi access is available for guests throughout the property."
+          },
+          {
+            question: "Does Golden Pebble have power backup?",
+            answer: "Yes, 24x7 generator power backup is active across the property for uninterrupted guest comfort."
+          },
+          {
+            question: "How can I enquire about room availability?",
+            answer: (
+              <span>
+                You can enquire about room availability and direct bookings by visiting our{" "}
+                <Link href="/contact" className="text-[#073F3B] font-bold underline hover:text-[#C5A46D]">
+                  Contact page
+                </Link>{" "}
+                or contacting our reservations team directly at +91 9434288856.
+              </span>
+            )
+          }
+        ]}
+      />
 
       <BookingCTA />
     </div>

@@ -9,16 +9,17 @@ import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
   title: "Hotel Golden Pebble | Premium Boutique Hotel in Havelock Island",
-  description: "Official website for Hotel Golden Pebble, Havelock (Swaraj Deep), Andaman. Featuring Deluxe Rooms from ₹3,600/night, air-conditioned dining, curated holiday packages, and verified guest hospitality."
+  description: "Official website for Hotel Golden Pebble, Havelock (Swaraj Dweep), Andaman. Featuring Deluxe Rooms from ₹5,774/night (incl. GST), air-conditioned dining, curated holiday packages, and verified guest hospitality."
 });
 
 import AboutSection from "@/components/AboutSection";
 import RoomShowcaseSection from "@/components/RoomShowcaseSection";
 import TariffOfferSection from "@/components/TariffOfferSection";
-import InteractivePackageShowcase from "@/components/InteractivePackageShowcase";
+import HomePagePackageShowcase from "@/components/HomePagePackageShowcase";
 import UnforgettableActivitiesSection from "@/components/UnforgettableActivitiesSection";
 import NearbyAttractionsShowcase from "@/components/NearbyAttractionsShowcase";
 import GalleryMomentsSection from "@/components/GalleryMomentsSection";
+import FaqSection from "@/components/FaqSection";
 
 export default function HomePage() {
   return (
@@ -33,7 +34,7 @@ export default function HomePage() {
       <RoomShowcaseSection />
 
       {/* 4. Official Hotel Tariff & Policies Offer Section */}
-      <section className="py-6 sm:py-10 bg-[#F8F6EF] relative overflow-hidden">
+      <section className="py-2 sm:py-3 bg-[#F8F6EF] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <TariffOfferSection />
         </div>
@@ -57,39 +58,40 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-5 sm:mb-6 gap-3">
             <div className="max-w-3xl">
               {/* Gold Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-[10px] sm:text-[11px] font-sans font-bold tracking-[0.25em] uppercase mb-2 shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-xs sm:text-xs font-sans font-bold tracking-[0.25em] uppercase mb-2 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#C5A46D]" />
-                <span>CURATED PACKAGES • ISLAND ESCAPES</span>
+                <span>CURATED ISLAND ESCAPES</span>
               </div>
 
               {/* Expressive Headline */}
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#073F3B] leading-[1.12] text-balance">
-                Find Your Own{" "}
-                <span className="font-script text-2xl sm:text-4xl lg:text-5xl text-[#C5A46D] font-normal italic inline mt-0 tracking-wide">
-                  Island Rhythm.
-                </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-[#073F3B] leading-[1.12] text-balance mb-1">
+                Explore Our Andaman Tour Packages
               </h2>
 
-              {/* Narrative Quote Description */}
+              <p className="font-script text-xl sm:text-2xl text-[#C5A46D] font-normal italic mb-2 tracking-wide">
+                Explore more of the islands in one unforgettable journey.
+              </p>
+
+              {/* Narrative Description */}
               <div className="relative pl-4 border-l-2 border-[#C5A46D] mt-2">
-                <p className="font-sans text-xs sm:text-sm text-[#4E5C58] font-light leading-relaxed">
-                  From slow mornings beside the sea to unforgettable underwater adventures, discover a stay shaped around the way you want to experience Havelock.
+                <p className="font-sans text-sm sm:text-base text-[#4E5C58] font-light leading-relaxed">
+                  Carefully planned island itineraries ranging from 4 to 14 days covering Port Blair, Havelock and Neil Island with pristine beaches and seamless ferry transfers.
                 </p>
               </div>
             </div>
 
-            {/* Premium Gold-bordered Navigation Button */}
+            {/* Premium Gold-bordered Navigation Button (Desktop Only) */}
             <Link
               href="/packages"
-              className="inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border-2 border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2.5 rounded-full text-[11px] font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-xl group shrink-0"
+              className="hidden lg:inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border-2 border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-xl group shrink-0"
             >
               <span>EXPLORE ALL EXPERIENCES</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#F8F6EF] transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
-          {/* Interactive Package Showcase */}
-          <InteractivePackageShowcase />
+          {/* Home Page Package Showcase (Cards expand outwards from center to left and right) */}
+          <HomePagePackageShowcase />
         </div>
       </section>
 
@@ -110,11 +112,13 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Food Image Left */}
             <div className="lg:col-span-5 relative">
-              <div className="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/10">
+              <div className="relative h-52 sm:h-64 w-full rounded-2xl overflow-hidden shadow-xl border-2 border-white/10">
                 <Image
                   src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80"
                   alt="Golden Pebble Restaurant & Island Seafood Dining"
                   fill
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 40vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -122,7 +126,7 @@ export default function HomePage() {
                   <span className="font-script text-2xl text-[#E8DCC5] block leading-none">
                     Good Food Brighter Days
                   </span>
-                  <span className="text-[10px] font-sans text-white/80 uppercase tracking-wider font-medium">
+                  <span className="text-[11px] sm:text-xs font-sans text-white/80 uppercase tracking-wider font-medium">
                     Fresh Seafood & Daily Breakfast
                   </span>
                 </div>
@@ -131,7 +135,7 @@ export default function HomePage() {
 
             {/* Text Content Right */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#C9A66B]/40 text-[#C9A66B] text-[10px] font-sans font-bold tracking-[0.25em] uppercase">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-[#C9A66B]/40 text-[#C9A66B] text-[11px] sm:text-xs font-sans font-bold tracking-[0.25em] uppercase">
                 <Utensils className="w-3.5 h-3.5 text-[#C9A66B]" />
                 <span>OUR RESTAURANT & DINING</span>
               </div>
@@ -151,25 +155,25 @@ export default function HomePage() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs pt-2 border-t border-white/10">
                 <div className="flex items-center gap-2 bg-white/5 p-2.5 rounded-xl border border-white/10">
                   <Utensils className="w-3.5 h-3.5 text-[#C9A66B] shrink-0" />
-                  <span className="text-[11px] font-medium text-white/90">30 Guest AC Seating</span>
+                  <span className="text-xs font-medium text-white/90">30 Guest AC Seating</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/5 p-2.5 rounded-xl border border-white/10">
                   <Coffee className="w-3.5 h-3.5 text-[#C9A66B] shrink-0" />
-                  <span className="text-[11px] font-medium text-white/90">Daily Breakfast Included</span>
+                  <span className="text-xs font-medium text-white/90">Daily Breakfast Included</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white/5 p-2.5 rounded-xl border border-white/10 col-span-2 sm:col-span-1">
                   <Award className="w-3.5 h-3.5 text-[#C9A66B] shrink-0" />
-                  <span className="text-[11px] font-medium text-white/90">Meals @ ₹750 / ₹1,500</span>
+                  <span className="text-xs font-medium text-white/90">Meals @ ₹750 / ₹1,500</span>
                 </div>
               </div>
 
-              <div className="pt-1 flex items-center gap-4">
+              <div className="pt-2 flex items-center justify-center sm:justify-start w-full">
                 <Link
                   href="/restaurant"
-                  className="inline-flex items-center gap-2 bg-[#E98268] hover:bg-[#d67056] text-white px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-colors shadow-md group"
+                  className="inline-flex items-center justify-center gap-2 bg-[#E98268] hover:bg-[#d67056] text-white px-6 min-h-[48px] py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md group w-full sm:w-auto text-center"
                 >
                   <span>Explore Full Dining</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </div>
@@ -182,10 +186,10 @@ export default function HomePage() {
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-[#063F3C] to-transparent z-20 pointer-events-none" />
           
           <div className="px-4 mb-2 max-w-7xl mx-auto flex items-center justify-between">
-            <span className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#C9A66B] font-semibold">
+            <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.2em] text-[#C9A66B] font-semibold">
               DINING HIGHLIGHTS & FRESH FOOD GALLERY
             </span>
-            <span className="text-[10px] font-sans text-white/60 hidden sm:block">
+            <span className="text-[11px] sm:text-xs font-sans text-white/60 hidden sm:block">
               Hover to pause • Freshly prepared daily
             </span>
           </div>
@@ -282,6 +286,8 @@ export default function HomePage() {
                   src={item.src}
                   alt={item.title}
                   fill
+                  loading="lazy"
+                  sizes="250px"
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -302,7 +308,47 @@ export default function HomePage() {
       {/* 9. Guest Testimonials */}
       <TestimonialSection />
 
-      {/* 10. Final Coral Booking CTA */}
+      {/* 10. Frequently Asked Questions (Matching Design Blueprint) */}
+      <FaqSection
+        heading="Frequently Asked Questions"
+        subtitle="Everything you need to know about staying at Hotel Golden Pebble, Havelock Island."
+        questions={[
+          {
+            question: "What amenities does Hotel Golden Pebble Havelock offer?",
+            answer: "Hotel Golden Pebble provides split air conditioning, high-speed Wi-Fi, an in-house 30-seat air-conditioned restaurant, complimentary daily breakfast, room service, on-site parking, 24x7 generator power backup, and island activity/ferry ticket assistance."
+          },
+          {
+            question: "Does Hotel Golden Pebble Havelock have a swimming pool?",
+            answer: "Hotel Golden Pebble does not feature an on-site swimming pool, but is conveniently situated just a short walk from Govind Nagar Beach No. 3 and a short drive from Radhanagar Beach and Elephant Beach for ocean swimming."
+          },
+          {
+            question: "Does Hotel Golden Pebble Havelock offer Wi-Fi?",
+            answer: "Yes, complimentary high-speed Wi-Fi is available for all guests throughout the hotel property."
+          },
+          {
+            question: "Where is Hotel Golden Pebble located?",
+            answer: "Hotel Golden Pebble is located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands (PIN 744211). It is positioned near Govind Nagar Beach, local markets, and the main Havelock ferry jetty."
+          },
+          {
+            question: "What room types are available at Golden Pebble?",
+            answer: "The hotel features two room categories: Deluxe Rooms (220 sq ft with garden views) and Deluxe Rooms with Balcony (280 sq ft with private balconies). Both include split air conditioning, warm timber acoustics, private ensuite bathrooms with hot/cold water, and 24x7 generator backup."
+          },
+          {
+            question: "Which beaches and attractions are near Golden Pebble?",
+            answer: "Golden Pebble is located near Govind Nagar Beach and provides easy access to Radhanagar Beach, Elephant Beach, and Kalopathar Beach."
+          },
+          {
+            question: "Does Golden Pebble help with ferry tickets and activities?",
+            answer: "Yes, our team assists guests with private ferry ticket bookings, scuba diving slots, snorkeling sessions, and local island sightseeing tours."
+          },
+          {
+            question: "Who is Golden Pebble suitable for?",
+            answer: "Golden Pebble is suitable for FIT travellers, families, honeymooners, couples, and travel agent group tours seeking clean, comfortable boutique accommodation in Swaraj Dweep."
+          }
+        ]}
+      />
+
+      {/* 11. Final Coral Booking CTA */}
       <BookingCTA />
     </div>
   );

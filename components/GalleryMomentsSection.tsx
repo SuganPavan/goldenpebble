@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -229,6 +229,14 @@ export const HOTEL_GALLERY_ITEMS: GalleryItem[] = [
 export default function GalleryMomentsSection() {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const galleryScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollGallery = (direction: "left" | "right") => {
+    if (galleryScrollRef.current) {
+      const scrollAmount = direction === "left" ? -280 : 280;
+      galleryScrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
 
   const filteredItems = activeCategory === "all" 
     ? HOTEL_GALLERY_ITEMS 
@@ -258,7 +266,7 @@ export default function GalleryMomentsSection() {
   };
 
   return (
-    <section className="relative py-10 sm:py-14 bg-[#F8F6EF] overflow-hidden text-[#073F3B]">
+    <section className="relative py-10 sm:py-14 lg:py-8 bg-[#F8F6EF] overflow-hidden text-[#073F3B]">
       
       {/* Ambient Radial Luxury Lighting */}
       <div 
@@ -274,10 +282,16 @@ export default function GalleryMomentsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* COMPACT SECTION HEADER BLOCK */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-5 sm:mb-6 gap-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
+          className="flex items-end justify-between mb-3 sm:mb-4 gap-3"
+        >
           <div>
             {/* Eyebrow Gold Pill */}
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-[10px] font-sans font-bold tracking-[0.2em] uppercase mb-2 shadow-sm">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-[11px] sm:text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2 shadow-sm">
               <Hotel className="w-3.5 h-3.5 text-[#C5A46D]" />
               <span>OFFICIAL HOTEL GALLERY • GOLDEN PEBBLE</span>
             </div>
@@ -291,18 +305,38 @@ export default function GalleryMomentsSection() {
             </h2>
           </div>
 
-          {/* View All Photos Button (Redirects to Dedicated /gallery Page) */}
-          <Link
-            href="/gallery"
-            className="inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2 rounded-full text-[11px] font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group shrink-0 self-start sm:self-auto"
-          >
-            <span>VIEW ALL ({HOTEL_GALLERY_ITEMS.length}) HOTEL PHOTOS</span>
-            <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#F8F6EF] transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Scroll Left / Right Buttons (Mobile & Tablet) */}
+            <div className="flex md:hidden items-center gap-1.5">
+              <button
+                onClick={() => scrollGallery("left")}
+                aria-label="Scroll left"
+                className="w-9 h-9 rounded-full bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] hover:border-[#073F3B] flex items-center justify-center transition-all duration-300 shadow-sm shrink-0 active:scale-95 cursor-pointer"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => scrollGallery("right")}
+                aria-label="Scroll right"
+                className="w-9 h-9 rounded-full bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] hover:border-[#073F3B] flex items-center justify-center transition-all duration-300 shadow-sm shrink-0 active:scale-95 cursor-pointer"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* View All Photos Button (Desktop Header Only) */}
+            <Link
+              href="/gallery"
+              className="hidden sm:inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group shrink-0"
+            >
+              <span>VIEW ALL ({HOTEL_GALLERY_ITEMS.length}) HOTEL PHOTOS</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#F8F6EF] transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </motion.div>
 
         {/* CATEGORY FILTER TABS STRIP */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-2 mb-5 no-scrollbar">
+        <div className="flex items-center justify-start lg:justify-center lg:flex-wrap gap-2 overflow-x-auto lg:overflow-visible pb-2 mb-4 no-scrollbar">
           {[
             { id: "all", label: "ALL HOTEL PHOTOS" },
             { id: "rooms", label: "DELUXE ROOMS" },
@@ -316,8 +350,13 @@ export default function GalleryMomentsSection() {
             return (
               <button
                 key={tab.id}
-                onClick={() => setActiveCategory(tab.id)}
-                className={`px-3.5 py-1.5 rounded-full text-[10.5px] font-sans font-bold uppercase tracking-wider transition-all duration-300 shrink-0 border ${
+                onClick={() => {
+                  setActiveCategory(tab.id);
+                  if (galleryScrollRef.current) {
+                    galleryScrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+                  }
+                }}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shrink-0 border ${
                   isSelected
                     ? "bg-[#073F3B] text-[#F8F6EF] border-[#073F3B] shadow-sm scale-105"
                     : "bg-white/80 text-[#4E5C58] border-[#E8E0D2] hover:border-[#C5A46D]/60 hover:bg-white"
@@ -329,8 +368,56 @@ export default function GalleryMomentsSection() {
           })}
         </div>
 
-        {/* 3-COLUMN 2-ROW GRID SHOWCASE (5 FEATURED PHOTOS) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-5 items-stretch">
+        {/* MOBILE & TABLET HORIZONTAL HAND-SWIPE CAROUSEL (PACKAGE SHOWCASE STYLE) */}
+        <div className="block md:hidden mb-4">
+          <div
+            ref={galleryScrollRef}
+            className="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-3.5 pb-4 pt-1 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {previewItems.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, scale: 0.95, y: 25 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                onClick={() => handleOpenLightbox(idx)}
+                className="w-[80vw] sm:w-[280px] shrink-0 snap-start flex flex-col cursor-pointer group"
+              >
+                <div className="bg-white rounded-2xl border border-[#C5A46D]/60 p-3 shadow-md group-hover:border-[#C5A46D] transition-all flex flex-col justify-between h-full">
+                  <div className="relative h-56 w-full rounded-xl overflow-hidden border border-[#E8E0D2] shadow-sm mb-3">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 80vw, 280px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 contrast-[1.04]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none z-10" />
+
+                    <div className="absolute top-2.5 left-2.5 bg-[#073F3B]/90 text-[#E8DCC5] text-[10px] font-sans font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-[#C5A46D]/50 z-10 backdrop-blur-md">
+                      {item.categoryLabel}
+                    </div>
+
+                    <div className="absolute top-2.5 right-2.5 bg-black/50 text-white p-1.5 rounded-full border border-white/30 backdrop-blur-md z-10">
+                      <Maximize2 className="w-3.5 h-3.5 text-[#C5A46D]" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="font-serif text-sm font-bold text-[#073F3B] leading-snug line-clamp-2 group-hover:text-[#C5A46D] transition-colors">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* DESKTOP SHOWCASE (3-COLUMN 2-ROW GRID) */}
+        <div className="hidden md:grid md:grid-cols-3 gap-4 lg:gap-5 items-stretch">
           <AnimatePresence mode="popLayout">
             {previewItems.map((item, idx) => {
               const isBigFirstColumn = idx === 0;
@@ -339,15 +426,15 @@ export default function GalleryMomentsSection() {
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.96, y: 12 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96, y: -12 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
                   onClick={() => handleOpenLightbox(idx)}
                   className={`relative rounded-2xl overflow-hidden border border-[#C5A46D]/50 shadow-md group cursor-pointer ${
                     isBigFirstColumn
-                      ? "md:col-span-1 md:row-span-2 h-[340px] md:h-full min-h-[440px] lg:min-h-[480px]"
-                      : "h-[210px] md:h-[230px] lg:h-[234px]"
+                      ? "md:col-span-1 md:row-span-2 h-[260px] sm:h-[340px] md:h-full min-h-[260px] md:min-h-[400px] lg:min-h-[400px]"
+                      : "h-[190px] sm:h-[210px] md:h-[210px] lg:h-[195px]"
                   }`}
                 >
                   {/* Background Image */}
@@ -377,11 +464,11 @@ export default function GalleryMomentsSection() {
 
                   {/* Bottom Title & Category Overlay */}
                   <div className="absolute bottom-3 left-3.5 right-3.5 text-white z-10">
-                    <span className="text-[8.5px] font-sans font-bold tracking-[0.2em] uppercase text-[#C5A46D] block mb-0.5">
+                    <span className="text-[8.5px] sm:text-[10px] md:text-xs font-sans font-bold tracking-[0.2em] uppercase text-[#C5A46D] block mb-0.5">
                       {item.categoryLabel}
                     </span>
                     <h3 className={`font-serif font-medium text-white leading-snug drop-shadow-md ${
-                      isBigFirstColumn ? "text-base sm:text-lg lg:text-xl line-clamp-3" : "text-sm sm:text-base truncate"
+                      isBigFirstColumn ? "text-sm sm:text-lg lg:text-xl line-clamp-2 sm:line-clamp-3" : "text-xs sm:text-base line-clamp-1"
                     }`}>
                       {item.title}
                     </h3>
@@ -392,11 +479,11 @@ export default function GalleryMomentsSection() {
           </AnimatePresence>
         </div>
 
-        {/* BOTTOM REDIRECT CTA TO FULL GALLERY PAGE */}
-        <div className="mt-6 text-center">
+        {/* BOTTOM REDIRECT CTA TO FULL GALLERY PAGE (PROMINENT FULL-WIDTH ON MOBILE) */}
+        <div className="mt-6 flex justify-center w-full">
           <Link
             href="/gallery"
-            className="inline-flex items-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-6 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group"
+            className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-6 min-h-[48px] py-3.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group w-full sm:w-auto max-w-md text-center"
           >
             <span>VIEW COMPLETE HOTEL GALLERY ({HOTEL_GALLERY_ITEMS.length} PHOTOS)</span>
             <ArrowRight className="w-4 h-4 text-[#C5A46D] group-hover:text-[#073F3B] group-hover:translate-x-1 transition-transform" />

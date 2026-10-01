@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Check, Star } from "lucide-react";
+import { ArrowRight, MapPin, Check, Sparkles } from "lucide-react";
 import { Package } from "@/lib/data/packages";
 
 interface PackageCardProps {
@@ -11,115 +10,97 @@ interface PackageCardProps {
   index?: number;
 }
 
-export default function PackageCard({ pkg, index = 0 }: PackageCardProps) {
-  const shouldReduceMotion = useReducedMotion();
-
+export default function PackageCard({ pkg }: PackageCardProps) {
   return (
-    <motion.div
-      initial={{
-        opacity: shouldReduceMotion ? 1 : 0,
-        y: shouldReduceMotion ? 0 : 20,
-        scale: shouldReduceMotion ? 1 : 0.97
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        scale: 1.0
-      }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.65,
-        delay: shouldReduceMotion ? 0 : index * 0.15,
-        ease: [0.16, 1, 0.3, 1]
-      }}
-      className="group bg-white rounded-3xl overflow-hidden border border-[#E8E0D2] border-t-2 border-t-[#C5A46D] shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-400 flex flex-col justify-between h-full relative"
+    <div
+      className="group p-2 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-md hover:shadow-2xl hover:-translate-y-2 hover:border-[#C5A46D]/60 transition-all duration-500 flex flex-col justify-between h-full relative"
     >
-      <div>
-        {/* Landscape Photography Container with Continuous Ken Burns Motion */}
-        <div className="relative h-56 sm:h-64 w-full overflow-hidden rounded-t-[1.75rem]">
-          <div className="absolute inset-0 animate-kenburns-10s">
+      <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.5rem)] overflow-hidden border border-[#E8DCC5]/60 flex flex-col h-full justify-between">
+        <div>
+          {/* High-Quality Image Container */}
+          <div className="relative h-52 sm:h-52 md:h-48 lg:h-44 w-full overflow-hidden rounded-t-[calc(2.25rem-0.5rem)]">
             <Image
               src={pkg.image}
               alt={pkg.name}
               fill
-              loading="lazy"
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover contrast-[1.05] saturate-[1.05]"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover group-hover:scale-108 transition-transform duration-700 contrast-[1.03]"
             />
-          </div>
 
-          {/* Vignette Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#073F3B]/80 via-black/20 to-transparent" />
+            {/* Image Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#073F3B]/85 via-black/25 to-black/10 group-hover:from-[#073F3B]/90 transition-colors duration-500" />
 
-          {/* Top Duration Pill with Gold Border */}
-          <div className="absolute top-3.5 right-3.5 bg-[#073F3B]/90 backdrop-blur-md text-[#F8F6EF] text-[10px] font-sans font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full border border-[#C5A46D]/50 shadow-md">
-            {pkg.duration}
-          </div>
-
-          {/* Handwritten Sub-tag */}
-          <div className="absolute bottom-3 left-4 right-4 text-white">
-            <span className="font-script text-xl text-[#E8DCC5] drop-shadow-md block">
-              Island Escape ✨
-            </span>
-          </div>
-        </div>
-
-        {/* Card Body Content */}
-        <div className="p-6 flex-1 flex flex-col justify-between">
-          <div>
-            {/* Small uppercase category label with Gold Star */}
-            <div className="flex items-center gap-1.5 mb-2">
-              <Star className="w-3 h-3 text-[#C5A46D] fill-[#C5A46D]" />
-              <span className="text-[10px] font-sans tracking-[0.22em] uppercase text-[#C5A46D] font-bold block">
-                HAVELOCK COLLECTION
-              </span>
+            {/* Duration Badge */}
+            <div className="absolute top-3.5 right-3.5 bg-[#073F3B]/90 backdrop-blur-md text-[#F8F6EF] text-xs font-sans font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full border border-[#C5A46D]/60 shadow-md group-hover:border-[#C5A46D] group-hover:bg-[#073F3B] transition-all">
+              {pkg.duration} {pkg.nightSplit}
             </div>
 
-            {/* Package Card Title (Cormorant Garamond 500 weight, deep teal #073F3B) */}
-            <h3 className="font-serif text-[24px] sm:text-[27px] font-medium text-[#073F3B] leading-[1.2] tracking-tight group-hover:text-[#C5A46D] transition-colors mb-3 text-balance">
-              {pkg.name}
-            </h3>
+            {/* Island Route Tag on Image */}
+            <div className="absolute bottom-3 left-4 right-4 text-white flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-[#C5A46D] shrink-0" />
+              <span className="font-sans text-xs sm:text-sm font-semibold text-[#E8DCC5] truncate drop-shadow-sm">
+                {pkg.route}
+              </span>
+            </div>
+          </div>
 
-            {/* Short Description (Manrope 400 weight) */}
-            <p className="font-sans font-normal text-xs sm:text-sm text-[#4E5C58] leading-relaxed line-clamp-2 mb-4">
-              {pkg.shortDescription}
-            </p>
-
-            {/* Minimal Inclusion Text Line */}
-            {pkg.inclusions && pkg.inclusions[0] && (
-              <div className="flex items-center gap-2 text-xs font-sans text-[#073F3B] font-semibold border-t border-[#E8E0D2] pt-3.5 mb-2">
-                <div className="w-3.5 h-3.5 rounded-full bg-[#C5A46D]/20 flex items-center justify-center shrink-0">
-                  <Check className="w-2.5 h-2.5 text-[#073F3B]" />
+          {/* Card Body Content */}
+          <div className="p-5 sm:p-6 lg:p-4 flex-1 flex flex-col justify-between">
+            <div>
+              {/* Package Title Container */}
+              <div className="relative mb-3 lg:mb-2 p-2 -mx-2 rounded-2xl group-hover:bg-[#073F3B]/[0.04] group-hover:border group-hover:border-[#C5A46D]/30 transition-all duration-300">
+                <div className="flex items-center gap-1.5 text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 mb-1">
+                  <Sparkles className="w-3 h-3 text-[#C5A46D]" />
+                  <span>FEATURED ITINERARY</span>
                 </div>
-                <span className="truncate font-medium text-[#4E5C58]">{pkg.inclusions[0]}</span>
+
+                <h3 className="font-serif text-2xl lg:text-xl font-bold text-[#073F3B] leading-tight group-hover:text-[#C5A46D] transition-colors duration-300 relative inline-block">
+                  {pkg.name}
+                  {/* Highlight Underline Bar on Hover */}
+                  <span className="absolute left-0 -bottom-1 w-full h-[2.5px] bg-[#C5A46D] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                </h3>
               </div>
-            )}
+
+              {/* Short Description */}
+              <p className="font-sans text-sm sm:text-sm text-[#4E5C58] font-light leading-relaxed mb-4 lg:mb-2 line-clamp-3 lg:line-clamp-2">
+                {pkg.shortDescription}
+              </p>
+
+              {/* Key Highlights List */}
+              <div className="pt-3 lg:pt-2 border-t border-[#E8DCC5]/70 space-y-1.5 lg:space-y-1">
+                <span className="text-xs font-sans tracking-[0.2em] uppercase font-bold text-[#073F3B] block mb-2 lg:mb-1">
+                  KEY HIGHLIGHTS:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-[#073F3B]">
+                  {pkg.highlightsList.slice(0, 5).map((hl, hIdx) => (
+                    <div key={hIdx} className="flex items-center gap-1.5 min-w-0">
+                      <Check className="w-3.5 h-3.5 text-[#C5A46D] shrink-0" />
+                      <span className="text-[13px] sm:text-sm font-medium text-[#4E5C58] truncate">{hl}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Pricing & "EXPLORE PACKAGE →" Link Footer */}
-      <div className="p-6 pt-3 bg-[#F8F6EF]/40 border-t border-[#E8E0D2] flex items-center justify-between mt-auto">
-        <div>
-          <span className="text-[9px] font-sans uppercase tracking-[0.2em] text-[#66736F] font-bold block mb-0.5">
-            STARTING FROM
+        {/* CTA Footer Bar */}
+        <div className="p-3.5 sm:p-4 bg-white border-t border-[#E8DCC5]/70 flex items-center justify-between gap-2 mt-auto rounded-b-[calc(2.25rem-0.5rem)]">
+          <span className="text-xs font-sans font-bold text-[#073F3B] uppercase tracking-wider group-hover:text-[#C5A46D] transition-colors shrink-0">
+            Curated Package
           </span>
-          <div className="flex items-baseline gap-1">
-            <span className="font-serif font-medium text-xl lg:text-2xl text-[#073F3B]">
-              {pkg.startingPrice}
-            </span>
-            <span className="text-[11px] font-sans text-[#66736F] font-normal">/ {pkg.priceBasis}</span>
-          </div>
-        </div>
 
-        <Link
-          href={`/packages/${pkg.slug}`}
-          className="inline-flex items-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-4 py-2.5 rounded-full text-[11px] font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group/link"
-        >
-          <span>EXPLORE</span>
-          <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover/link:text-[#073F3B] transition-transform group-hover/link:translate-x-1" />
-        </Link>
+          <Link
+            href={`/packages/${pkg.slug}`}
+            className="inline-flex items-center justify-between gap-1.5 sm:gap-2 bg-[#073F3B] group-hover:bg-[#C5A46D] text-white group-hover:text-[#073F3B] pl-3.5 sm:pl-4 pr-1.5 py-1.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group/btn shrink-0"
+          >
+            <span className="whitespace-nowrap">Explore Package</span>
+            <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white/10 group-hover/btn:bg-[#073F3B]/20 text-white group-hover/btn:text-[#073F3B] flex items-center justify-center transition-all shrink-0">
+              <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+            </div>
+          </Link>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

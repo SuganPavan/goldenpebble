@@ -116,10 +116,16 @@ export default function GalleryPage() {
               <motion.div
                 key={item.id}
                 layout
-                initial={{ opacity: 0, scale: 0.96, y: 12 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.96, y: 40 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.96, y: -12 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{
+                  duration: 0.5,
+                  delay: (idx % 3) * 0.08,
+                  ease: [0.215, 0.61, 0.355, 1]
+                }}
+                whileHover={{ y: -8, scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
                 onClick={() => handleOpenLightbox(idx)}
                 className="relative rounded-2xl overflow-hidden border-2 border-[#C5A46D]/40 shadow-xl group cursor-pointer h-[260px] sm:h-[290px]"
               >

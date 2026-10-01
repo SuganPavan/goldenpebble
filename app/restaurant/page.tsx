@@ -2,6 +2,7 @@ import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import EnquiryForm from "@/components/EnquiryForm";
 import BookingCTA from "@/components/BookingCTA";
+import FaqSection from "@/components/FaqSection";
 import { HOTEL_INFO } from "@/lib/data/hotel";
 import { constructMetadata } from "@/lib/seo";
 import { generateRestaurantSchema } from "@/lib/structuredData";
@@ -44,7 +45,7 @@ export default function RestaurantPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Restaurant Content */}
           <div className="lg:col-span-7 space-y-8">
             <div className="relative h-80 sm:h-96 w-full rounded-3xl overflow-hidden shadow-md">
@@ -132,12 +133,48 @@ export default function RestaurantPage() {
 
           {/* Right Column: Restaurant Enquiry */}
           <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-28">
+            <div className="sticky top-24 z-30 max-h-[calc(100vh-6.5rem)] overflow-y-auto pr-1">
               <EnquiryForm defaultEnquiryType="Restaurant enquiry" />
             </div>
           </div>
         </div>
       </div>
+
+      {/* Dining & Restaurant FAQs */}
+      <FaqSection
+        heading="Dining & Restaurant FAQs"
+        subtitle="Everything you need to know about our in-house dining, breakfast service, and meal arrangements."
+        questions={[
+          {
+            question: "Does Golden Pebble have an in-house restaurant?",
+            answer: "Yes, Golden Pebble has an in-house dining restaurant serving freshly prepared meals for guests."
+          },
+          {
+            question: "Is the restaurant air-conditioned?",
+            answer: "Yes, the restaurant is fully air-conditioned for comfortable dining."
+          },
+          {
+            question: "How many guests can the restaurant accommodate?",
+            answer: "The restaurant has a comfortable seating capacity of 30 guests."
+          },
+          {
+            question: "Is breakfast available for guests?",
+            answer: "Yes, daily breakfast is served every morning in our restaurant."
+          },
+          {
+            question: "Is breakfast complimentary?",
+            answer: "Yes, daily breakfast is complimentary for all in-house guests."
+          },
+          {
+            question: "What dining options are available?",
+            answer: "The restaurant serves freshly prepared meals, local Andaman delicacies, and popular multi-cuisine dishes. Meal supplements for Lunch or Dinner are also available."
+          },
+          {
+            question: "How can guests enquire about dining arrangements?",
+            answer: "Guests can enquire about dining policies or special meal requirements by submitting our restaurant enquiry form or contacting our reservations team."
+          }
+        ]}
+      />
 
       <BookingCTA />
     </div>

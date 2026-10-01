@@ -6,11 +6,11 @@ import { HOTEL_INFO } from "@/lib/data/hotel";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#063F3C] text-[#F8F6EF] pt-16 pb-8 border-t border-[#073D37]">
+    <footer className="bg-[#063F3C] text-[#F8F6EF] pt-12 sm:pt-16 pb-8 border-t border-[#073D37]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-[#073D37]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-10 sm:pb-12 border-b border-[#073D37]">
           {/* Col 1: Brand Info */}
-          <div className="space-y-4">
+          <div className="space-y-3.5">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="w-10 h-10 rounded-full bg-[#073D37] text-[#C9A66B] flex items-center justify-center border border-[#C9A66B]/30">
                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -27,12 +27,12 @@ export default function Footer() {
               </div>
             </Link>
 
-            <p className="text-xs text-[#F8F6EF]/70 font-light leading-relaxed">
-              A serene tropical boutique hotel in Havelock (Swaraj Deep), Andaman. Offering transparent pricing, comfortable rooms, fresh dining, and memorable island journeys.
+            <p className="text-xs sm:text-sm text-[#F8F6EF]/75 font-light leading-relaxed">
+              A serene tropical boutique hotel in Havelock (Swaraj Dweep), Andaman. Offering transparent pricing, comfortable rooms, fresh dining, and memorable island journeys.
             </p>
 
-            <div className="pt-2">
-              <span className="text-xs font-serif italic text-[#C9A66B] block mb-2">
+            <div className="pt-1">
+              <span className="text-xs sm:text-sm font-serif italic text-[#C9A66B] block">
                 &ldquo;Nature • Hospitality • Memorable Stays&rdquo;
               </span>
             </div>
@@ -40,48 +40,48 @@ export default function Footer() {
 
           {/* Col 2: Quick Links */}
           <div>
-            <h4 className="font-serif text-lg font-semibold text-[#C9A66B] mb-4 uppercase tracking-wider">
+            <h4 className="font-serif text-base sm:text-lg font-semibold text-[#C9A66B] mb-3 sm:mb-4 uppercase tracking-wider">
               Quick Links
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#F8F6EF]/80 font-light">
+            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-2.5 text-xs sm:text-sm text-[#F8F6EF]/85 font-light">
               <li>
-                <Link href="/" className="hover:text-[#E98268] transition-colors">Home</Link>
+                <Link href="/" className="hover:text-[#E98268] transition-colors py-1 block">Home</Link>
               </li>
               <li>
-                <Link href="/about" className="hover:text-[#E98268] transition-colors">About Us</Link>
+                <Link href="/about" className="hover:text-[#E98268] transition-colors py-1 block">About Us</Link>
               </li>
               <li>
-                <Link href="/rooms" className="hover:text-[#E98268] transition-colors">Accommodations</Link>
+                <Link href="/rooms" className="hover:text-[#E98268] transition-colors py-1 block">Accommodations</Link>
               </li>
               <li>
-                <Link href="/packages" className="hover:text-[#E98268] transition-colors">Curated Packages</Link>
+                <Link href="/packages" className="hover:text-[#E98268] transition-colors py-1 block">Curated Packages</Link>
               </li>
               <li>
-                <Link href="/restaurant" className="hover:text-[#E98268] transition-colors">Dining & Restaurant</Link>
+                <Link href="/restaurant" className="hover:text-[#E98268] transition-colors py-1 block">Dining & Restaurant</Link>
               </li>
               <li>
-                <Link href="/activities" className="hover:text-[#E98268] transition-colors">Experiences & Activities</Link>
+                <Link href="/activities" className="hover:text-[#E98268] transition-colors py-1 block">Experiences & Activities</Link>
               </li>
               <li>
-                <Link href="/nearby-locations" className="hover:text-[#E98268] transition-colors">Nearby Attractions</Link>
+                <Link href="/nearby-locations" className="hover:text-[#E98268] transition-colors py-1 block">Nearby Attractions</Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-[#E98268] transition-colors">Contact Reservations</Link>
+                <Link href="/contact" className="hover:text-[#E98268] transition-colors py-1 block">Contact Reservations</Link>
               </li>
             </ul>
           </div>
 
           {/* Col 3: Contact Us */}
           <div>
-            <h4 className="font-serif text-lg font-semibold text-[#C9A66B] mb-4 uppercase tracking-wider">
+            <h4 className="font-serif text-base sm:text-lg font-semibold text-[#C9A66B] mb-3 sm:mb-4 uppercase tracking-wider">
               Contact Us
             </h4>
-            <ul className="space-y-3 text-xs text-[#F8F6EF]/80 font-light">
+            <ul className="space-y-3 text-xs sm:text-sm text-[#F8F6EF]/85 font-light">
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-[#C9A66B] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-medium text-white block">{HOTEL_INFO.contact.person}</span>
-                  <a href={`tel:${HOTEL_INFO.contact.phone.replace(/\s+/g, "")}`} className="hover:text-[#E98268]">
+                  <a href={`tel:${HOTEL_INFO.contact.phone.replace(/\s+/g, "")}`} className="hover:text-[#E98268] text-white">
                     {HOTEL_INFO.contact.displayPhone}
                   </a>
                 </div>
@@ -105,22 +105,22 @@ export default function Footer() {
 
           {/* Col 4: Stay Connected & Newsletter */}
           <div>
-            <h4 className="font-serif text-lg font-[#C9A66B] font-semibold mb-4 uppercase tracking-wider">
+            <h4 className="font-serif text-base sm:text-lg font-[#C9A66B] font-semibold text-[#C9A66B] mb-3 sm:mb-4 uppercase tracking-wider">
               Stay Connected
             </h4>
-            <p className="text-xs text-[#F8F6EF]/70 mb-4 font-light">
+            <p className="text-xs sm:text-sm text-[#F8F6EF]/75 mb-4 font-light">
               Receive special island offers, tariff updates, and travel tips for Havelock Island.
             </p>
 
-            <form onSubmit={(e) => e.preventDefault()} className="flex items-center mb-6">
+            <form onSubmit={(e) => e.preventDefault()} className="flex items-center mb-5">
               <input
                 type="email"
                 placeholder="Your email address"
-                className="w-full px-3 py-2 bg-[#073D37] text-white text-xs border border-[#C9A66B]/30 rounded-l-lg focus:outline-none focus:border-[#C9A66B]"
+                className="w-full h-11 px-3 py-2 bg-[#073D37] text-white text-xs sm:text-sm border border-[#C9A66B]/30 rounded-l-lg focus:outline-none focus:border-[#C9A66B]"
               />
               <button
                 type="submit"
-                className="bg-[#E98268] hover:bg-[#d67056] text-white px-3 py-2 rounded-r-lg text-xs font-semibold uppercase transition-colors"
+                className="bg-[#E98268] hover:bg-[#d67056] text-white h-11 px-4 rounded-r-lg text-xs font-semibold uppercase transition-colors shrink-0 flex items-center justify-center"
                 title="Subscribe"
               >
                 <ArrowRight className="w-4 h-4" />
@@ -128,18 +128,18 @@ export default function Footer() {
             </form>
 
             <div className="flex items-center gap-3 text-[#C9A66B]">
-              <a href="#" className="p-2 rounded-full bg-[#073D37] hover:text-white transition-colors" aria-label="Social Media">
-                <Share2 className="w-4 h-4" />
+              <a href="#" className="p-2.5 rounded-full bg-[#073D37] hover:text-white transition-colors" aria-label="Social Media">
+                <Share2 className="w-4.5 h-4.5" />
               </a>
-              <a href={HOTEL_INFO.contact.website} className="p-2 rounded-full bg-[#073D37] hover:text-white transition-colors" aria-label="Official Website">
-                <Globe className="w-4 h-4" />
+              <a href={HOTEL_INFO.contact.website} className="p-2.5 rounded-full bg-[#073D37] hover:text-white transition-colors" aria-label="Official Website">
+                <Globe className="w-4.5 h-4.5" />
               </a>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#F8F6EF]/60 font-light gap-4">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-xs md:text-sm text-[#F8F6EF]/70 font-light gap-3 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Hotel Golden Pebble, Havelock. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">

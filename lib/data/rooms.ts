@@ -37,25 +37,27 @@ export const ROOMS: Room[] = [
     maxOccupancy: "3 Adults + 1 Child (<12 yrs)",
     bedType: "King Bed or Twin Beds",
     view: "Tropical Garden View",
-    image: "/images/rooms/golden-pebble-room-1.jpg",
+    image: "/images/rooms/golden-pebble-deluxe-room-main.jpg",
     gallery: [
-      "/images/rooms/golden-pebble-room-1.jpg",
-      "/images/rooms/golden-pebble-room-2.jpg",
-      "/images/rooms/golden-pebble-room-3.jpg"
+      "/images/rooms/golden-pebble-deluxe-room-main.jpg",
+      "/images/rooms/golden-pebble-deluxe-room-swan.jpg",
+      "/images/rooms/golden-pebble-deluxe-room-chairs.jpg",
+      "/images/rooms/golden-pebble-deluxe-room-side.jpg",
+      "/images/rooms/golden-pebble-deluxe-room-bathroom.jpg"
     ],
     description: "The Deluxe Room at Hotel Golden Pebble offers a perfectly balanced 220 sq. ft. sanctuary designed for peace and relaxation after a day exploring Havelock Island's world-famous beaches. Featuring warm wooden wall textures, soft mood lighting, premium bedding, split air-conditioning, and modern ensuite bathroom fittings, it is ideal for couples, friends, and small families.",
     shortDescription: "Spacious 220 sq ft room featuring warm timber acoustics, air conditioning, and plush bedding.",
     seasonRate: {
-      rackRate: "₹5,499 + 5% taxes",
-      netPayable: "₹3,600",
+      rackRate: "₹5,774",
+      netPayable: "₹5,774",
       validity: "Valid from 01st Nov 2026 to 31st Mar 2027 (Excl. 15 Dec – 10 Jan)",
-      inclusions: "Included Breakfast & Inclusive Tax"
+      inclusions: "Rack Rate • 5% GST included"
     },
     peakSeasonRate: {
-      rackRate: "₹5,499 + 5% taxes",
-      netPayable: "₹4,600",
+      rackRate: "₹5,774",
+      netPayable: "₹5,774",
       validity: "Valid from 15th Dec 2026 to 10th Jan 2027",
-      inclusions: "Included Breakfast & Inclusive Tax"
+      inclusions: "Rack Rate • 5% GST included"
     },
     amenities: [
       "Split Air Conditioning",
@@ -85,25 +87,27 @@ export const ROOMS: Room[] = [
     maxOccupancy: "3 Adults + 1 Child (<12 yrs)",
     bedType: "King Size Bed",
     view: "Garden & Canopy View",
-    image: "/images/rooms/golden-pebble-room-4.jpg",
+    image: "/images/rooms/golden-pebble-balcony-room-main.jpg",
     gallery: [
-      "/images/rooms/golden-pebble-room-4.jpg",
-      "/images/rooms/golden-pebble-room-5.jpg",
-      "/images/rooms/golden-pebble-room-1.jpg"
+      "/images/rooms/golden-pebble-balcony-room-main.jpg",
+      "/images/rooms/golden-pebble-balcony-seating.jpg",
+      "/images/rooms/golden-pebble-balcony-corridor.jpg",
+      "/images/rooms/golden-pebble-balcony-room-interior.jpg",
+      "/images/rooms/golden-pebble-balcony-bathroom.jpg"
     ],
     description: "Experience 280 sq. ft. of refined tropical comfort in our Deluxe Room with Balcony. Step out onto your private balcony to enjoy the fresh island morning air and vibrant green natural surroundings. Outfitted with rich timber cladding, generous seating, a King size plush mattress, and premium bath amenities, this room offers enhanced space for travelers seeking extra room to unwind.",
     shortDescription: "Expansive 280 sq ft sanctuary featuring a private balcony overlooking lush tropical greenery.",
     seasonRate: {
-      rackRate: "₹6,499 + 5% taxes",
-      netPayable: "₹4,200",
+      rackRate: "₹6,824",
+      netPayable: "₹6,824",
       validity: "Valid from 01st Nov 2026 to 31st Mar 2027 (Excl. 15 Dec – 10 Jan)",
-      inclusions: "Included Breakfast & Inclusive Tax"
+      inclusions: "Rack Rate • 5% GST included"
     },
     peakSeasonRate: {
-      rackRate: "₹6,499 + 5% taxes",
-      netPayable: "₹4,600 - ₹5,200",
-      validity: "Valid from 15th Dec 2026 to 10th Jan 2027 (Net ₹5,200)",
-      inclusions: "Included Breakfast & Inclusive Tax"
+      rackRate: "₹6,824",
+      netPayable: "₹6,824",
+      validity: "Valid from 15th Dec 2026 to 10th Jan 2027",
+      inclusions: "Rack Rate • 5% GST included"
     },
     amenities: [
       "Private Balcony with Seating",

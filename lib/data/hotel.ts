@@ -32,8 +32,8 @@ export const HOTEL_INFO = {
   name: "Hotel Golden Pebble",
   tagline: "A Stay Closer to Paradise",
   subTagline: "Comfort. Nature. Hospitality.",
-  address: "Havelock Island (Swaraj Deep), Andaman & Nicobar Islands, India - 744211",
-  locationName: "Havelock (Swaraj Deep), Andaman & Nicobar Islands",
+  address: "Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands, India - 744211",
+  locationName: "Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands",
   contact: {
     person: "Soni | Reservations",
     phone: "+91 9434288856",
@@ -70,9 +70,10 @@ export const HOTEL_INFO = {
     }
   ],
   dining: {
-    title: "Fresh Flavours. Island Soul.",
-    subtitle: "Good Food • Great Company • Brighter Days",
-    description: "Enjoy freshly prepared meals, local Andaman delicacies, and international cuisine in our comfortable air-conditioned restaurant environment.",
+    title: "Restaurant",
+    subtitle: "GOOD FOOD • GREAT COMPANY",
+    tagline: "Good Food, Brighter Days",
+    description: "Enjoy freshly prepared meals and exclusive breakfast service in our fully air-conditioned 30-seat dining environment with comfortable ambience and attentive service.",
     capacity: "30 Guests",
     features: [
       "Fully Air-Conditioned Restaurant",
@@ -88,19 +89,19 @@ export const HOTEL_INFO = {
     rates: [
       {
         mealType: "Lunch or Dinner",
-        price: "₹750",
-        details: "Per person, per meal, plus taxes"
+        price: "₹750 per person, per meal, plus taxes",
+        details: "Single meal supplement"
       },
       {
         mealType: "Lunch & Dinner",
-        price: "₹1,500",
-        details: "Per person, per day, plus taxes"
+        price: "₹1,500 per person, per day, plus taxes",
+        details: "Full day meal supplement"
       }
     ],
     notes: [
-      "Served only at designated restaurant/dining area.",
+      "Served only at the designated restaurant/dining area.",
       "Non-transferable and cannot be adjusted against other services.",
-      "In case of low occupancy, a fixed menu (TDH) may be offered."
+      "In case of low occupancy, a fixed menu may be offered."
     ]
   } as MealPolicy,
   specialAddons: [

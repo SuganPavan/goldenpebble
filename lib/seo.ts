@@ -31,7 +31,7 @@ export function constructMetadata({
 }: PageSeoProps): Metadata {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || HOTEL_INFO.contact.website;
   const fullUrl = `${baseUrl}${path}`;
-  const fullTitle = `${title} | ${HOTEL_INFO.name}, Havelock Island`;
+  const fullTitle = title.includes("Golden Pebble") ? title : `${title} | ${HOTEL_INFO.name}, Havelock Island`;
 
   return {
     title: fullTitle,

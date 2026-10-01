@@ -171,3 +171,12 @@
   animation-play-state: paused;
 }
 
+/* Explicit Video Centering Rule for 1034x1376 Tablet Resolution */
+@media (min-width: 1000px) and (max-width: 1180px) {
+  video {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-self: center !important;
+  }
+}
+

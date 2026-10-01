@@ -1,15 +1,22 @@
 import { z } from "zod";
 
 export const EnquiryFormSchema = z.object({
-  fullName: z.string().min(2, "Full name must be at least 2 characters"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  fullName: z.string(),
   email: z.string().email("Please enter a valid email address"),
-  phone: z.string().min(10, "Please enter a valid phone number with country code"),
+  phone: z.string().min(10, "Please enter a valid mobile/WhatsApp number"),
   checkIn: z.string().min(1, "Please select check-in date"),
   checkOut: z.string().min(1, "Please select check-out date"),
   adults: z.string().min(1, "Please select number of adults"),
-  children: z.string().min(1, "Please select number of children"),
-  roomCategory: z.string().min(1, "Please select room category preference"),
-  selectedPackage: z.string().min(1, "Please select package preference"),
+  children0to5: z.string(),
+  children6to11: z.string(),
+  children12plus: z.string(),
+  children: z.string(),
+  roomCategory: z.string().min(1, "Please select room category"),
+  numberOfRooms: z.string().min(1, "Please select number of rooms required"),
+  mealPlan: z.string().min(1, "Please select meal plan"),
+  selectedPackage: z.string(),
   enquiryType: z.enum([
     "Room booking",
     "Package enquiry",

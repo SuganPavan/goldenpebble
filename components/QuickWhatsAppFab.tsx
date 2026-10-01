@@ -9,7 +9,7 @@ export default function QuickWhatsAppFab() {
       href={HOTEL_INFO.contact.whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group animate-bounce-slow"
+      className="fixed bottom-20 right-4 sm:bottom-6 sm:right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center gap-2 group animate-bounce-slow"
       title="Chat on WhatsApp with Hotel Reservations"
       aria-label="Contact Hotel Reservations on WhatsApp"
     >

@@ -2,16 +2,31 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight, Clock, ShieldCheck } from "lucide-react";
 import { Activity } from "@/lib/data/activities";
 
 interface ActivityCardProps {
   activity: Activity;
+  index?: number;
 }
 
-export default function ActivityCard({ activity }: ActivityCardProps) {
+export default function ActivityCard({ activity, index = 0 }: ActivityCardProps) {
+  const staggerDelay = (index % 4) * 0.08;
+
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden border border-[#E8DCC5]/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+    <motion.div
+      initial={{ opacity: 0, y: 40, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.55,
+        delay: staggerDelay,
+        ease: [0.215, 0.61, 0.355, 1]
+      }}
+      whileHover={{ y: -8, transition: { duration: 0.25, ease: "easeOut" } }}
+      className="group bg-white rounded-2xl overflow-hidden border border-[#E8DCC5]/60 shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between h-full"
+    >
       <div>
         <div className="relative h-48 w-full overflow-hidden">
           <Image
@@ -56,6 +71,6 @@ export default function ActivityCard({ activity }: ActivityCardProps) {
           <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

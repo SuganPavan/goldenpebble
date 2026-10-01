@@ -60,17 +60,14 @@ export default function RoomCard({ room }: RoomCardProps) {
       {/* Pricing & Footer Actions */}
       <div className="p-6 pt-0 bg-white flex items-center justify-between border-t border-[#E8DCC5]/30">
         <div>
-          <span className="text-[10px] uppercase tracking-wider text-[#1C2A28]/60 block font-sans">
-            Net Season Rate
-          </span>
           <div className="flex items-baseline gap-1">
-            <span className="font-serif font-bold text-2xl text-[#063F3C]">
-              From {room.seasonRate.netPayable}
+            <span className="font-serif font-bold text-xl sm:text-2xl text-[#063F3C]">
+              {room.seasonRate.rackRate}
             </span>
-            <span className="text-xs text-[#1C2A28]/70">/ night</span>
+            <span className="text-xs text-[#1C2A28]/70">/ Night</span>
           </div>
-          <span className="text-[10px] text-[#063F3C]/70 block font-light">
-            Incl. Breakfast & Taxes
+          <span className="text-[10px] uppercase tracking-wider text-[#1C2A28]/70 block font-sans font-medium mt-0.5">
+            Rack Rate • 5% GST included
           </span>
         </div>
 
