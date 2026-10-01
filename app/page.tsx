@@ -8,8 +8,8 @@ import { ArrowRight, Utensils, Coffee, Award, Sparkles } from "lucide-react";
 import { constructMetadata } from "@/lib/seo";
 
 export const metadata = constructMetadata({
-  title: "Hotel Golden Pebble | Premium Boutique Hotel in Havelock Island",
-  description: "Official website for Hotel Golden Pebble, Havelock (Swaraj Dweep), Andaman. Featuring Deluxe Rooms from ₹5,774/night (incl. GST), air-conditioned dining, curated holiday packages, and verified guest hospitality."
+  title: "Hotel Golden Pebble | Hotel in Havelock Island (Swaraj Dweep)",
+  description: "Official site of Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep). Deluxe rooms, AC dining, and easy access to beaches. Book your stay."
 });
 
 import AboutSection from "@/components/AboutSection";
@@ -22,8 +22,125 @@ import GalleryMomentsSection from "@/components/GalleryMomentsSection";
 import FaqSection from "@/components/FaqSection";
 
 export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Hotel", "LodgingBusiness", "LocalBusiness"],
+        "@id": "https://goldenpebble.co.in/#hotel",
+        "name": "Hotel Golden Pebble",
+        "alternateName": ["Golden Pebble Havelock", "Hotel Golden Pebble Swaraj Dweep"],
+        "description": "Hotel Golden Pebble is a boutique hotel located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands, offering Deluxe Rooms, AC dining, and island travel assistance.",
+        "url": "https://goldenpebble.co.in/",
+        "telephone": "+919434288856",
+        "email": "booking@goldenpebble.co.in",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Govind Nagar",
+          "addressLocality": "Havelock Island (Swaraj Dweep)",
+          "addressRegion": "Andaman and Nicobar Islands",
+          "postalCode": "744211",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "11.9866",
+          "longitude": "92.9806"
+        },
+        "image": "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg",
+        "priceRange": "₹5774 - ₹7000",
+        "checkinTime": "10:00",
+        "checkoutTime": "08:30",
+        "amenityFeature": [
+          { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "In-House Restaurant", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "24x7 Power Backup", "value": true },
+          { "@type": "LocationFeatureSpecification", "name": "Complimentary Breakfast", "value": true }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://goldenpebble.co.in/#website",
+        "url": "https://goldenpebble.co.in/",
+        "name": "Hotel Golden Pebble",
+        "description": "Official website for Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep)."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://goldenpebble.co.in/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://goldenpebble.co.in/"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://goldenpebble.co.in/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Hotel Golden Pebble?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hotel Golden Pebble is a boutique hotel located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands, India. It offers air-conditioned Deluxe Rooms, an in-house restaurant, and island travel assistance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where is Hotel Golden Pebble located?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hotel Golden Pebble is located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands, PIN 744211, India. It is positioned near Govind Nagar Beach and the main Havelock ferry jetty."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Hotel Golden Pebble a beachfront property?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Hotel Golden Pebble is located in Govind Nagar, Havelock Island, and is NOT a beachfront property. Guests use the hotel as a convenient base for exploring nearby beaches like Govind Nagar Beach, Radhanagar Beach, Elephant Beach, and Kalopathar Beach."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Havelock Island the same as Swaraj Dweep?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Havelock Island was officially renamed Swaraj Dweep by the Government of India in 2018. Both names refer to the same island in the Andaman and Nicobar Islands."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What room types are available at Hotel Golden Pebble?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The hotel features two room categories: Deluxe Rooms (220 sq ft) and Deluxe Rooms with Balcony (280 sq ft). Both include split air conditioning, private ensuite bathrooms with hot/cold water, and 24x7 generator backup."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What dining options are available at Hotel Golden Pebble?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hotel Golden Pebble has a 30-guest air-conditioned in-house restaurant serving fresh seafood, Indian, and continental meals. Daily breakfast is included for in-house guests."
+            }
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <div className="bg-[#F8F6EF] overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* 1. Hero Section */}
       <Hero />
 
@@ -60,7 +177,7 @@ export default function HomePage() {
               {/* Gold Eyebrow Pill */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-xs sm:text-xs font-sans font-bold tracking-[0.25em] uppercase mb-2 shadow-sm">
                 <Sparkles className="w-3.5 h-3.5 text-[#C5A46D]" />
-                <span>CURATED ISLAND ESCAPES</span>
+                <span>ISLAND ESCAPES</span>
               </div>
 
               {/* Expressive Headline */}
@@ -319,7 +436,7 @@ export default function HomePage() {
           },
           {
             question: "Does Hotel Golden Pebble Havelock have a swimming pool?",
-            answer: "Hotel Golden Pebble does not feature an on-site swimming pool, but is conveniently situated just a short walk from Govind Nagar Beach No. 3 and a short drive from Radhanagar Beach and Elephant Beach for ocean swimming."
+            answer: "Hotel Golden Pebble does not feature an on-site swimming pool. Guests can visit nearby beaches such as Govind Nagar Beach, Radhanagar Beach, and Elephant Beach for ocean swimming and water activities."
           },
           {
             question: "Does Hotel Golden Pebble Havelock offer Wi-Fi?",

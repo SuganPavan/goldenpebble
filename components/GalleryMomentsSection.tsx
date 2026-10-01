@@ -293,7 +293,7 @@ export default function GalleryMomentsSection() {
             {/* Eyebrow Gold Pill */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#073F3B]/5 border border-[#C5A46D]/40 text-[#073F3B] text-[11px] sm:text-xs font-sans font-bold tracking-[0.2em] uppercase mb-2 shadow-sm">
               <Hotel className="w-3.5 h-3.5 text-[#C5A46D]" />
-              <span>OFFICIAL HOTEL GALLERY • GOLDEN PEBBLE</span>
+              <span>HOTEL GALLERY</span>
             </div>
 
             {/* Headline */}
@@ -329,14 +329,13 @@ export default function GalleryMomentsSection() {
               href="/gallery"
               className="hidden sm:inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group shrink-0"
             >
-              <span>VIEW ALL ({HOTEL_GALLERY_ITEMS.length}) HOTEL PHOTOS</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#F8F6EF] transition-transform group-hover:translate-x-1" />
+              <span>VIEW FULL GALLERY →</span>
             </Link>
           </div>
         </motion.div>
 
-        {/* CATEGORY FILTER TABS STRIP */}
-        <div className="flex items-center justify-start lg:justify-center lg:flex-wrap gap-2 overflow-x-auto lg:overflow-visible pb-2 mb-4 no-scrollbar">
+        {/* CATEGORY FILTER TABS STRIP (Desktop Only) */}
+        <div className="hidden sm:flex items-center justify-start lg:justify-center lg:flex-wrap gap-2 overflow-x-auto lg:overflow-visible pb-2 mb-4 no-scrollbar">
           {[
             { id: "all", label: "ALL HOTEL PHOTOS" },
             { id: "rooms", label: "DELUXE ROOMS" },
@@ -376,14 +375,10 @@ export default function GalleryMomentsSection() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {previewItems.map((item, idx) => (
-              <motion.div
+              <div
                 key={item.id}
-                initial={{ opacity: 0, scale: 0.95, y: 25 }}
-                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.45, delay: idx * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => handleOpenLightbox(idx)}
-                className="w-[80vw] sm:w-[280px] shrink-0 snap-start flex flex-col cursor-pointer group"
+                className="w-full sm:w-[280px] shrink-0 snap-center flex flex-col cursor-pointer group"
               >
                 <div className="bg-white rounded-2xl border border-[#C5A46D]/60 p-3 shadow-md group-hover:border-[#C5A46D] transition-all flex flex-col justify-between h-full">
                   <div className="relative h-56 w-full rounded-xl overflow-hidden border border-[#E8E0D2] shadow-sm mb-3">
@@ -411,7 +406,7 @@ export default function GalleryMomentsSection() {
                     </h3>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -479,14 +474,13 @@ export default function GalleryMomentsSection() {
           </AnimatePresence>
         </div>
 
-        {/* BOTTOM REDIRECT CTA TO FULL GALLERY PAGE (PROMINENT FULL-WIDTH ON MOBILE) */}
+        {/* BOTTOM REDIRECT CTA TO FULL GALLERY PAGE */}
         <div className="mt-6 flex justify-center w-full">
           <Link
             href="/gallery"
             className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-6 min-h-[48px] py-3.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group w-full sm:w-auto max-w-md text-center"
           >
-            <span>VIEW COMPLETE HOTEL GALLERY ({HOTEL_GALLERY_ITEMS.length} PHOTOS)</span>
-            <ArrowRight className="w-4 h-4 text-[#C5A46D] group-hover:text-[#073F3B] group-hover:translate-x-1 transition-transform" />
+            <span>VIEW FULL GALLERY →</span>
           </Link>
         </div>
 

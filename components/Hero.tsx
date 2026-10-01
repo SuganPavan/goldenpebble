@@ -88,7 +88,7 @@ export default function Hero() {
         {/* Instant Priority Background Image — Eliminates empty/black screen flash on initial load */}
         <Image
           src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838816/golden-pebble/images/golden-pebble-property.jpg"
-          alt="Golden Pebble Havelock Luxury Resort"
+          alt="Hotel Golden Pebble building entrance and garden walkway in Govind Nagar, Havelock Island"
           fill
           priority
           sizes="100vw"
@@ -148,11 +148,11 @@ export default function Hero() {
           >
             <Sparkles className="w-3.5 h-3.5 text-[#C9A66B] animate-pulse" />
             <span className="text-xs sm:text-sm font-sans tracking-[0.25em] uppercase text-[#E8DCC5] font-bold drop-shadow-md">
-              HAVELOCK ISLAND • SWARAJ DWEEP
+              GOVIND NAGAR • HAVELOCK ISLAND (SWARAJ DWEEP)
             </span>
           </motion.div>
 
-          {/* 2. Main Headline with Live Typing Accent */}
+          {/* 2. Main Headline with Live Typing Accent (Single Page H1) */}
           <motion.h1
             initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
@@ -164,7 +164,12 @@ export default function Hero() {
             {/* 3. Dynamic Typewriter Accent Text */}
             <span className="font-script text-2xl sm:text-3xl md:text-3xl lg:text-[34px] xl:text-[38px] font-normal text-[#E8DCC5] block mt-1.5 sm:mt-2 tracking-wide drop-shadow-md min-h-[1.4em]">
               <TypewriterText
-                phrases={heroPhrases}
+                phrases={[
+                  "Your island, your own pace.",
+                  "Deluxe Rooms in Govind Nagar, Havelock.",
+                  "Convenient access to beaches & attractions.",
+                  "Serene boutique stay in Swaraj Dweep."
+                ]}
                 typingSpeed={65}
                 deletingSpeed={35}
                 pauseDuration={2500}
@@ -180,7 +185,7 @@ export default function Hero() {
             transition={{ duration: 0.3 }}
             className="text-base sm:text-base lg:text-lg text-white/95 font-light leading-relaxed mb-6 sm:mb-7 max-w-xl drop-shadow-md"
           >
-            Wake up to pristine beaches, tranquil tropical greenery, and heartfelt boutique hospitality at Hotel Golden Pebble, Havelock (Swaraj Dweep).
+            Hotel Golden Pebble is a boutique hotel in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands. Positioned with easy access to the island's beaches, water adventures, and local attractions.
           </motion.p>
 
           {/* 5. Interactive Pro Live Search / Highlight Bar */}
@@ -241,7 +246,7 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-1.5 text-xs sm:text-sm text-white/80 hover:text-[#C9A66B] transition-colors py-2 font-medium underline-offset-4 hover:underline self-center sm:self-auto"
             >
               <MapPin className="w-3.5 h-3.5 text-[#C9A66B] shrink-0" />
-              <span>Govind Nagar Beach (2 Min)</span>
+              <span>Govind Nagar, Havelock Island</span>
             </a>
           </motion.div>
         </div>

@@ -249,17 +249,11 @@ export default function UnforgettableActivitiesSection() {
           className="flex items-end justify-between mb-3 sm:mb-4 gap-3"
         >
           <div className="max-w-2xl">
-            {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 border border-white/40 text-white text-xs sm:text-sm md:text-xs lg:text-xs font-sans font-bold tracking-[0.25em] uppercase mb-2 shadow-lg backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#E8DCC5]" />
-              <span>OFFICIAL HOTEL GOLDEN PEBBLE GUEST EXPERIENCES</span>
-            </div>
-
             {/* Editorial Headline */}
             <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-normal leading-[1.12] text-white drop-shadow-md">
-              Unforgettable{" "}
+              Havelock{" "}
               <span className="font-script text-2xl sm:text-5xl lg:text-6xl text-[#E8DCC5] font-normal italic inline tracking-wide drop-shadow-sm">
-                Water Adventures
+                Island Experiences
               </span>
             </h2>
           </div>
@@ -287,8 +281,7 @@ export default function UnforgettableActivitiesSection() {
               href="/activities"
               className="hidden lg:inline-flex items-center justify-center gap-2 bg-[#F8F6EF] hover:bg-[#C5A46D] text-[#073F3B] hover:text-white px-6 py-3 rounded-full text-xs sm:text-sm font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xl hover:shadow-2xl group shrink-0 border border-white/30 h-11"
             >
-              <span>EXPLORE ALL ACTIVITIES</span>
-              <ArrowRight className="w-4 h-4 text-[#073F3B] group-hover:text-white group-hover:translate-x-1 transition-transform shrink-0" />
+              <span>EXPLORE ALL EXPERIENCES →</span>
             </Link>
           </div>
         </motion.div>
@@ -306,13 +299,9 @@ export default function UnforgettableActivitiesSection() {
               );
 
               return (
-                <motion.div
+                <div
                   key={act.id}
-                  initial={{ opacity: 0, scale: 0.95, y: 25 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-30px" }}
-                  transition={{ duration: 0.45, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                  className="w-[85vw] sm:w-[320px] shrink-0 snap-start flex flex-col"
+                  className="w-full sm:w-[320px] shrink-0 snap-center flex flex-col"
                 >
                   <div className="bg-[#073F3B]/95 backdrop-blur-2xl rounded-2xl border-2 border-[#C5A46D]/60 p-4 shadow-xl text-white flex flex-col justify-between h-full group hover:border-[#C5A46D] transition-all">
                     {/* Media Screen */}
@@ -391,7 +380,7 @@ export default function UnforgettableActivitiesSection() {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -609,15 +598,14 @@ export default function UnforgettableActivitiesSection() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] px-6 min-h-[48px] py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group text-center"
                   >
-                    <span>Book {activeActivity.name}</span>
-                    <ArrowRight className="w-4 h-4 text-[#073F3B] group-hover:translate-x-1 transition-transform" />
+                    <span>ENQUIRE ABOUT {activeActivity.name.toUpperCase()} →</span>
                   </a>
 
                   <Link
-                    href="/contact"
+                    href="/activities"
                     className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white px-5 min-h-[48px] py-3 rounded-full text-xs font-sans font-semibold uppercase tracking-wider transition-all border border-white/20 text-center"
                   >
-                    <span>Hotel Concierge Inquiry</span>
+                    <span>EXPLORE ALL EXPERIENCES →</span>
                   </Link>
                 </motion.div>
               </div>
@@ -631,8 +619,7 @@ export default function UnforgettableActivitiesSection() {
             href="/activities"
             className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] font-bold text-xs uppercase tracking-wider px-6 min-h-[48px] py-3 rounded-full shadow-lg transition-all duration-300 w-full max-w-sm text-center"
           >
-            <span>EXPLORE ALL 10 WATER ACTIVITIES</span>
-            <ArrowRight className="w-4 h-4 text-[#073F3B]" />
+            <span>EXPLORE ALL EXPERIENCES →</span>
           </Link>
         </div>
       </div>

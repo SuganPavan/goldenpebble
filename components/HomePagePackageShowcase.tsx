@@ -27,8 +27,8 @@ export default function HomePagePackageShowcase() {
 
   return (
     <div className="relative space-y-2">
-      {/* Scroll Controls Header */}
-      <div className="flex items-center justify-end gap-2 mb-2">
+      {/* Scroll Controls Header (Desktop Only) */}
+      <div className="hidden sm:flex items-center justify-end gap-2 mb-2">
         <div className="flex items-center gap-2">
           <button
             onClick={() => scroll("left")}
@@ -47,42 +47,26 @@ export default function HomePagePackageShowcase() {
         </div>
       </div>
 
-      {/* Single Horizontal Row of Animated Package Cards */}
+      {/* Single Horizontal Row of Animated Package Cards (Desktop Only for Cards, Mobile Shows Tile Only) */}
       <div
         ref={scrollContainerRef}
-        className="flex flex-nowrap overflow-x-auto scrollbar-none scroll-smooth snap-x snap-mandatory gap-4 sm:gap-5 lg:gap-6 pb-6 lg:pb-3 pt-3 sm:pt-4 lg:pt-3 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
+        className="flex flex-nowrap overflow-x-auto scrollbar-none scroll-smooth snap-x snap-mandatory gap-4 sm:gap-5 lg:gap-6 pb-2 sm:pb-6 lg:pb-3 pt-2 sm:pt-4 lg:pt-3 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
-        {/* Package Cards Smooth Staggered Entrance Animation */}
-        {PACKAGES.map((pkg, index) => (
-          <motion.div
+        {/* Render 3 featured packages on Desktop view only */}
+        {PACKAGES.slice(0, 3).map((pkg, index) => (
+          <div
             key={pkg.id}
-            initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 35, scale: shouldReduceMotion ? 1 : 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{
-              duration: 0.55,
-              delay: shouldReduceMotion ? 0 : index * 0.12,
-              ease: [0.16, 1, 0.3, 1]
-            }}
-            className="w-[85vw] sm:w-[300px] md:w-[320px] lg:w-[350px] max-w-[360px] shrink-0 snap-start flex flex-col"
+            className="hidden sm:flex w-[300px] md:w-[320px] lg:w-[350px] max-w-[360px] shrink-0 snap-start flex-col"
           >
             <PackageCard pkg={pkg} index={index} />
-          </motion.div>
+          </div>
         ))}
 
         {/* View All Packages Card Tile */}
-        <motion.div
+        <div
           key="view-all-tile"
-          initial={{ opacity: shouldReduceMotion ? 1 : 0, y: shouldReduceMotion ? 0 : 35, scale: shouldReduceMotion ? 1 : 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true, margin: "-30px" }}
-          transition={{
-            duration: 0.55,
-            delay: shouldReduceMotion ? 0 : PACKAGES.length * 0.12,
-            ease: [0.16, 1, 0.3, 1]
-          }}
-          className="w-[85vw] sm:w-[300px] md:w-[320px] lg:w-[350px] max-w-[360px] shrink-0 snap-start flex flex-col"
+          className="w-full sm:w-[300px] md:w-[320px] lg:w-[350px] max-w-full sm:max-w-[360px] shrink-0 snap-start flex flex-col"
         >
           <div className="group p-2 rounded-[2.25rem] bg-[#073F3B] border-2 border-[#C5A46D]/60 shadow-xl hover:shadow-2xl hover:border-[#C5A46D] hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between h-full relative overflow-hidden text-white">
             <div className="absolute inset-0 bg-gradient-to-br from-[#0A524D] via-[#073F3B] to-black/80 pointer-events-none" />
@@ -135,18 +119,7 @@ export default function HomePagePackageShowcase() {
               </div>
             </div>
           </div>
-        </motion.div>
-      </div>
-
-      {/* PROMINENT MOBILE-ONLY CENTERED BOTTOM CTA BUTTON */}
-      <div className="mt-4 flex sm:hidden justify-center w-full">
-        <Link
-          href="/packages"
-          className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] font-bold text-xs uppercase tracking-wider px-6 min-h-[48px] py-3 rounded-full shadow-lg transition-all duration-300 w-full max-w-sm text-center"
-        >
-          <span>EXPLORE ALL TOUR PACKAGES</span>
-          <ArrowRight className="w-4 h-4 text-[#C5A46D]" />
-        </Link>
+        </div>
       </div>
     </div>
   );

@@ -13,7 +13,7 @@ export default function AnimatedWaveDivider({
 }: AnimatedWaveProps) {
   return (
     <div
-      className={`relative w-full overflow-hidden leading-none z-10 -mb-1 ${className}`}
+      className={`hidden sm:block relative w-full overflow-hidden leading-none z-10 -mb-1 ${className}`}
       style={{ backgroundColor: topBgColor }}
     >
       {/* Multi-layered Animated SVG Waves matching section theme */}

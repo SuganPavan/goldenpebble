@@ -126,6 +126,14 @@
   will-change: transform;
 }
 
+@media (max-width: 639px) {
+  .wave-animate-slow,
+  .wave-animate-medium,
+  .wave-animate-fast {
+    animation: none !important;
+  }
+}
+
 /* 10-Second Slow Cinematic Still Image Motion */
 @keyframes subtleKenBurns {
   0% {

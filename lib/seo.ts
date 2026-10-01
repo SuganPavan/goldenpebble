@@ -29,8 +29,9 @@ export function constructMetadata({
   image = "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838800/golden-pebble/og-image.jpg",
   keywords = []
 }: PageSeoProps): Metadata {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || HOTEL_INFO.contact.website;
-  const fullUrl = `${baseUrl}${path}`;
+  const rawBase = process.env.NEXT_PUBLIC_SITE_URL || HOTEL_INFO.contact.website;
+  const baseUrl = rawBase.replace(/\/$/, "");
+  const fullUrl = !path || path === "/" ? `${baseUrl}/` : `${baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
   const fullTitle = title.includes("Golden Pebble") ? title : `${title} | ${HOTEL_INFO.name}, Havelock Island`;
 
   return {

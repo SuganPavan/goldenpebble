@@ -95,9 +95,9 @@ export default function AboutSection() {
                 </div>
 
                 <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-[1.12] text-[#F8F6EF]">
-                  A little closer to nature.
+                  About Hotel Golden Pebble, Havelock Island
                   <span className="font-script text-3xl sm:text-4xl lg:text-5xl text-[#C9A66B] font-normal italic block mt-1.5 tracking-wide">
-                    A little more at ease.
+                    Boutique accommodation in Swaraj Dweep.
                   </span>
                 </h2>
               </motion.div>
@@ -115,12 +115,12 @@ export default function AboutSection() {
               >
                 <div className="relative pl-4 border-l-2 border-[#C9A66B]/60 py-1">
                   <p className="font-serif text-base sm:text-lg lg:text-xl text-[#F8F6EF]/95 font-light leading-relaxed">
-                    Hotel Golden Pebble is a charming boutique hotel situated in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands. Surrounded by tropical foliage and crafted with warm timber architecture, our property offers peaceful accommodations, attentive service, and transparent tariffs.
+                    Hotel Golden Pebble is a charming boutique hotel situated in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands. Surrounded by tropical foliage and crafted with warm timber architecture, our property offers comfortable air-conditioned rooms, an in-house restaurant, and transparent tariffs.
                   </p>
                 </div>
 
                 <p className="text-sm sm:text-base lg:text-lg text-[#F8F6EF]/90 font-light leading-relaxed">
-                  Whether you are seeking quiet beach strolls near Govind Nagar Beach, diving adventures at Nemo Reef, or freshly prepared meals at our in-house restaurant, Golden Pebble provides comfortable boutique hospitality in Swaraj Dweep.
+                  <strong>Location Notice:</strong> Hotel Golden Pebble is located in Govind Nagar, Havelock Island, and is not a beachfront property. Guests use the hotel as a convenient and peaceful base for exploring Govind Nagar Beach, Radhanagar Beach, Elephant Beach, and local island experiences in Swaraj Dweep.
                 </p>
               </motion.div>
 
@@ -240,7 +240,7 @@ export default function AboutSection() {
                   {/* Handwritten Accent Overlay */}
                   <div className="absolute top-4 left-4 bg-black/35 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/25 z-20">
                     <span className="font-script text-xl sm:text-2xl text-[#E8DCC5] tracking-wide">
-                      Nature Heals Here ✨
+                      Tranquil Boutique Stay ✨
                     </span>
                   </div>
 
@@ -312,7 +312,7 @@ export default function AboutSection() {
                 <div className="flex items-center gap-3">
                   <div className="w-2.5 h-2.5 rounded-full bg-[#79D8D4] animate-pulse" />
                   <span className="text-xs sm:text-sm font-serif italic text-[#DCEFF2]">
-                    &ldquo;Surrounded by tropical nature, steps away from the Andaman sea.&rdquo;
+                    &ldquo;Located in Govind Nagar, Havelock Island, providing a tranquil base to explore Swaraj Dweep.&rdquo;
                   </span>
                 </div>
                 <span className="text-xs sm:text-sm md:text-xs lg:text-xs font-sans tracking-widest uppercase text-[#79D8D4] font-bold hidden sm:inline-block">

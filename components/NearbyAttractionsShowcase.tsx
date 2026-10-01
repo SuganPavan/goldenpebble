@@ -91,7 +91,7 @@ export default function NearbyAttractionsShowcase() {
             {/* Eyebrow Gold Pill */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#C5A46D]/20 border border-[#C5A46D]/50 text-[#E8DCC5] text-xs font-sans font-bold tracking-[0.2em] uppercase shadow-sm backdrop-blur-md mb-2">
               <Sparkles className="w-3 h-3 text-[#C5A46D]" />
-              <span>NEARBY ATTRACTIONS • HAVELOCK MAP</span>
+              <span>NEARBY ATTRACTIONS</span>
             </div>
 
             {/* Headline */}
@@ -126,8 +126,7 @@ export default function NearbyAttractionsShowcase() {
               href="/nearby-locations"
               className="hidden sm:inline-flex items-center gap-2 bg-white/10 hover:bg-[#C5A46D] text-white hover:text-[#073F3B] border border-[#C5A46D]/60 hover:border-[#C5A46D] px-4 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group shrink-0 backdrop-blur-md"
             >
-              <span>VIEW ALL 9 LOCATIONS</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#073F3B] group-hover:translate-x-1 transition-transform" />
+              <span>VIEW ALL LOCATIONS →</span>
             </Link>
           </div>
         </motion.div>
@@ -140,13 +139,9 @@ export default function NearbyAttractionsShowcase() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {LOCATIONS.map((loc, index) => (
-              <motion.div
+              <div
                 key={loc.id}
-                initial={{ opacity: 0, y: 25, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="w-[85vw] sm:w-[310px] md:w-[330px] shrink-0 snap-start flex flex-col"
+                className="w-full sm:w-[310px] md:w-[330px] shrink-0 snap-center flex flex-col"
               >
                 <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-[#C5A46D]/60 p-4 shadow-xl text-[#073F3B] flex flex-col justify-between h-full group hover:border-[#C5A46D] transition-all">
                   <div className="relative h-48 w-full rounded-xl overflow-hidden border border-[#E8E0D2] shadow-md mb-3">
@@ -193,13 +188,12 @@ export default function NearbyAttractionsShowcase() {
                         href={`/nearby-locations/${loc.slug}`}
                         className="w-full inline-flex items-center justify-center gap-1.5 bg-[#073F3B] group-hover:bg-[#C5A46D] text-white group-hover:text-[#073F3B] py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-sm"
                       >
-                        <span>EXPLORE LOCATION DETAILS</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#073F3B] group-hover:translate-x-1 transition-transform" />
+                        <span>VIEW LOCATION →</span>
                       </Link>
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -293,8 +287,7 @@ export default function NearbyAttractionsShowcase() {
                     href={`/nearby-locations/${activeLocation.slug}`}
                     className="w-full inline-flex items-center justify-center gap-1.5 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] min-h-[44px] py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group"
                   >
-                    <span>EXPLORE LOCATION DETAILS</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#073F3B] group-hover:translate-x-1 transition-transform" />
+                    <span>VIEW LOCATION →</span>
                   </Link>
                 </motion.div>
               </AnimatePresence>
@@ -346,8 +339,7 @@ export default function NearbyAttractionsShowcase() {
             href="/nearby-locations"
             className="inline-flex items-center justify-center gap-2 bg-[#C5A46D] hover:bg-white text-[#073F3B] font-bold text-xs uppercase tracking-wider px-6 min-h-[48px] py-3 rounded-full shadow-lg transition-all duration-300 w-full max-w-sm text-center"
           >
-            <span>VIEW ALL 9 LOCATIONS</span>
-            <ArrowRight className="w-4 h-4 text-[#073F3B]" />
+            <span>VIEW ALL LOCATIONS →</span>
           </Link>
         </div>
       </div>
