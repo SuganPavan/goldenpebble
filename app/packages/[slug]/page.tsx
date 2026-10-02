@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: PackageDetailPageProps) {
   if (!pkg) return {};
 
   return constructMetadata({
-    title: `${pkg.name} (${pkg.duration}) Package Details | Golden Pebble`,
-    description: `${pkg.shortDescription} Discover curated Andaman itinerary details, hotel accommodation, and beach excursion highlights.`,
+    title: `${pkg.name} | ${pkg.duration} | Hotel Golden Pebble`,
+    description: `${pkg.name} is a ${pkg.duration} Andaman island itinerary featuring stay at Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep). Contact reservations for current package rates and details.`,
     path: `/packages/${pkg.slug}`
   });
 }

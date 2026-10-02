@@ -4,9 +4,12 @@ export interface Activity {
   name: string;
   subtitle: string;
   category: "Water Sport" | "Nature" | "Leisure" | "Adventure";
-  duration: string;
+  price?: string;
+  duration?: string;
+  location?: string;
   suitability: string;
   image: string;
+  video?: string;
   shortDescription: string;
   description: string;
   highlights: string[];
@@ -14,225 +17,188 @@ export interface Activity {
   safetyInfo: string;
 }
 
-export const ACTIVITIES: Activity[] = [
+// 8 VERIFIED OPTIONAL WATER ADVENTURES WITH APPROVED RATES
+export const VERIFIED_WATER_ADVENTURES: Activity[] = [
   {
     id: "scuba-diving",
     slug: "scuba-diving",
     name: "Scuba Diving",
-    subtitle: "Explore Vibrant Coral Reefs at Nemo Reef & Light House",
+    subtitle: "30 Mins Underwater Guided Coral Reef Dive",
     category: "Water Sport",
-    duration: "2 - 3 Hours",
+    price: "₹3,500 / person",
+    duration: "30 mins underwater experience",
+    location: "Port Blair & Havelock",
     suitability: "Beginners & Non-swimmers welcome",
     image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-    shortDescription: "Dive into crystal clear waters with a certified instructor to discover clownfish, sea turtles, and brain corals.",
-    description: "Havelock Island is internationally acclaimed as one of Asia's finest scuba diving destinations. No prior swimming or diving experience is required for Discover Scuba Diving (DSD). After a brief pool/shallow water training session, dive up to 12 meters alongside PADI/SSI certified dive masters at Nemo Reef.",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839082/golden-pebble/videos/scuba-diving.mp4",
+    shortDescription: "Experience a guided underwater activity in the Andaman Islands, with a listed 30-minute underwater experience.",
+    description: "Discover Scuba Diving provides an introduction to the underwater environment under direct guide supervision. Swim alongside marine life and coral formations at designated dive centers in Havelock Island and Port Blair.",
     highlights: [
-      "Guided 1-on-1 underwater dive experience with PADI certified dive master",
-      "Complimentary HD underwater photos & video recording included",
-      "Close encounters with Nemo clownfish, stingrays, and sea anemones",
-      "Full safety briefing and complete scuba gear provided"
+      "Guided 1-on-1 underwater dive experience with certified instructor",
+      "Complimentary digital underwater photos & video clips",
+      "Full safety briefing and underwater gear provided",
+      "Suitable for beginners and first-time divers"
     ],
-    includedEquipment: ["Wetsuit", "Mask & Snorkel", "BCA Vest", "Regulator", "Fins"],
-    safetyInfo: "Medical questionnaire required before diving. Flying or high altitude travel restricted for 18 hours after dive."
+    includedEquipment: ["Wetsuit", "Mask & Snorkel", "BCD Vest", "Regulator", "Fins"],
+    safetyInfo: "Medical questionnaire required before diving. Flying restricted for 18 hours after dive."
+  },
+  {
+    id: "boat-diving",
+    slug: "boat-diving",
+    name: "Boat Diving",
+    subtitle: "Deep Water Boat Launch Dive Experience",
+    category: "Water Sport",
+    price: "₹5,500 / person",
+    duration: "30 mins underwater experience",
+    location: "Port Blair & Havelock",
+    suitability: "Adventure Enthusiasts & Divers",
+    image: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=1200&q=80",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839018/golden-pebble/videos/boat-diving.mp4",
+    shortDescription: "Explore deeper reef sites launched directly from a dive boat, with a listed 30-minute underwater experience.",
+    description: "Boat Diving takes participants directly to offshore reef locations via dive boat for an immersive underwater dive. Guided by certified dive team members in Port Blair and Havelock Island.",
+    highlights: [
+      "Offshore boat ride to deeper coral reef dive locations",
+      "Direct water entry from dive boat platform",
+      "Guided underwater exploration with dive master",
+      "Digital photo and video recording included"
+    ],
+    includedEquipment: ["Scuba Suit", "Mask", "BCD Vest", "Regulator", "Fins"],
+    safetyInfo: "Pre-dive safety briefing mandatory. Medical screening required."
   },
   {
     id: "sea-walk",
     slug: "sea-walk",
-    name: "Underwater Sea Walk",
-    subtitle: "Seabed Walk with Continuous Fresh Air Helmet",
+    name: "Sea Walk",
+    subtitle: "Underwater Seabed Walk with Air-Supplied Helmet",
     category: "Water Sport",
-    duration: "20 - 30 Mins Underwater",
+    price: "₹3,500 / person",
+    duration: "20–30 mins underwater experience",
+    location: "Port Blair & Havelock",
     suitability: "Non-swimmers & All Families",
     image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838823/golden-pebble/images/activity/sea_walk_image.webp",
-    shortDescription: "Walk naturally on the sandy sea floor wearing a transparent helmet supplied with continuous fresh air.",
-    description: "Experience walking on the seabed without swimming skills or scuba gear. Wearing a specialized helmet connected to a surface air system, you can breathe normally while feeding tropical fish and observing coral formations up close.",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839099/golden-pebble/videos/sea-walk.mp4",
+    shortDescription: "Explore the underwater environment through a sea-walk experience with a listed 20–30 minute duration.",
+    description: "Sea Walk allows participants to walk naturally on the sandy ocean floor while wearing a specialized transparent helmet supplied with continuous surface air. Ideal for non-swimmers and guests who wear glasses.",
     highlights: [
-      "No swimming or diving skills required",
-      "Breathe normally inside continuous air-supplied helmet",
-      "Fully guided by certified sea walk safety divers",
-      "Includes underwater photography and video capture"
+      "No swimming or scuba skills required",
+      "Breathe normally inside air-supplied helmet",
+      "Guided by certified sea-walk safety team",
+      "Includes underwater photo and video capture"
     ],
     includedEquipment: ["Fresh Air Sea Walk Helmet", "Safety Harness", "Neoprene Footwear"],
-    safetyInfo: "Suitable for non-swimmers and guests wearing glasses/contact lenses."
+    safetyInfo: "Suitable for non-swimmers and guests wearing prescription glasses."
   },
   {
-    id: "snorkeling",
-    slug: "snorkeling",
-    name: "Snorkeling",
-    subtitle: "Swim Alongside Marine Life in Shallow Reefs",
+    id: "jet-ski",
+    slug: "jet-ski",
+    name: "Jet Ski",
+    subtitle: "High-Speed Ocean Watercraft Coastal Ride",
     category: "Water Sport",
-    duration: "1 - 2 Hours",
-    suitability: "All Age Groups & Families",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838825/golden-pebble/images/activity/Snorkeling.jpg",
-    shortDescription: "Float effortlessly above shallow coral gardens at Elephant Beach and Govind Nagar.",
-    description: "Snorkeling is the easiest and most accessible way to experience Andaman's rich marine biodiversity. Equipped with a mask, snorkel tube, and life jacket, float safely over colorful shallow reefs accompanied by experienced local guides.",
+    price: "₹650–₹950 / person",
+    location: "Port Blair & Havelock",
+    suitability: "All Guests & Thrill Seekers",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Jet%20Ski%20Ride.webp",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839057/golden-pebble/videos/jet-ski.mp4",
+    shortDescription: "Enjoy a high-speed personal watercraft ride across coastal waters with an instructor.",
+    description: "Feel the rush of ocean wave cruising on a personal watercraft. Conducted at designated water sports complexes in Port Blair and Havelock Island with safety instructor escort.",
     highlights: [
-      "Ideal for non-swimmers and children using life jackets",
-      "Shallow reef entry at Elephant Beach & Nemo Reef",
-      "Guided group snorkeling with safety assistance",
-      "Vibrant hard and soft coral formations"
+      "Fast-paced wave riding across coastal waters",
+      "Accompanied by professional watercraft instructor",
+      "High-impact safety life jackets provided",
+      "Available at designated activity centers"
     ],
-    includedEquipment: ["Snorkel Mask", "Breathing Tube", "Life Jacket", "Fins (optional)"],
-    safetyInfo: "Life jackets are mandatory for all non-swimmers."
+    includedEquipment: ["Personal Watercraft", "Impact Life Jacket", "Safety Key Strap"],
+    safetyInfo: "Riders must wear life jackets and adhere to designated speed zones."
   },
   {
-    id: "sea-kayaking",
-    slug: "sea-kayaking",
-    name: "Mangrove Sea Kayaking",
-    subtitle: "Paddle Through Serene Coastal Waterways",
-    category: "Adventure",
-    duration: "2 Hours",
-    suitability: "Nature Enthusiasts & Couples",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Mangrove%20Sea%20Kayaking.jpg",
-    shortDescription: "Glide peacefully through dense mangrove channels or open turquoise sea during morning or night tours.",
-    description: "Experience the tranquil, untouched ecosystem of Havelock's dense mangrove creeks. Guided sea kayaking allows you to paddle quietly through calm waterways while learning about coastal flora, bird species, and marine biodiversity. Night bioluminescence kayaking is also available during new moon phases.",
+    id: "banana-ride",
+    slug: "banana-ride",
+    name: "Banana Ride",
+    subtitle: "Group Inflatable Towable Tube Ocean Ride",
+    category: "Water Sport",
+    price: "₹650–₹850 / person",
+    location: "Havelock",
+    suitability: "Groups & Families",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841869/golden-pebble/images/activity/Banana___Sofa_Water_Rides.webp",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4",
+    shortDescription: "Hold on tight as a speed boat pulls a multi-passenger inflatable banana tube across ocean waves.",
+    description: "A fun group water activity where participants sit on an inflatable banana-shaped tube towed by a powered speed boat across coastal waters in Havelock Island.",
     highlights: [
-      "Peaceful paddling through green mangrove tunnels",
-      "Bioluminescence night kayaking options on select moonless nights",
-      "Tandem (2-seater) and single kayak options",
-      "Experienced kayaking guide leading the group"
+      "Fun group activity for up to 6 participants",
+      "Exciting splash turns and wave bounces",
+      "Towed by experienced speed boat operator",
+      "Mandatory high-buoyancy life jackets provided"
     ],
-    includedEquipment: ["Fiberglass Kayak", "Paddles", "Dry Bag", "Life Vest"],
-    safetyInfo: "Conducted only in calm, sheltered inland mangrove waters."
+    includedEquipment: ["Multi-Passenger Banana Tube", "Impact Life Jacket"],
+    safetyInfo: "Life jackets mandatory for all participants. Non-swimmers welcome."
+  },
+  {
+    id: "glass-bottom",
+    slug: "glass-bottom-ride",
+    name: "Glass Bottom Ride",
+    subtitle: "Shallow Reef Viewing Through Transparent Boat Hull",
+    category: "Leisure",
+    price: "₹750–₹1,000 / person",
+    location: "Port Blair & Havelock",
+    suitability: "Kids, Families & Seniors",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838819/golden-pebble/images/activity/Glass%20Bottom%20Boat.webp",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4",
+    shortDescription: "Observe shallow coral formations through transparent glass panels built into the boat hull.",
+    description: "Enjoy a comfortable boat ride over shallow coral beds. Transparent glass floor panels allow passengers of all ages to observe marine life beneath the water surface without getting wet.",
+    highlights: [
+      "100% dry coral viewing experience",
+      "Clear observation of shallow coral gardens",
+      "Suitable for toddlers, seniors, and non-swimmers",
+      "Gentle boat cruise guided by local boat crew"
+    ],
+    includedEquipment: ["Glass Bottom Panel Vessel", "Life Jackets"],
+    safetyInfo: "Calm water boat cruise suitable for all age groups."
+  },
+  {
+    id: "sofa-ride",
+    slug: "sofa-ride",
+    name: "Sofa Ride",
+    subtitle: "Inflatable Seated Towable Ocean Float Ride",
+    category: "Water Sport",
+    price: "₹650–₹850 / person",
+    location: "Havelock",
+    suitability: "Couples, Friends & Families",
+    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839118/golden-pebble/videos/sofa-ride.mp4",
+    shortDescription: "Sit back on an inflatable sofa float towed across tropical ocean waves by a speed boat.",
+    description: "A comfortable yet exhilarating inflatable towable ride where participants sit upright on a sofa-shaped float pulled by a powered speed boat off Havelock Island.",
+    highlights: [
+      "Seated group float ride for 2 to 4 guests",
+      "Balanced and splash-filled wave turns",
+      "Guided by certified boat captain",
+      "High-buoyancy life vests provided"
+    ],
+    includedEquipment: ["Inflatable Sofa Float", "Impact Life Jacket"],
+    safetyInfo: "Life jacket mandatory. Suitable for non-swimmers."
   },
   {
     id: "parasailing",
     slug: "parasailing",
     name: "Parasailing",
-    subtitle: "High-Altitude Aerial Island Bay Flight",
+    subtitle: "Aerial Canopy Flight Towed by Winch Boat",
     category: "Adventure",
-    duration: "10 - 15 Mins Flight",
+    price: "₹3,500 / person",
+    location: "Port Blair & Havelock",
     suitability: "Couples & Thrill Seekers",
     image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838822/golden-pebble/images/activity/Parasailing.jpg",
-    shortDescription: "Soar 300 feet above turquoise waters towed by a high-powered winch boat.",
-    description: "Combine flying and sailing for breathtaking panoramic views of Andaman's coastline. Take off and land directly on the winch boat deck wearing certified marine safety harnesses under the guidance of licensed boat captains.",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4",
+    shortDescription: "Experience high-altitude aerial flight towed by a specialized winch boat over coastal waters.",
+    description: "Soar above coastal waters wearing a marine safety harness connected to a parachute canopy. Takeoffs and landings take place directly on the winch boat deck under licensed captain supervision.",
     highlights: [
-      "300ft aerial flight with bird's-eye views of coral reefs",
-      "Safe launch and landing directly from the boat winch deck",
-      "Double and tandem harness options available for couples",
-      "Full safety briefing and life vest included"
+      "Aerial view of coastal shorelines and coral waters",
+      "Safe takeoff and landing directly from winch boat deck",
+      "Single and double tandem harness options available",
+      "Certified marine safety gear provided"
     ],
     includedEquipment: ["Parachute Canopy", "Winch Boat Harness", "Certified Life Vest"],
     safetyInfo: "Subject to favorable weather and wind conditions."
-  },
-  {
-    id: "jet-ski",
-    slug: "jet-ski",
-    name: "Jet Ski Ride",
-    subtitle: "High-Speed Ocean Watercraft Wave Ride",
-    category: "Water Sport",
-    duration: "10 Mins Ride",
-    suitability: "All Guests & Adventure Lovers",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Jet%20Ski%20Ride.webp",
-    shortDescription: "Speed across ocean waves on a powerful jet ski accompanied by certified safety instructors.",
-    description: "Feel the adrenaline rush of riding ocean waves on modern Yamaha personal watercraft. Guided by expert jet ski instructors at Corbyn's Cove or Elephant Beach, enjoy fast-paced cruising across coastal waters.",
-    highlights: [
-      "High-speed watercraft riding on open ocean waves",
-      "Accompanied by professional instructor for non-experienced riders",
-      "Available at Corbyn's Cove & Elephant Beach",
-      "Impact life jackets provided"
-    ],
-    includedEquipment: ["Yamaha Watercraft", "Impact Life Jacket", "Safety Lanyard"],
-    safetyInfo: "Riders must follow instructor speed safety limits."
-  },
-  {
-    id: "semi-sub-marine",
-    slug: "semi-sub-marine",
-    name: "Semi Submarine",
-    subtitle: "Air-Conditioned Coral Reef Window Viewing",
-    category: "Leisure",
-    duration: "45 Mins Cruise",
-    suitability: "Families, Children & Seniors",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838824/golden-pebble/images/activity/Semi%20Submarine.jpg",
-    shortDescription: "Observe deep coral formations and sea creatures from an air-conditioned glass underwater cabin.",
-    description: "Explore underwater marine life without getting wet. Descend into the vessel's submerged glass cabin equipped with large observation windows angled at 45 degrees for clear views of deep coral gardens and fish schools.",
-    highlights: [
-      "100% dry underwater observation experience",
-      "Air-conditioned cabin seating with large glass viewing windows",
-      "Perfect for seniors, toddlers, and non-swimmers",
-      "Guided coral explanation during cruise"
-    ],
-    includedEquipment: ["Air-Conditioned Submerged Cabin Seating"],
-    safetyInfo: "Completely safe enclosed cabin cruise with certified marine crew."
-  },
-  {
-    id: "glass-bottom",
-    slug: "glass-bottom",
-    name: "Glass Bottom Boat",
-    subtitle: "Shallow Water Coral Reef Viewing Boat",
-    category: "Leisure",
-    duration: "15 - 20 Mins",
-    suitability: "Kids & Senior Guests",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838819/golden-pebble/images/activity/Glass%20Bottom%20Boat.webp",
-    shortDescription: "Observe coral reefs through transparent glass panels built into the boat hull.",
-    description: "Enjoy a calm and comfortable boat cruise over shallow coral beds. Transparent glass floor panels allow passengers of all ages to look directly down into vibrant coral formations and marine life.",
-    highlights: [
-      "Clear view of shallow coral reefs beneath the boat",
-      "Shallow water beach ride at Elephant Beach & North Bay",
-      "Gentle boat cruise suitable for all age groups",
-      "Attentive boat crew guidance"
-    ],
-    includedEquipment: ["Glass Panel Viewing Boat", "Life Jackets"],
-    safetyInfo: "Calm water ride suitable for all age groups."
-  },
-  {
-    id: "banana-sofa-rides",
-    slug: "banana-sofa-rides",
-    name: "Banana & Sofa Water Rides",
-    subtitle: "Group Inflatable Towable Water Rides",
-    category: "Water Sport",
-    duration: "10 - 15 Mins",
-    suitability: "Groups & Families",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841869/golden-pebble/images/activity/Banana___Sofa_Water_Rides.webp",
-    shortDescription: "Enjoy fun ocean towable rides pulling groups across turquoise waves.",
-    description: "Hold on tight as a speed boat pulls inflatable banana tubes or sofa floats across tropical waves. Perfect for family groups and friends looking for shared laughter and splash-filled fun.",
-    highlights: [
-      "Fun group activity for up to 6 guests per tube",
-      "Exciting wave turns and splash bounces",
-      "Towed by experienced speed boat captains",
-      "High-buoyancy impact life vests included"
-    ],
-    includedEquipment: ["Inflatable Towable Tube", "Impact Life Jacket"],
-    safetyInfo: "Life jacket mandatory. Non-swimmers welcome."
-  },
-  {
-    id: "dinner-cruise",
-    slug: "dinner-cruise",
-    name: "Night Harbour Dinner Cruise",
-    subtitle: "Catamaran Cruise with Live Music & Buffet",
-    category: "Leisure",
-    duration: "2 Hours Evening Cruise",
-    suitability: "Couples & Families",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838821/golden-pebble/images/activity/Night%20Harbour%20Dinner%20Cruise.jpg",
-    shortDescription: "Evening catamaran cruise around Port Blair harbour with live acoustic music and dinner buffet.",
-    description: "Set sail across calm evening harbor waters aboard a luxury catamaran. Enjoy live acoustic musical performances, a rich buffet spread of island delicacies, and glowing views of Port Blair coastline.",
-    highlights: [
-      "2-hour scenic catamaran cruise around Port Blair harbour",
-      "Live acoustic musical performances on open upper deck",
-      "Comprehensive buffet dinner spread (Veg & Non-Veg)",
-      "Illuminated city and island coastline views"
-    ],
-    includedEquipment: ["Catamaran Seating", "Buffet Dining", "Upper Deck Access"],
-    safetyInfo: "Equipped with certified marine safety apparatus and life rafts."
-  },
-  {
-    id: "beach-walks-sunsets",
-    slug: "beach-walks-sunsets",
-    name: "Beach Walks & Sunset Watching",
-    subtitle: "Unwind at Radhanagar & Kalopathar Beaches",
-    category: "Leisure",
-    duration: "Flexible",
-    suitability: "All Guests",
-    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841870/golden-pebble/images/activity/Beach_Walks___Sunset_Watching.webp",
-    shortDescription: "Relax on powdery white sands, sip fresh coconut water, and watch golden island sunsets.",
-    description: "Sometimes the finest island experience is simply relaxing on white coral sand under the shade of coastal trees. Enjoy leisurely morning strolls at Kalopathar Beach or evening sunset gatherings at Radhanagar Beach with local fruit stalls and quiet tropical breezes.",
-    highlights: [
-      "Completely complimentary island experience",
-      "Golden hour photography opportunities",
-      "Clean, uncrowded natural shorelines",
-      "Refreshing fresh coconut water stalls"
-    ],
-    includedEquipment: ["N/A"],
-    safetyInfo: "Swim only in designated lifeguard-monitored beach areas."
   }
 ];
+
+// COMBINED LIST FOR COMPATIBILITY
+export const ACTIVITIES: Activity[] = VERIFIED_WATER_ADVENTURES;

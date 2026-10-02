@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, MapPin, Sparkles, Navigation, Clock, ChevronLeft, ChevronRight } from "lucide-react";
+import { MapPin, Sparkles, Navigation, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { LOCATIONS } from "@/lib/data/locations";
 import AnimatedWaveDivider from "./AnimatedWaveDivider";
 import AutoImageCarousel from "./AutoImageCarousel";
@@ -40,7 +40,8 @@ export default function NearbyAttractionsShowcase() {
 
   const scrollLocations = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = direction === "left" ? -320 : 320;
+      const containerWidth = scrollContainerRef.current.clientWidth;
+      const scrollAmount = direction === "left" ? -containerWidth : containerWidth;
       scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
     }
   };
@@ -105,7 +106,7 @@ export default function NearbyAttractionsShowcase() {
 
           <div className="flex items-center gap-2 shrink-0">
             {/* Scroll Left / Right Buttons */}
-            <div className="flex lg:hidden items-center gap-1.5">
+            <div className="flex xl:hidden items-center gap-1.5">
               <button
                 onClick={() => scrollLocations("left")}
                 aria-label="Scroll left"
@@ -132,16 +133,16 @@ export default function NearbyAttractionsShowcase() {
         </motion.div>
 
         {/* MOBILE & TABLET HORIZONTAL HAND-SWIPE CAROUSEL (MATCHING PACKAGE SHOWCASE UX) */}
-        <div className="block lg:hidden">
+        <div className="block xl:hidden">
           <div
             ref={scrollContainerRef}
             className="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-3.5 sm:gap-5 pb-4 pt-1 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {LOCATIONS.map((loc, index) => (
+            {LOCATIONS.map((loc) => (
               <div
                 key={loc.id}
-                className="w-full sm:w-[310px] md:w-[330px] shrink-0 snap-center flex flex-col"
+                className="w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(50%-0.625rem)] lg:w-[calc(50%-0.75rem)] shrink-0 snap-start flex flex-col"
               >
                 <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-[#C5A46D]/60 p-4 shadow-xl text-[#073F3B] flex flex-col justify-between h-full group hover:border-[#C5A46D] transition-all">
                   <div className="relative h-48 w-full rounded-xl overflow-hidden border border-[#E8E0D2] shadow-md mb-3">
@@ -199,7 +200,7 @@ export default function NearbyAttractionsShowcase() {
         </div>
 
         {/* DESKTOP 2-COLUMN VIEW (MAP & ACTIVE LOCATION PREVIEW) */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <div className="relative mb-6">
             <div
               ref={tabsContainerRef}

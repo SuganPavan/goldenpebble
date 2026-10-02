@@ -215,14 +215,17 @@ export default function RoomShowcaseSection() {
                   </div>
 
                   {/* Price & Details CTA Block (Desktop vs Mobile Responsive Layout) */}
-                  {/* MOBILE ONLY: HIGHLIGHTED RATE ENQUIRY CARD */}
+                  {/* MOBILE ONLY: HIGHLIGHTED RATE CARD */}
                   <div className="flex lg:hidden flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 p-3 rounded-xl bg-[#073F3B] border border-[#C5A46D]/50 shadow-sm">
                     <div className="flex flex-col gap-0.5">
-                      <span className="font-sans font-medium text-xs sm:text-sm text-[#F8F6EF]">
-                        Contact reservations for current rates
-                      </span>
-                      <span className="inline-block text-[10.5px] sm:text-xs font-sans font-bold uppercase tracking-wider text-[#C5A46D] bg-[#002B28] px-2 py-0.5 rounded border border-[#C5A46D]/40 w-fit shadow-xs">
-                        Best Rate Guaranteed
+                      <div className="flex items-baseline gap-1">
+                        <span className="font-serif font-bold text-xl text-[#F8F6EF]">
+                          {activeRoom.seasonRate.rackRate}
+                        </span>
+                        <span className="text-xs text-[#F8F6EF]/80">/ Night</span>
+                      </div>
+                      <span className="inline-block text-[10.5px] font-sans font-bold uppercase tracking-wider text-[#C5A46D]">
+                        Rack Rate • 5% GST included
                       </span>
                     </div>
 
@@ -234,15 +237,18 @@ export default function RoomShowcaseSection() {
                     </Link>
                   </div>
 
-                  {/* DESKTOP ONLY: ORIGINAL RATE ENQUIRY & DETAILS BLOCK */}
+                  {/* DESKTOP ONLY: RATE & DETAILS BLOCK */}
                   <div className="hidden lg:flex items-center justify-end gap-5 shrink-0 ml-auto">
                     {/* Rate Container */}
                     <div className="text-right shrink-0">
-                      <span className="font-sans font-medium text-xs sm:text-sm text-[#073F3B] block">
-                        Contact reservations for current rates
-                      </span>
-                      <span className="text-[11px] sm:text-xs font-sans uppercase tracking-wider text-[#66736F] font-semibold block mt-0.5 whitespace-nowrap">
-                        Best Rate Guaranteed
+                      <div className="flex items-baseline justify-end gap-1">
+                        <span className="font-serif font-bold text-2xl text-[#073F3B]">
+                          {activeRoom.seasonRate.rackRate}
+                        </span>
+                        <span className="text-xs text-[#66736F]">/ Night</span>
+                      </div>
+                      <span className="text-[11px] font-sans uppercase tracking-wider text-[#66736F] font-semibold block mt-0.5 whitespace-nowrap">
+                        Rack Rate • 5% GST included
                       </span>
                     </div>
 

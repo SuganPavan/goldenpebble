@@ -65,8 +65,7 @@ export function generateHotelSchema() {
       "offers": {
         "@type": "Offer",
         "price": room.seasonRate.rackRate.replace(/[^\d]/g, ""),
-        "priceCurrency": "INR",
-        "availability": "https://schema.org/InStock"
+        "priceCurrency": "INR"
       }
     }))
   };

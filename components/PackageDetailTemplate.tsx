@@ -16,11 +16,13 @@ import {
   MessageCircle, 
   ArrowRight, 
   Sparkles,
-  Heart,
   Ship,
-  HelpCircle
+  HelpCircle,
+  BedDouble,
+  Compass
 } from "lucide-react";
-import { Package } from "@/lib/data/packages";
+import { Package, PACKAGES } from "@/lib/data/packages";
+import { generateHotelSchema, generateBreadcrumbSchema, generateFaqSchema } from "@/lib/structuredData";
 
 interface PackageDetailTemplateProps {
   pkg: Package;
@@ -28,26 +30,76 @@ interface PackageDetailTemplateProps {
 
 export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProps) {
   const [openFerryInfo, setOpenFerryInfo] = useState<boolean>(true);
-  const [openTermsIdx, setOpenTermsIdx] = useState<number | null>(null);
   const [openFaqIdx, setOpenFaqIdx] = useState<number | null>(0);
-
-  const toggleTerms = (idx: number) => {
-    setOpenTermsIdx(openTermsIdx === idx ? null : idx);
-  };
 
   const toggleFaq = (idx: number) => {
     setOpenFaqIdx(openFaqIdx === idx ? null : idx);
   };
 
+  // Structured Data Schemas
+  const hotelSchema = generateHotelSchema();
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Packages", item: "/packages" },
+    { name: pkg.name, item: `/packages/${pkg.slug}` }
+  ]);
+
+  const packageFaqs = [
+    {
+      question: `What is included in the ${pkg.name} package?`,
+      answer: `${pkg.name} includes boutique hotel accommodation at Hotel Golden Pebble in Govind Nagar, daily complimentary breakfast, inter-island ferry cruise transfers, and airport pickup/drop transfers as specified in the itinerary.`
+    },
+    {
+      question: `How many nights does the ${pkg.name} package cover?`,
+      answer: `This package covers ${pkg.duration} ${pkg.nightSplit}.`
+    },
+    {
+      question: "Where is the hotel accommodation located?",
+      answer: "Hotel Golden Pebble is located in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman & Nicobar Islands - 744211."
+    },
+    {
+      question: "Are inter-island ferry transfers included?",
+      answer: "Yes, all inter-island ferry cruise transfers between Port Blair, Havelock Island, and Neil Island specified in the itinerary are included."
+    },
+    {
+      question: "Are water activities included or optional?",
+      answer: "Water activities (such as scuba diving, sea walk, jet skiing, and snorkeling) are optional and available on direct payment basis at respective beach centers."
+    },
+    {
+      question: "How can I enquire about the package rate and availability?",
+      answer: "Contact our reservations team directly at +91 9434288856 or submit an enquiry form on our Contact page for current package rates and availability."
+    }
+  ];
+
+  const faqSchema = generateFaqSchema(packageFaqs);
+
+  // Other related packages (excluding current package)
+  const relatedPackages = PACKAGES.filter((p) => p.slug !== pkg.slug).slice(0, 3);
+
   return (
     <div className="bg-[#F8F6EF] min-h-screen text-[#073F3B]">
+      {/* STRUCTURED DATA SCHEMAS */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hotelSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* 1. HERO BANNER */}
       <div className="relative text-white pt-32 sm:pt-36 pb-16 sm:pb-20 overflow-hidden bg-[#073F3B]">
         <Image
           src={pkg.image}
-          alt={pkg.name}
+          alt={`${pkg.name} experience in Havelock Island - Hotel Golden Pebble`}
           fill
           priority
+          sizes="100vw"
           className="object-cover opacity-65 contrast-[1.05]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#073F3B] via-[#073F3B]/65 to-black/60 z-0 pointer-events-none" />
@@ -67,6 +119,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
             </div>
           </ScrollReveal>
 
+          {/* Exactly ONE H1 tag on the page */}
           <ScrollReveal variant="fade-up" delay={0.2}>
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal mt-1 leading-tight text-white drop-shadow-md">
               {pkg.name}
@@ -86,58 +139,68 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
             </p>
           </ScrollReveal>
 
-          {/* Action Buttons with Button-in-Button Trailing Icons */}
+          {/* Action Buttons */}
           <ScrollReveal variant="fade-up" delay={0.5}>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mt-6">
               <Link
                 href={`/contact?package=${pkg.slug}`}
                 className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-[#C5A46D] hover:bg-white text-[#073F3B] pl-6 pr-2 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group text-center"
               >
-                <span>Plan This Trip</span>
+                <span>ENQUIRE ABOUT THIS PACKAGE</span>
                 <div className="w-7 h-7 rounded-full bg-[#073F3B]/10 group-hover:bg-[#073F3B] group-hover:text-white text-[#073F3B] flex items-center justify-center transition-all shrink-0">
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </Link>
 
-              <a
-                href={`https://wa.me/919434288856?text=Hi%20Golden%20Pebble,%20I%20would%20like%20to%20plan%20the%20${encodeURIComponent(pkg.name)}%20package`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white pl-6 pr-2 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group text-center"
+              <Link
+                href="/packages"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 px-6 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 backdrop-blur-md text-center"
               >
-                <span>WhatsApp Us</span>
-                <div className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
-                </div>
-              </a>
+                <span>EXPLORE ALL PACKAGES →</span>
+              </Link>
             </div>
           </ScrollReveal>
         </div>
       </div>
 
-      {/* 2. QUICK INFORMATION BLOCKS (Doppelrand Nested Enclosure) */}
-      <section className="py-8 bg-white border-b border-[#E8DCC5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="p-2 sm:p-2.5 rounded-[2rem] bg-[#F8F6EF] border border-[#E8DCC5] shadow-sm">
-            <ScrollReveal variant="stagger-container" staggerDelay={0.1} className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 p-1">
-              {pkg.quickInfo.map((info, qIdx) => (
-                <ScrollRevealItem key={qIdx} variant="scale-up">
-                  <div className="bg-white px-2.5 py-3.5 sm:p-4 rounded-[calc(2rem-0.625rem)] border border-[#E8DCC5]/70 flex flex-col items-center text-center justify-center shadow-2xs hover:border-[#C5A46D] hover:scale-[1.02] transition-all min-h-[90px] sm:min-h-[100px]">
-                    <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] font-bold text-[#C5A46D] mb-1 text-center">
-                      {info.label}
-                    </span>
-                    <span className="font-serif font-bold text-xs xs:text-sm sm:text-base lg:text-lg text-[#073F3B] leading-snug text-center max-w-full px-1">
-                      {info.value}
-                    </span>
-                  </div>
-                </ScrollRevealItem>
-              ))}
-            </ScrollReveal>
+      {/* 2. AEO ANSWER-FIRST PACKAGE OVERVIEW */}
+      <ScrollReveal variant="fade-up">
+        <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E8DCC5] shadow-sm space-y-3">
+            <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] block">
+              PACKAGE OVERVIEW
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
+              Package Overview
+            </h2>
+            <p className="font-sans text-sm sm:text-base text-[#4E5C58] font-light leading-relaxed">
+              {pkg.name} is a {pkg.duration} Andaman holiday package based at Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep). The package combines boutique hotel accommodation with verified inter-island transfers, daily breakfast, and sightseeing excursions to island attractions. Contact our reservations team for current package rates and details.
+            </p>
           </div>
+        </section>
+      </ScrollReveal>
+
+      {/* 3. QUICK INFORMATION BLOCKS */}
+      <section className="py-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-2 sm:p-2.5 rounded-[2rem] bg-[#F8F6EF] border border-[#E8DCC5] shadow-sm">
+          <ScrollReveal variant="stagger-container" staggerDelay={0.1} className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 p-1">
+            {pkg.quickInfo.map((info, qIdx) => (
+              <ScrollRevealItem key={qIdx} variant="scale-up">
+                <div className="bg-white px-2.5 py-3.5 sm:p-4 rounded-[calc(2rem-0.625rem)] border border-[#E8DCC5]/70 flex flex-col items-center text-center justify-center shadow-2xs hover:border-[#C5A46D] hover:scale-[1.02] transition-all min-h-[90px] sm:min-h-[100px]">
+                  <span className="text-[10px] sm:text-xs font-sans uppercase tracking-[0.15em] font-bold text-[#C5A46D] mb-1 text-center">
+                    {info.label}
+                  </span>
+                  <span className="font-serif font-bold text-xs xs:text-sm sm:text-base lg:text-lg text-[#073F3B] leading-snug text-center max-w-full px-1">
+                    {info.value}
+                  </span>
+                </div>
+              </ScrollRevealItem>
+            ))}
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* 3. ROUTE VISUAL STEPPER */}
+      {/* 4. ROUTE VISUAL STEPPER */}
       <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
           <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 border border-[#E8DCC5]/60">
@@ -181,7 +244,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
       {/* MAIN CONTENT GRID */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 space-y-10">
 
-        {/* 4. DAY-BY-DAY ITINERARY SECTION (Train-style Staggered Scroll & Hand-over Hover Physics) */}
+        {/* 5. DAY-BY-DAY ITINERARY SECTION */}
         <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
           <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 lg:p-10 border border-[#E8DCC5]/60 space-y-8">
             <ScrollReveal variant="fade-up">
@@ -190,12 +253,11 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                   COMPLETE DAY-BY-DAY PROGRAM
                 </span>
                 <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#073F3B]">
-                  Detailed Travel Itinerary
+                  {pkg.name} Itinerary
                 </h2>
               </div>
             </ScrollReveal>
 
-            {/* Train Stagger Sequence: Each Day animates into view one by one as you scroll */}
             <div className="space-y-6 relative before:absolute before:inset-0 before:left-4 sm:before:left-5 before:w-0.5 before:bg-[#C5A46D]/40">
               {pkg.itinerary.map((dayItem, dIdx) => (
                 <motion.div
@@ -210,12 +272,10 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                   }}
                   className="relative pl-12 sm:pl-14 group"
                 >
-                  {/* Day Badge with Hand-Over Hover Physics */}
                   <div className="absolute left-0 top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#073F3B] text-white text-xs sm:text-sm font-bold flex items-center justify-center border-4 border-[#FAF8F5] shadow-md group-hover:bg-[#C5A46D] group-hover:scale-115 group-hover:rotate-6 transition-all duration-300">
                     D{dayItem.day}
                   </div>
 
-                  {/* Itinerary Card with Hand-Over Hover Physics */}
                   <div className="bg-white p-5 sm:p-6 rounded-2xl border border-[#E8DCC5] space-y-3 shadow-2xs hover:border-[#C5A46D] hover:shadow-xl hover:scale-[1.015] hover:-translate-y-1 hover:bg-[#FFFDF9] transition-all duration-300 cursor-pointer">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#E8DCC5]/60 pb-3">
                       <h3 className="font-serif text-lg sm:text-xl font-bold text-[#073F3B] group-hover:text-[#C5A46D] transition-colors">
@@ -233,7 +293,6 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                       {dayItem.description}
                     </p>
 
-                    {/* Highlighted Activity Tags */}
                     {dayItem.activities && dayItem.activities.length > 0 && (
                       <div className="pt-2 flex flex-wrap items-center gap-2 border-t border-[#E8DCC5]/40">
                         <span className="text-[11px] sm:text-xs font-sans uppercase font-bold tracking-wider text-[#C5A46D] shrink-0">
@@ -257,44 +316,6 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
           </div>
         </section>
 
-        {/* 5. VISUAL HIGHLIGHTS GRID */}
-        {pkg.visualHighlights && pkg.visualHighlights.length > 0 && (
-          <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
-            <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 border border-[#E8DCC5]/60 space-y-6">
-              <ScrollReveal variant="fade-up">
-                <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
-                    EXPERIENCE HIGHLIGHTS
-                  </span>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
-                    Key Attractions &amp; Wonders
-                  </h2>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal variant="stagger-container" staggerDelay={0.1} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {pkg.visualHighlights.map((vh, vIdx) => (
-                  <ScrollRevealItem key={vIdx} variant="scale-up">
-                    <div className="bg-white p-5 rounded-2xl border border-[#E8DCC5] flex items-start gap-3.5 hover:border-[#C5A46D] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-md transition-all duration-300 shadow-2xs group">
-                      <div className="p-2.5 rounded-xl bg-[#073F3B]/10 border border-[#073F3B]/15 text-[#073F3B] group-hover:bg-[#073F3B] group-hover:text-white transition-all shrink-0">
-                        <Sparkles className="w-4 h-4 text-[#C5A46D]" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] font-sans uppercase tracking-wider font-bold text-[#C5A46D] block">
-                          {vh.category}
-                        </span>
-                        <h3 className="font-serif font-bold text-base text-[#073F3B] mt-0.5 group-hover:text-[#C5A46D] transition-colors">
-                          {vh.name}
-                        </h3>
-                      </div>
-                    </div>
-                  </ScrollRevealItem>
-                ))}
-              </ScrollReveal>
-            </div>
-          </section>
-        )}
-
         {/* 6. INCLUSIONS & EXCLUSIONS SECTIONS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* What's Included */}
@@ -305,7 +326,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                   <div className="p-2 rounded-xl bg-[#073F3B]/10 border border-[#073F3B]/15 text-[#073F3B]">
                     <Check className="w-5 h-5 text-[#073F3B]" />
                   </div>
-                  <span>Package Inclusions</span>
+                  <span>What&apos;s Included</span>
                 </h2>
 
                 <ul className="space-y-3 font-sans text-xs sm:text-sm text-[#4E5C58] font-light">
@@ -330,7 +351,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                   <div className="p-2 rounded-xl bg-[#E98268]/10 border border-[#E98268]/20 text-[#E98268]">
                     <X className="w-5 h-5 text-[#E98268]" />
                   </div>
-                  <span>Package Exclusions</span>
+                  <span>What&apos;s Not Included</span>
                 </h2>
 
                 <ul className="space-y-3 font-sans text-xs sm:text-sm text-[#4E5C58] font-light">
@@ -348,55 +369,52 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
           </ScrollReveal>
         </div>
 
-        {/* 7. OPTIONAL WATER ADVENTURES INTERACTIVE THEATER (LEFT: FEATURED MEDIA, RIGHT: ROTATING CAROUSEL) */}
+        {/* 7. OPTIONAL WATER ADVENTURES */}
         {pkg.waterAdventures && pkg.waterAdventures.length > 0 && (
           <WaterAdventuresTheater adventures={pkg.waterAdventures} />
         )}
 
-        {/* 8. HONEYMOON EXPERIENCES */}
-        {pkg.honeymoonExperiences && pkg.honeymoonExperiences.length > 0 && (
+        {/* 8. ACCOMMODATION AT HOTEL GOLDEN PEBBLE */}
+        <ScrollReveal variant="fade-up">
           <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
-            <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 border border-[#E8DCC5]/60 space-y-6">
-              <ScrollReveal variant="fade-up">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div>
-                    <div className="inline-flex items-center gap-2 text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] mb-1">
-                      <Heart className="w-3.5 h-3.5 text-[#C5A46D]" />
-                      <span>SPECIAL COUPLE ADD-ONS</span>
-                    </div>
-                    <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
-                      Honeymoon Experiences
-                    </h2>
-                  </div>
-
-                  <div className="inline-flex items-center gap-2 bg-[#C5A46D]/15 border border-[#C5A46D]/30 px-4 py-2 rounded-full text-xs font-sans font-medium text-[#073F3B]">
-                    <span>Optional experiences available at additional cost. Contact us for current availability and rates.</span>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              <ScrollReveal variant="stagger-container" staggerDelay={0.12} className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {pkg.honeymoonExperiences.map((hm, hIdx) => (
-                  <ScrollRevealItem key={hIdx} variant="scale-up">
-                    <div className="bg-white p-5 rounded-2xl border border-[#E8DCC5] space-y-2 shadow-2xs hover:border-[#C5A46D] hover:scale-[1.02] hover:-translate-y-1 hover:shadow-md transition-all duration-300">
-                      <div className="w-9 h-9 rounded-full bg-[#C5A46D]/15 text-[#C5A46D] flex items-center justify-center">
-                        <Heart className="w-5 h-5 fill-current" />
-                      </div>
-                      <h3 className="font-serif font-bold text-base text-[#073F3B]">
-                        {hm.name}
-                      </h3>
-                      <p className="font-sans text-xs text-[#4E5C58] font-light leading-relaxed">
-                        {hm.description}
-                      </p>
-                    </div>
-                  </ScrollRevealItem>
-                ))}
-              </ScrollReveal>
+            <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 border border-[#E8DCC5]/60 space-y-4">
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] block">
+                INCLUDED ACCOMMODATION
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
+                Your Stay at Hotel Golden Pebble
+              </h2>
+              <p className="font-sans text-xs sm:text-sm text-[#4E5C58] font-light leading-relaxed">
+                Guests stay at Hotel Golden Pebble in Govind Nagar, Havelock Island (Swaraj Dweep). Accommodation options include air-conditioned <Link href="/rooms/deluxe-room" className="text-[#073F3B] font-bold underline hover:text-[#C5A46D]">Deluxe Rooms (220 sq ft)</Link> and <Link href="/rooms/deluxe-room-with-balcony" className="text-[#073F3B] font-bold underline hover:text-[#C5A46D]">Deluxe Rooms with Balcony (280 sq ft)</Link>, equipped with split AC, ensuite hot &amp; cold water bathrooms, 24x7 generator power backup, and high-speed Wi-Fi.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <Link href="/rooms" className="text-xs font-bold text-[#073F3B] hover:text-[#C5A46D] inline-flex items-center gap-1.5">
+                  <BedDouble className="w-4 h-4 text-[#C5A46D]" />
+                  <span>Explore All Accommodations &rarr;</span>
+                </Link>
+              </div>
             </div>
           </section>
-        )}
+        </ScrollReveal>
 
-        {/* 9. PRIVATE FERRY INFORMATION */}
+        {/* 9. DESTINATION LOCATION CONTEXT */}
+        <ScrollReveal variant="fade-up">
+          <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
+            <div className="bg-[#073F3B] text-white rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 lg:p-10 border border-[#C5A46D]/40 shadow-xl space-y-3">
+              <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] block">
+                LOCALITY &amp; ACCESSIBILITY
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                Explore Havelock Island
+              </h2>
+              <p className="font-sans text-xs sm:text-sm text-[#F8F6EF]/90 font-light leading-relaxed">
+                Hotel Golden Pebble is situated in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands - 744211. Our inland boutique property provides a convenient base for exploring famous beaches (<Link href="/nearby-locations/radhanagar-beach" className="text-[#F3D39B] underline">Radhanagar Beach</Link>, <Link href="/nearby-locations/elephant-beach" className="text-[#F3D39B] underline">Elephant Beach</Link>, <Link href="/nearby-locations/kalopathar-beach" className="text-[#F3D39B] underline">Kalopathar Beach</Link>) and island activity centers.
+              </p>
+            </div>
+          </section>
+        </ScrollReveal>
+
+        {/* 10. PRIVATE FERRY INFORMATION */}
         {pkg.privateFerryInfo && pkg.privateFerryInfo.length > 0 && (
           <ScrollReveal variant="fade-up">
             <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
@@ -434,82 +452,65 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
           </ScrollReveal>
         )}
 
-        {/* 10. THINGS TO KNOW BEFORE YOU TRAVEL */}
-        {pkg.thingsToKnow && pkg.thingsToKnow.length > 0 && (
+        {/* 11. RELATED PACKAGES SECTION (LINK BACK TO COMPLETE COLLECTION) */}
+        <ScrollReveal variant="fade-up">
           <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
             <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 lg:p-10 border border-[#E8DCC5]/60 space-y-6">
-              <ScrollReveal variant="fade-up">
-                <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
-                    ESSENTIAL TRAVEL PREPARATION
-                  </span>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
-                    Things to Know Before You Travel
-                  </h2>
-                </div>
-              </ScrollReveal>
+              <div>
+                <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
+                  EXPLORE MORE ITINERARIES
+                </span>
+                <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
+                  Explore More Andaman Packages
+                </h2>
+                <p className="font-sans text-xs sm:text-sm text-[#4E5C58] font-light leading-relaxed mt-1">
+                  Discover other stay packages at Hotel Golden Pebble tailored for different trip durations.
+                </p>
+              </div>
 
-              <ScrollReveal variant="stagger-container" staggerDelay={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
-                {pkg.thingsToKnow.map((item, tIdx) => (
-                  <ScrollRevealItem key={tIdx} variant="scale-up">
-                    <div className="bg-white p-4 rounded-2xl border border-[#E8DCC5] flex items-start gap-3 shadow-2xs hover:border-[#C5A46D] hover:scale-[1.015] transition-all">
-                      <div className="w-6 h-6 rounded-full bg-[#073F3B]/10 text-[#073F3B] flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
-                        {tIdx + 1}
-                      </div>
-                      <span className="font-sans text-xs sm:text-sm text-[#4E5C58] font-light leading-relaxed">
-                        {item}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {relatedPackages.map((relPkg, rIdx) => (
+                  <motion.div
+                    key={rIdx}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: rIdx * 0.1, duration: 0.5 }}
+                    className="bg-white p-5 rounded-2xl border border-[#E8DCC5] shadow-2xs hover:border-[#C5A46D] hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between space-y-3"
+                  >
+                    <div>
+                      <span className="text-[11px] font-mono text-[#C5A46D] font-bold block mb-1">
+                        {relPkg.duration}
                       </span>
+                      <h3 className="font-serif font-bold text-lg text-[#073F3B] hover:text-[#C5A46D] transition-colors">
+                        {relPkg.name}
+                      </h3>
+                      <p className="font-sans text-xs text-[#4E5C58] font-light line-clamp-2 mt-1 leading-relaxed">
+                        {relPkg.shortDescription}
+                      </p>
                     </div>
-                  </ScrollRevealItem>
+                    <div className="pt-3 border-t border-[#E8DCC5]">
+                      <Link href={`/packages/${relPkg.slug}`} className="inline-flex items-center gap-1.5 text-xs font-bold text-[#073F3B] hover:text-[#C5A46D] transition-colors">
+                        <span>VIEW PACKAGE</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </motion.div>
                 ))}
-              </ScrollReveal>
+              </div>
+
+              <div className="text-center pt-2">
+                <Link 
+                  href="/packages" 
+                  className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-6 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md"
+                >
+                  <Compass className="w-4 h-4 text-[#C5A46D]" />
+                  <span>Explore All Andaman Packages &rarr;</span>
+                </Link>
+              </div>
             </div>
           </section>
-        )}
-
-        {/* 11. TERMS & CONDITIONS (Collapsible Accordion) */}
-        {pkg.termsAndConditions && pkg.termsAndConditions.length > 0 && (
-          <ScrollReveal variant="fade-up">
-            <section className="p-2 sm:p-2.5 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-sm">
-              <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 lg:p-10 border border-[#E8DCC5]/60 space-y-6">
-                <div>
-                  <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
-                    POLICY &amp; GUIDELINES
-                  </span>
-                  <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
-                    Terms &amp; Conditions
-                  </h2>
-                </div>
-
-                <div className="space-y-3">
-                  {pkg.termsAndConditions.map((tc, tcIdx) => {
-                    const isOpen = openTermsIdx === tcIdx;
-                    return (
-                      <div 
-                        key={tcIdx}
-                        className="rounded-2xl border border-[#E8DCC5] bg-white overflow-hidden shadow-2xs transition-all"
-                      >
-                        <button
-                          onClick={() => toggleTerms(tcIdx)}
-                          className="w-full p-4 text-left font-serif font-bold text-sm sm:text-base text-[#073F3B] flex items-center justify-between hover:text-[#C5A46D] transition-colors"
-                        >
-                          <span>{tc.title}</span>
-                          <ChevronDown className={`w-4 h-4 text-[#C5A46D] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
-                        </button>
-
-                        {isOpen && (
-                          <div className="px-4 pb-4 pt-1 font-sans text-xs sm:text-sm text-[#4E5C58] font-light border-t border-[#E8DCC5]/60 leading-relaxed">
-                            {tc.detail}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </section>
-          </ScrollReveal>
-        )}
+        </ScrollReveal>
 
         {/* 12. FREQUENTLY ASKED QUESTIONS */}
         <ScrollReveal variant="fade-up">
@@ -517,7 +518,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
             <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.625rem)] p-6 sm:p-8 lg:p-10 border border-[#E8DCC5]/60 space-y-6">
               <div>
                 <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
-                  NATURAL Q&amp;A
+                  PACKAGE FAQS
                 </span>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#073F3B]">
                   Frequently Asked Questions
@@ -525,24 +526,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
               </div>
 
               <div className="space-y-3">
-                {[
-                  {
-                    question: "Does Hotel Golden Pebble Havelock offer Wi-Fi?",
-                    answer: "Yes, complimentary Wi-Fi access is available in guest rooms and common hotel areas for staying guests."
-                  },
-                  {
-                    question: "What amenities does Hotel Golden Pebble Havelock offer?",
-                    answer: "Hotel Golden Pebble Havelock provides air-conditioned luxury rooms, an on-site multicuisine restaurant, daily breakfast, 24/7 power backup, travel desk assistance, and prompt island transfer coordination."
-                  },
-                  {
-                    question: "Are inter-island ferry tickets included in this package?",
-                    answer: "Yes, all inter-island ferry cruise transfers between Port Blair, Havelock Island, and Neil Island specified in the itinerary are fully included."
-                  },
-                  {
-                    question: "Are water sports included or charged separately?",
-                    answer: "Water sports (such as scuba diving, sea walk, jet skiing, and parasailing) are optional and available on direct payment basis at respective beach spots."
-                  }
-                ].map((faq, fIdx) => {
+                {packageFaqs.map((faq, fIdx) => {
                   const isOpen = openFaqIdx === fIdx;
                   return (
                     <div 
@@ -574,12 +558,12 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
         </ScrollReveal>
       </div>
 
-      {/* 13. FINAL ENQUIRE NOW CTA BACKDROP SECTION */}
+      {/* 13. FINAL ENQUIRE NOW CTA SECTION */}
       <ScrollReveal variant="scale-up">
         <section className="relative py-20 bg-[#073F3B] text-white overflow-hidden mt-12 border-t-2 border-[#C5A46D]/60">
           <Image
             src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80"
-            alt="Plan Your Andaman Islands Trip - Hotel Golden Pebble"
+            alt={`Plan your ${pkg.name} package - Hotel Golden Pebble`}
             fill
             className="object-cover opacity-35"
           />
@@ -592,11 +576,11 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl font-normal leading-tight text-white drop-shadow-md">
-              Ready to Explore the Andaman Islands?
+              Plan Your {pkg.name} Package
             </h2>
 
             <p className="font-sans text-sm sm:text-base text-[#F8F6EF]/90 font-light max-w-xl mx-auto leading-relaxed">
-              Let our island reservation team customize your 4-night stay and inter-island experience.
+              Contact our reservations team for current rates, room selection, and customized itineraries.
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
@@ -604,7 +588,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
                 href={`/contact?package=${pkg.slug}`}
                 className="inline-flex items-center justify-between gap-3 bg-[#C5A46D] hover:bg-white text-[#073F3B] pl-7 pr-2 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xl group"
               >
-                <span>Enquire Now</span>
+                <span>ENQUIRE NOW</span>
                 <div className="w-8 h-8 rounded-full bg-[#073F3B]/10 group-hover:bg-[#073F3B] group-hover:text-white text-[#073F3B] flex items-center justify-center transition-all">
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </div>
@@ -632,7 +616,7 @@ export default function PackageDetailTemplate({ pkg }: PackageDetailTemplateProp
           href={`/contact?package=${pkg.slug}`}
           className="flex-1 bg-[#C5A46D] text-[#073F3B] py-2.5 rounded-full text-center text-xs font-sans font-bold uppercase tracking-wider shadow-md"
         >
-          Enquire Now
+          ENQUIRE NOW
         </Link>
         <a
           href={`https://wa.me/919434288856?text=Hi%20Golden%20Pebble,%20I%20would%20like%20to%20enquire%20about%20the%20${encodeURIComponent(pkg.name)}%20package`}

@@ -67,13 +67,6 @@ export default function Hero() {
     notifyVideoReady();
   };
 
-  const heroPhrases = [
-    "Your island, your own pace.",
-    "Crystal turquoise waters & white sands.",
-    "Boutique luxury in Govind Nagar, Havelock.",
-    "Unforgettable Andaman tropical escape."
-  ];
-
   const searchTaglines = [
     "Deluxe Balcony Rooms with Garden View",
     "PADI Scuba Diving & Sea Walk Trips",
@@ -185,7 +178,7 @@ export default function Hero() {
             transition={{ duration: 0.3 }}
             className="text-base sm:text-base lg:text-lg text-white/95 font-light leading-relaxed mb-6 sm:mb-7 max-w-xl drop-shadow-md"
           >
-            Hotel Golden Pebble is a boutique hotel in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands. Positioned with easy access to the island's beaches, water adventures, and local attractions.
+            Hotel Golden Pebble is a boutique hotel in Govind Nagar, Havelock Island (Swaraj Dweep), Andaman &amp; Nicobar Islands. Positioned with easy access to the island&apos;s beaches, water adventures, and local attractions.
           </motion.p>
 
           {/* 5. Interactive Pro Live Search / Highlight Bar */}

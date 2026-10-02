@@ -12,7 +12,6 @@ import {
   ConciergeBell, 
   Car, 
   CheckCircle2, 
-  Waves, 
   Tv, 
   Coffee, 
   Bath, 

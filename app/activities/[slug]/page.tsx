@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ActivityDetailPageProps) {
   if (!activity) return {};
 
   return constructMetadata({
-    title: `${activity.name} in Havelock Island | Golden Pebble`,
+    title: `${activity.name} in Havelock Island | Hotel Golden Pebble`,
     description: `${activity.description} Duration: ${activity.duration}. Suitable for: ${activity.suitability}.`,
     path: `/activities/${activity.slug}`
   });

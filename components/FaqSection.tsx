@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal, { ScrollRevealItem } from "@/components/ScrollReveal";
-import { Plus, Minus, ArrowRight, Sparkles, HelpCircle, MessageCircle } from "lucide-react";
+import { Plus, Minus, ArrowRight, HelpCircle } from "lucide-react";
 
 export interface FaqItem {
   question: string;

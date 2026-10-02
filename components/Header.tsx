@@ -36,6 +36,7 @@ export default function Header() {
 
   // Close mobile drawer on route changes
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileMenuOpen(false);
   }, [pathname]);
 

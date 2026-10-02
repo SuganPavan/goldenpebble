@@ -2,17 +2,26 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MapPin, Check, Sparkles } from "lucide-react";
+import { MapPin, Check, Sparkles } from "lucide-react";
 import { Package } from "@/lib/data/packages";
+import { motion } from "framer-motion";
 
 interface PackageCardProps {
   pkg: Package;
   index?: number;
 }
 
-export default function PackageCard({ pkg }: PackageCardProps) {
+export default function PackageCard({ pkg, index = 0 }: PackageCardProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 0.5,
+        delay: (index % 3) * 0.08,
+        ease: [0.215, 0.61, 0.355, 1]
+      }}
       className="group p-2 rounded-[2.25rem] bg-white border border-[#E8DCC5] shadow-md hover:shadow-2xl hover:-translate-y-2 hover:border-[#C5A46D]/60 transition-all duration-500 flex flex-col justify-between h-full relative"
     >
       <div className="bg-[#FAF8F5] rounded-[calc(2.25rem-0.5rem)] overflow-hidden border border-[#E8DCC5]/60 flex flex-col h-full justify-between">
@@ -98,6 +107,6 @@ export default function PackageCard({ pkg }: PackageCardProps) {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

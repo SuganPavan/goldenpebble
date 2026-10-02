@@ -79,7 +79,6 @@ export default function EnquiryForm({
   const watchCheckOut = watch("checkOut");
   const watchFirstName = watch("firstName");
   const watchLastName = watch("lastName");
-  const watchPhone = watch("phone");
   const watchEmail = watch("email");
   const watchMessage = watch("message");
 

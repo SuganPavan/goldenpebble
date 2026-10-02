@@ -33,6 +33,7 @@ export default function TypewriterText({
   useEffect(() => {
     // If reduced motion is requested, render full phrase immediately without animation
     if (shouldReduceMotion) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentText(phrases[0] || "");
       return;
     }

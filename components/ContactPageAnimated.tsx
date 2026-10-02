@@ -200,7 +200,7 @@ export default function ContactPageAnimated() {
                   const Icon = card.icon;
                   const isCopied = copiedField === card.id;
 
-                  const handleCardAction = (e?: React.MouseEvent) => {
+                  const handleCardAction = () => {
                     if (card.copyValue) {
                       copyToClipboard(card.copyValue, card.id);
                     }

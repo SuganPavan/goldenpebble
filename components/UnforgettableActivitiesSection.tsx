@@ -16,7 +16,7 @@ interface WaterSportActivity {
   slug: string;
   name: string;
   subtitle: string;
-  icon: any;
+  icon: React.ElementType;
   image: string;
   video: string;
   duration: string;
@@ -59,7 +59,7 @@ const WATER_SPORTS_DATA: WaterSportActivity[] = [
     subtitle: "Shallow Reef Marine Life Observation",
     icon: Waves,
     image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838825/golden-pebble/images/activity/Snorkeling.jpg",
-    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839005/golden-pebble/videos/Board_ride.mp4",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790920419/golden-pebble/videos/snorkeling-video-new.mp4",
     duration: "1 - 2 Hours",
     location: "Elephant Beach & Govind Nagar",
     suitability: "All Age Groups & Families",
@@ -72,7 +72,7 @@ const WATER_SPORTS_DATA: WaterSportActivity[] = [
     subtitle: "Guided Estuary & Bioluminescence Kayaking",
     icon: Compass,
     image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Mangrove%20Sea%20Kayaking.jpg",
-    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839091/golden-pebble/videos/sea-kart.mp4",
+    video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790920469/golden-pebble/videos/mangrove-kayaking-new.mp4",
     duration: "2 Hours Session",
     location: "Havelock Mangrove Inlets",
     suitability: "Couples & Nature Enthusiasts",
@@ -293,7 +293,7 @@ export default function UnforgettableActivitiesSection() {
             className="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory gap-3.5 sm:gap-5 pb-4 pt-1 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
-            {WATER_SPORTS_DATA.map((act, index) => {
+            {WATER_SPORTS_DATA.map((act) => {
               const whatsappMessageAct = encodeURIComponent(
                 `Hello Golden Pebble Concierge! I am interested in booking the "${act.name}" water sport activity during my stay. Please share official details and slot availability.`
               );

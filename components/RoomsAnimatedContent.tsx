@@ -94,7 +94,7 @@ export default function RoomsAnimatedContent() {
   return (
     <>
       {/* DETAILED ROOM CATEGORIES SECTION */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <section className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         
         {/* 1. DELUXE ROOM (220 SQ FT) */}
         <motion.div 
@@ -113,7 +113,7 @@ export default function RoomsAnimatedContent() {
           >
             <Image
               src="https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838967/golden-pebble/images/rooms/golden-pebble-deluxe-room-main.jpg"
-              alt="Deluxe Room at Hotel Golden Pebble in Havelock Island"
+              alt="Deluxe Room at Hotel Golden Pebble in Govind Nagar, Havelock Island"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -125,15 +125,9 @@ export default function RoomsAnimatedContent() {
 
           <div className="lg:col-span-6 space-y-4">
             <div>
-              <motion.span 
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, x: 2 }}
-                className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] inline-block mb-1 cursor-pointer"
-              >
-                CATEGORY 1 • GOVIND NAGAR, HAVELOCK ISLAND
-              </motion.span>
+              <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] inline-block mb-1">
+                GOVIND NAGAR, HAVELOCK ISLAND
+              </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#073F3B]">
                 Deluxe Room
               </h2>
@@ -162,45 +156,38 @@ export default function RoomsAnimatedContent() {
                 ].map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <motion.div 
+                    <div 
                       key={idx}
-                      whileHover={{ scale: 1.03, x: 2, borderColor: "#C5A46D" }}
-                      transition={{ duration: 0.2 }}
                       className="flex items-center gap-1.5 bg-[#F8F6EF] p-2 rounded-lg border border-[#E8DCC5] transition-colors cursor-default"
                     >
                       <Icon className="w-3.5 h-3.5 text-[#C5A46D] shrink-0" />
                       <span>{item.label}</span>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#E8DCC5] flex flex-col xs:flex-row xs:items-center justify-between gap-3.5 sm:gap-4">
+            <div className="pt-3 border-t border-[#E8DCC5] flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4">
               <div>
                 <span className="text-[11px] sm:text-xs uppercase font-sans text-[#66736F] tracking-wider block font-semibold">Rack Rate</span>
                 <span className="font-serif font-bold text-2xl text-[#073F3B]">₹5,774</span>
                 <span className="text-[11px] sm:text-xs text-[#66736F] ml-1">/ Night (incl. GST)</span>
               </div>
 
-              <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 sm:gap-3 w-full xs:w-auto">
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="w-full xs:w-auto">
-                  <Link
-                    href="/rooms/deluxe-room"
-                    className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-5 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group/btn w-full xs:w-auto text-center min-h-[42px]"
-                  >
-                    <span>View Room Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover/btn:text-[#073F3B] transition-transform group-hover/btn:translate-x-1 shrink-0" />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="w-full xs:w-auto">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 bg-[#F8F6EF] hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xs w-full xs:w-auto text-center min-h-[42px]"
-                  >
-                    <span>Enquire Room</span>
-                  </Link>
-                </motion.div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <Link
+                  href="/rooms/deluxe-room"
+                  className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-5 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group/btn w-full sm:w-auto text-center min-h-[42px]"
+                >
+                  <span>VIEW ROOM DETAILS →</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-[#F8F6EF] hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xs w-full sm:w-auto text-center min-h-[42px]"
+                >
+                  <span>ENQUIRE NOW</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -235,15 +222,9 @@ export default function RoomsAnimatedContent() {
 
           <div className="lg:col-span-6 lg:order-1 space-y-4">
             <div>
-              <motion.span 
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.03, x: 2 }}
-                className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] inline-block mb-1 cursor-pointer"
-              >
-                CATEGORY 2 • GOVIND NAGAR, HAVELOCK ISLAND
-              </motion.span>
+              <span className="text-[11px] sm:text-xs font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] inline-block mb-1">
+                GOVIND NAGAR, HAVELOCK ISLAND
+              </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#073F3B]">
                 Deluxe Room with Balcony
               </h2>
@@ -272,45 +253,38 @@ export default function RoomsAnimatedContent() {
                 ].map((item, idx) => {
                   const Icon = item.icon;
                   return (
-                    <motion.div 
+                    <div 
                       key={idx}
-                      whileHover={{ scale: 1.03, x: 2, borderColor: "#C5A46D" }}
-                      transition={{ duration: 0.2 }}
                       className="flex items-center gap-1.5 bg-[#F8F6EF] p-2 rounded-lg border border-[#E8DCC5] transition-colors cursor-default"
                     >
                       <Icon className="w-3.5 h-3.5 text-[#C5A46D] shrink-0" />
                       <span>{item.label}</span>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
             </div>
 
-            <div className="pt-3 border-t border-[#E8DCC5] flex flex-col xs:flex-row xs:items-center justify-between gap-3.5 sm:gap-4">
+            <div className="pt-3 border-t border-[#E8DCC5] flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4">
               <div>
                 <span className="text-[11px] sm:text-xs uppercase font-sans text-[#66736F] tracking-wider block font-semibold">Rack Rate</span>
                 <span className="font-serif font-bold text-2xl text-[#073F3B]">₹6,824</span>
                 <span className="text-[11px] sm:text-xs text-[#66736F] ml-1">/ Night (incl. GST)</span>
               </div>
 
-              <div className="flex flex-col xs:flex-row items-stretch xs:items-center gap-2 sm:gap-3 w-full xs:w-auto">
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="w-full xs:w-auto">
-                  <Link
-                    href="/rooms/deluxe-room-with-balcony"
-                    className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-5 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group/btn w-full xs:w-auto text-center min-h-[42px]"
-                  >
-                    <span>View Room Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover/btn:text-[#073F3B] transition-transform group-hover/btn:translate-x-1 shrink-0" />
-                  </Link>
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="w-full xs:w-auto">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 bg-[#F8F6EF] hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xs w-full xs:w-auto text-center min-h-[42px]"
-                  >
-                    <span>Enquire Room</span>
-                  </Link>
-                </motion.div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <Link
+                  href="/rooms/deluxe-room-with-balcony"
+                  className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-5 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md group/btn w-full sm:w-auto text-center min-h-[42px]"
+                >
+                  <span>VIEW ROOM DETAILS →</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center gap-2 bg-[#F8F6EF] hover:bg-[#073F3B] text-[#073F3B] hover:text-white border border-[#E8DCC5] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-xs w-full sm:w-auto text-center min-h-[42px]"
+                >
+                  <span>ENQUIRE NOW</span>
+                </Link>
               </div>
             </div>
           </div>
@@ -328,12 +302,9 @@ export default function RoomsAnimatedContent() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-2xl mx-auto mb-10"
           >
-            <motion.span 
-              whileHover={{ scale: 1.05 }}
-              className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] inline-block mb-1 cursor-pointer"
-            >
+            <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] inline-block mb-1">
               VERIFIED HOTEL SERVICES
-            </motion.span>
+            </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#073F3B]">
               Room Amenities
             </h2>
@@ -388,12 +359,9 @@ export default function RoomsAnimatedContent() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-3xl mx-auto mb-12"
           >
-            <motion.span 
-              whileHover={{ scale: 1.05 }}
-              className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] inline-block mb-1 cursor-pointer"
-            >
+            <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] inline-block mb-1">
               GUEST ADVANTAGES
-            </motion.span>
+            </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#073F3B]">
               Why Stay at Golden Pebble Havelock?
             </h2>
@@ -444,7 +412,7 @@ export default function RoomsAnimatedContent() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7 }}
-            className="bg-[#073F3B] text-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#C5A46D]/40 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+            className="bg-[#073F3B] text-[#F8F6EF] rounded-3xl p-6 sm:p-8 lg:p-10 border border-[#C5A46D]/40 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
           >
             <div className="lg:col-span-7 space-y-4">
               <span className="text-[10px] font-sans uppercase tracking-[0.2em] font-bold text-[#C5A46D] block">
@@ -456,11 +424,10 @@ export default function RoomsAnimatedContent() {
               <div className="space-y-1 text-xs sm:text-sm text-[#F8F6EF]/90 font-light">
                 <p className="font-semibold text-[#C5A46D]">Hotel Golden Pebble</p>
                 <p>Govind Nagar, Havelock Island (Swaraj Dweep)</p>
-                <p>Andaman &amp; Nicobar Islands, India</p>
-                <p>PIN: 744211</p>
+                <p>Andaman &amp; Nicobar Islands, India - 744211</p>
               </div>
               <p className="text-xs sm:text-sm text-[#F8F6EF]/80 font-light leading-relaxed">
-                Conveniently located in Govind Nagar near Govind Nagar Beach No. 3 and Vijay Nagar Beach No. 5, our location allows visitors to comfortably reach dive shops, local restaurants, and island transport hubs.
+                Conveniently situated in Govind Nagar, Havelock Island, placing guests near local dining spots, diving centers, and main transit hubs.
               </p>
             </div>
 

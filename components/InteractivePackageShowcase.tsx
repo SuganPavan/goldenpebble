@@ -22,6 +22,7 @@ function PackageFilterContent() {
   // Sync state if URL searchParams change
   useEffect(() => {
     if (durationParam) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelectedDuration(durationParam);
     }
   }, [durationParam]);
@@ -117,7 +118,13 @@ function PackageFilterContent() {
   return (
     <div className="space-y-6">
       {/* Interactive Filter Control Panel */}
-      <div className="bg-white p-4 sm:p-7 rounded-2xl sm:rounded-[2rem] border border-[#E8DCC5] shadow-md space-y-4 sm:space-y-6">
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white p-4 sm:p-7 rounded-2xl sm:rounded-[2rem] border border-[#E8DCC5] shadow-md space-y-4 sm:space-y-6"
+      >
         
         {/* MOBILE ONLY: Filter Menu Toggle Trigger Link / Button */}
         <div className="sm:hidden">
@@ -303,18 +310,14 @@ function PackageFilterContent() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Single Horizontal Row for Packages */}
+      {/* Equal Visibility Responsive Package Grid */}
       {filteredPackages.length > 0 ? (
-        <div
-          ref={scrollContainerRef}
-          className="flex flex-nowrap overflow-x-auto scrollbar-none scroll-smooth snap-x snap-mandatory gap-6 pb-6 pt-2 px-1"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-2">
           <AnimatePresence>
             {filteredPackages.map((pkg, index) => (
-              <div key={pkg.id} className="w-[85vw] sm:w-[360px] lg:w-[380px] shrink-0 snap-start flex flex-col">
+              <div key={pkg.id} className="w-full flex flex-col">
                 <PackageCard pkg={pkg} index={index} />
               </div>
             ))}
@@ -327,7 +330,7 @@ function PackageFilterContent() {
           </div>
           <h3 className="font-serif text-2xl font-bold text-[#073F3B]">No Packages Found</h3>
           <p className="font-sans text-xs sm:text-sm text-[#4E5C58] max-w-md mx-auto">
-            We couldn't find any tour packages matching your selected filters or search keywords.
+            We couldn&apos;t find any tour packages matching your selected filters or search keywords.
           </p>
           <button
             onClick={resetFilters}

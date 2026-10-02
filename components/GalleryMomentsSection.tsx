@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles, MapPin, X, ChevronLeft, ChevronRight, Maximize2, Hotel } from "lucide-react";
+import { Sparkles, MapPin, X, ChevronLeft, ChevronRight, Maximize2, Hotel } from "lucide-react";
 
 export interface GalleryItem {
   id: string;
