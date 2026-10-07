@@ -58,77 +58,77 @@ export const WATER_ADVENTURES: WaterAdventure[] = [
   { 
     name: "Scuba Diving", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838926/golden-pebble/images/nearby_location/Nemo%20Beach_Nemo%20Reef_1.jpg",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839082/golden-pebble/videos/scuba-diving.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839082/golden-pebble/videos/scuba-diving.mp4"
   },
   { 
     name: "Boat Diving", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839018/golden-pebble/videos/boat-diving.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839018/golden-pebble/videos/boat-diving.mp4"
   },
   { 
     name: "Sea Walk", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838823/golden-pebble/images/activity/sea_walk_image.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839099/golden-pebble/videos/sea-walk.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839099/golden-pebble/videos/sea-walk.mp4"
   },
   { 
     name: "Jet Ski", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1563299796-b729d0af54a5?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Jet%20Ski%20Ride.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839057/golden-pebble/videos/jet-ski.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839057/golden-pebble/videos/jet-ski.mp4"
   },
   { 
     name: "Banana Ride", 
     locations: "Havelock Island",
-    image: "https://images.unsplash.com/photo-1596436889106-be35e843f974?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841869/golden-pebble/images/activity/Banana___Sofa_Water_Rides.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790838978/golden-pebble/videos/banana-ride.mp4"
   },
   { 
     name: "Glass Bottom Ride", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838819/golden-pebble/images/activity/Glass%20Bottom%20Boat.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4"
   },
   { 
     name: "Sofa Ride", 
     locations: "Havelock Island",
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790841869/golden-pebble/images/activity/Banana___Sofa_Water_Rides.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839118/golden-pebble/videos/sofa-ride.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839118/golden-pebble/videos/sofa-ride.mp4"
   },
   { 
     name: "Parasailing", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838822/golden-pebble/images/activity/Parasailing.jpg",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839080/golden-pebble/videos/parasailing.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839080/golden-pebble/videos/parasailing.mp4"
   },
   { 
     name: "Sea Kart", 
     locations: "Port Blair",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838820/golden-pebble/images/activity/Jet%20Ski%20Ride.webp",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839091/golden-pebble/videos/sea-kart.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839091/golden-pebble/videos/sea-kart.mp4"
   },
   { 
     name: "Semi Sub Marine", 
     locations: "Port Blair & Havelock Island",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838824/golden-pebble/images/activity/Semi%20Submarine.jpg",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839042/golden-pebble/videos/glass-bottom-ride.mp4"
   },
   { 
     name: "Dinner Cruise", 
     locations: "Port Blair",
-    image: "https://images.unsplash.com/photo-1501426026826-31c667bdfd53?auto=format&fit=crop&w=600&q=80",
+    image: "https://res.cloudinary.com/dj3hvn4ja/image/upload/v1790838821/golden-pebble/images/activity/Night%20Harbour%20Dinner%20Cruise.jpg",
     video: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839034/golden-pebble/videos/dinner-cruise.mp4",
     fullVideo: "https://res.cloudinary.com/dj3hvn4ja/video/upload/v1790839034/golden-pebble/videos/dinner-cruise.mp4"
   }

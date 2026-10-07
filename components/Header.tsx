@@ -42,11 +42,8 @@ export default function Header() {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
     { name: "Rooms", href: "/rooms" },
-    { name: "Packages", href: "/packages" },
     { name: "Experiences", href: "/activities" },
-    { name: "Nearby", href: "/nearby-locations" },
     { name: "Gallery", href: "/gallery" },
     { name: "Dining", href: "/restaurant" },
     { name: "Contact", href: "/contact" }

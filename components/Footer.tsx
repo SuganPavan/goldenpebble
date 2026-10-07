@@ -81,37 +81,49 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2: Quick Links */}
-          <div>
-            <h4 className="font-serif text-base sm:text-lg font-semibold text-[#C9A66B] mb-3 sm:mb-4 uppercase tracking-wider">
-              Quick Links
-            </h4>
-            <ul className="grid grid-cols-2 sm:grid-cols-1 gap-2.5 text-xs sm:text-sm text-[#F8F6EF]/85 font-light">
-              <li>
-                <Link href="/" className="hover:text-[#E98268] transition-colors py-1 block">Home</Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-[#E98268] transition-colors py-1 block">About Us</Link>
-              </li>
-              <li>
-                <Link href="/rooms" className="hover:text-[#E98268] transition-colors py-1 block">Accommodations</Link>
-              </li>
-              <li>
-                <Link href="/packages" className="hover:text-[#E98268] transition-colors py-1 block">Curated Packages</Link>
-              </li>
-              <li>
-                <Link href="/restaurant" className="hover:text-[#E98268] transition-colors py-1 block">Dining & Restaurant</Link>
-              </li>
-              <li>
-                <Link href="/activities" className="hover:text-[#E98268] transition-colors py-1 block">Experiences & Activities</Link>
-              </li>
-              <li>
-                <Link href="/nearby-locations" className="hover:text-[#E98268] transition-colors py-1 block">Nearby Attractions</Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#E98268] transition-colors py-1 block">Contact Reservations</Link>
-              </li>
-            </ul>
+          {/* Col 2: Navigation (Explore & Hotel) */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <h4 className="font-serif text-sm sm:text-base font-semibold text-[#C9A66B] mb-3 uppercase tracking-wider">
+                Explore
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#F8F6EF]/85 font-light">
+                <li>
+                  <Link href="/rooms" className="hover:text-[#E98268] transition-colors block">Rooms</Link>
+                </li>
+                <li>
+                  <Link href="/activities" className="hover:text-[#E98268] transition-colors block">Experiences</Link>
+                </li>
+                <li>
+                  <Link href="/packages" className="hover:text-[#E98268] transition-colors block">Packages</Link>
+                </li>
+                <li>
+                  <Link href="/gallery" className="hover:text-[#E98268] transition-colors block">Gallery</Link>
+                </li>
+                <li>
+                  <Link href="/nearby-locations" className="hover:text-[#E98268] transition-colors block">Nearby</Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-serif text-sm sm:text-base font-semibold text-[#C9A66B] mb-3 uppercase tracking-wider">
+                Hotel
+              </h4>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#F8F6EF]/85 font-light">
+                <li>
+                  <Link href="/about" className="hover:text-[#E98268] transition-colors block">About Us</Link>
+                </li>
+                <li>
+                  <Link href="/restaurant" className="hover:text-[#E98268] transition-colors block">Dining</Link>
+                </li>
+                <li>
+                  <Link href="/contact" className="hover:text-[#E98268] transition-colors block">Contact</Link>
+                </li>
+                <li>
+                  <Link href="/contact#faq" className="hover:text-[#E98268] transition-colors block">FAQ</Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Col 3: Contact Us */}

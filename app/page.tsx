@@ -150,8 +150,8 @@ export default function HomePage() {
       {/* 3. Room Details Section (Designed for Your Comfort) */}
       <RoomShowcaseSection />
 
-      {/* 4. Official Hotel Tariff & Policies Offer Section */}
-      <section className="py-2 sm:py-3 bg-[#F8F6EF] relative overflow-hidden">
+      {/* 4. Everything You Need for a Comfortable Stay (Amenities Section) */}
+      <section className="py-6 sm:py-8 bg-[#F8F6EF] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <TariffOfferSection />
         </div>
@@ -202,17 +202,17 @@ export default function HomePage() {
               href="/packages"
               className="hidden lg:inline-flex items-center gap-2 bg-white hover:bg-[#073F3B] text-[#073F3B] hover:text-[#F8F6EF] border-2 border-[#C5A46D]/60 hover:border-[#073F3B] px-4 py-2.5 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-xl group shrink-0"
             >
-              <span>EXPLORE ALL EXPERIENCES</span>
+              <span>EXPLORE STAY PACKAGES</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C5A46D] group-hover:text-[#F8F6EF] transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 
-          {/* Home Page Package Showcase (Cards expand outwards from center to left and right) */}
+          {/* Home Page Package Showcase */}
           <HomePagePackageShowcase />
         </div>
       </section>
 
-      {/* 6. Unforgettable Island Activities Section */}
+      {/* 5. Unforgettable Island Activities Section */}
       <UnforgettableActivitiesSection />
 
       {/* 7. Nearby Attractions Section */}

@@ -3,19 +3,36 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Play, MapPin, Waves, Info, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { WaterAdventure } from "@/lib/data/packages";
+import { VERIFIED_WATER_ADVENTURES } from "@/lib/data/activities";
 import ScrollReveal from "@/components/ScrollReveal";
 
 interface WaterAdventuresTheaterProps {
   adventures: WaterAdventure[];
 }
 
+function getActivityUrl(adventure: WaterAdventure): string {
+  const match = VERIFIED_WATER_ADVENTURES.find(
+    (a) => a.name.toLowerCase() === adventure.name.toLowerCase() ||
+           a.slug === adventure.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
+  );
+  if (match) {
+    return `/activities/${match.slug}`;
+  }
+  const slug = adventure.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+  return `/activities/${slug}`;
+}
+
 export default function WaterAdventuresTheater({ adventures }: WaterAdventuresTheaterProps) {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const pathname = usePathname();
 
+  const isActivitiesPage = pathname === "/activities";
   const currentAdventure = adventures[selectedIndex] || adventures[0];
+  const currentActivityUrl = getActivityUrl(currentAdventure);
 
   const handleSelect = (index: number) => {
     setSelectedIndex(index);
@@ -64,10 +81,10 @@ export default function WaterAdventuresTheater({ adventures }: WaterAdventuresTh
             </div>
 
             <Link
-              href="/activities"
+              href={isActivitiesPage ? "/packages" : "/activities"}
               className="hidden sm:inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-5 py-2 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md shrink-0 self-start md:self-auto group"
             >
-              <span>Explore All Activities</span>
+              <span>{isActivitiesPage ? "Explore Stay Packages" : "Explore All Activities"}</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </div>
@@ -138,7 +155,7 @@ export default function WaterAdventuresTheater({ adventures }: WaterAdventuresTh
 
             {/* Featured Activity Details & Navigation Bar */}
             <div className="p-4 sm:p-5 bg-[#073F3B] text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-[#C5A46D]/30">
-              <div>
+              <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <span className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#C5A46D]">
                     Activity {selectedIndex + 1} of {adventures.length}
@@ -149,55 +166,73 @@ export default function WaterAdventuresTheater({ adventures }: WaterAdventuresTh
                     </span>
                   )}
                 </div>
-                <h3 className="font-serif text-lg sm:text-2xl font-bold text-white mt-0.5">
-                  {currentAdventure.name}
-                </h3>
-                <p className="text-xs sm:text-sm text-[#E8DCC5] font-sans flex items-center gap-1.5 mt-0.5">
+                
+                <div className="flex items-center gap-2">
+                  <Link 
+                    href={currentActivityUrl}
+                    className="font-serif text-lg sm:text-2xl font-bold text-white hover:text-[#C5A46D] transition-colors inline-flex items-center gap-1.5 group/title"
+                  >
+                    <span>{currentAdventure.name}</span>
+                    <ArrowRight className="w-4 h-4 text-[#C5A46D] group-hover/title:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+
+                <p className="text-xs sm:text-sm text-[#E8DCC5] font-sans flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-[#C5A46D] shrink-0" />
                   <span>{currentAdventure.locations}</span>
                 </p>
               </div>
 
-              {/* Prev / Next Navigation Buttons */}
-              <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
-                <button
-                  onClick={handlePrev}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-[#C5A46D] text-white hover:text-[#073F3B] border border-white/20 transition-all active:scale-95 cursor-pointer"
-                  aria-label="Previous Activity"
+              {/* Actions & Prev/Next Navigation */}
+              <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-white/10">
+                <Link
+                  href={currentActivityUrl}
+                  className="px-3.5 py-2 rounded-full bg-[#C5A46D] hover:bg-white text-[#073F3B] text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md inline-flex items-center gap-1.5 group/btn shrink-0"
                 >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="p-2.5 rounded-full bg-white/10 hover:bg-[#C5A46D] text-white hover:text-[#073F3B] border border-white/20 transition-all active:scale-95 cursor-pointer"
-                  aria-label="Next Activity"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
+                  <span>View Details</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+                </Link>
+
+                <div className="flex items-center gap-1.5 shrink-0">
+                  <button
+                    onClick={handlePrev}
+                    className="p-2 rounded-full bg-white/10 hover:bg-[#C5A46D] text-white hover:text-[#073F3B] border border-white/20 transition-all active:scale-95 cursor-pointer"
+                    aria-label="Previous Activity"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="p-2 rounded-full bg-white/10 hover:bg-[#C5A46D] text-white hover:text-[#073F3B] border border-white/20 transition-all active:scale-95 cursor-pointer"
+                    aria-label="Next Activity"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* MOBILE ONLY: Explore All Activities Full-width Button directly below featured player */}
+        {/* MOBILE ONLY: Explore CTA Full-width Button directly below featured player */}
         <div className="sm:hidden pt-2">
           <Link
-            href="/activities"
+            href={isActivitiesPage ? "/packages" : "/activities"}
             className="w-full py-3 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] rounded-xl text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md flex items-center justify-center gap-2 group"
           >
-            <span>Explore All Water Activities</span>
+            <span>{isActivitiesPage ? "Explore Stay Packages" : "Explore All Water Activities"}</span>
             <ArrowRight className="w-4 h-4 text-[#C5A46D] group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
 
-        {/* 2. DESKTOP ONLY CAROUSEL STRIP: Click to Change Respective Activity (hidden on mobile view) */}
-        <ScrollReveal variant="fade-up" className="hidden sm:block">
+        {/* CAROUSEL STRIP: Explore Specific Activities (Click thumbnail to switch activity) */}
+        <ScrollReveal variant="fade-up" className="block">
           <div className="space-y-2 pt-2">
             <div className="flex items-center justify-between px-1">
-              <span className="text-xs font-sans uppercase font-bold tracking-[0.2em] text-[#073F3B]">
-                Water Adventure Carousel ({adventures.length})
+              <span className="text-xs sm:text-sm font-sans uppercase font-bold tracking-[0.2em] text-[#073F3B]">
+                Explore Specific Activities ({adventures.length})
               </span>
-              <span className="text-[11px] font-sans text-[#4E5C58]">
+              <span className="text-[11px] font-sans text-[#4E5C58] hidden xs:inline">
                 Click thumbnail to switch activity
               </span>
             </div>
@@ -265,10 +300,10 @@ export default function WaterAdventuresTheater({ adventures }: WaterAdventuresTh
               </span>
             </div>
             <Link
-              href="/activities"
+              href={isActivitiesPage ? "/packages" : "/activities"}
               className="inline-flex items-center gap-1.5 text-xs font-sans font-bold text-[#073F3B] hover:text-[#C5A46D] underline shrink-0 transition-colors"
             >
-              <span>View All Activities Page</span>
+              <span>{isActivitiesPage ? "Explore Stay Packages Page" : "View All Activities Page"}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import ActivityCard from "@/components/ActivityCard";
 import WaterAdventuresTheater from "@/components/WaterAdventuresTheater";
+import ActivitiesPackageShowcase from "@/components/ActivitiesPackageShowcase";
 import BookingCTA from "@/components/BookingCTA";
 import FaqSection from "@/components/FaqSection";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -14,7 +14,7 @@ import {
   generateBreadcrumbSchema, 
   generateFaqSchema 
 } from "@/lib/structuredData";
-import { Compass, Info, MapPin, Waves } from "lucide-react";
+import { Compass, MapPin } from "lucide-react";
 
 export const metadata = constructMetadata({
   title: "Havelock Island Activities & Water Adventures | Hotel Golden Pebble",
@@ -177,48 +177,33 @@ export default function ActivitiesPage() {
         <WaterAdventuresTheater adventures={WATER_ADVENTURES} />
       </section>
 
-      {/* SECTION 1: OPTIONAL WATER ADVENTURES RATE CARDS (8 VERIFIED ACTIVITIES) */}
+      {/* CURATED ANDAMAN TOUR PACKAGES SECTION */}
       <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
         <ScrollReveal variant="fade-up">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#E8DCC5]/70 pb-4">
             <div>
               <span className="text-[10px] font-sans uppercase tracking-[0.25em] font-bold text-[#C5A46D] block mb-1">
-                VERIFIED ACTIVITY COLLECTION
+                CURATED ISLAND ITINERARIES
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#073F3B]">
-                Optional Water Adventures
+                Curated Andaman Tour Packages
               </h2>
               <p className="font-sans text-xs sm:text-sm text-[#4E5C58] font-light leading-relaxed mt-1">
-                Explore verified water sports, duration breakdown, locations, and indicative rates for island visitors.
+                Combine your Havelock stay and water adventures with multi-day tour itineraries covering Port Blair, Havelock, and Neil Island.
               </p>
             </div>
             
-            <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FAF8F5] border border-[#E8DCC5] text-xs font-sans text-[#073F3B] font-medium shrink-0">
-              <Waves className="w-3.5 h-3.5 text-[#C5A46D]" />
-              <span>8 Verified Experiences</span>
-            </div>
+            <Link
+              href="/packages"
+              className="inline-flex items-center justify-center gap-2 bg-[#073F3B] hover:bg-[#C5A46D] text-white hover:text-[#073F3B] px-6 py-3 rounded-full text-xs font-sans font-bold uppercase tracking-wider transition-all duration-300 shadow-md shrink-0 border border-white/30 group"
+            >
+              <span>Explore All Packages →</span>
+            </Link>
           </div>
         </ScrollReveal>
 
-        {/* PRICE DISCLAIMER NOTE */}
-        <ScrollReveal variant="fade-up">
-          <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 flex items-start gap-3 text-xs text-amber-900 leading-relaxed shadow-2xs">
-            <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-            <div>
-              <span className="font-bold block mb-0.5">Indicative Rate Disclaimer:</span>
-              <span>
-                Water adventure rates are indicative and subject to availability and operator confirmation. Please contact reservations for current rates and availability.
-              </span>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* 8 VERIFIED ACTIVITY CARDS GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-2">
-          {VERIFIED_WATER_ADVENTURES.map((act, idx) => (
-            <ActivityCard key={act.id} activity={act} index={idx} />
-          ))}
-        </div>
+        {/* PACKAGE SHOWCASE CARDS */}
+        <ActivitiesPackageShowcase />
       </section>
 
       {/* AEO ACCORDION FAQ SECTION */}
